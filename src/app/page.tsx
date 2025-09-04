@@ -1,95 +1,79 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
 
-export default function Home() {
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import styles from "../styles/Home.module.scss";
+
+export default function HomePage() {
+  const router = useRouter();
+  const [location, setLocation] = useState("");
+  const [checkIn, setCheckIn] = useState("");
+  const [checkOut, setCheckOut] = useState("");
+  const [guests, setGuests] = useState(1);
+
+  useEffect(() => {
+    const lastPage = localStorage.getItem("lastPage");
+    if (lastPage === "/hotels") {
+      const lastSearch = localStorage.getItem("lastSearch");
+      if (lastSearch) {
+        const { location, checkIn, checkOut, guests } = JSON.parse(lastSearch);
+        router.replace(
+          `/hotels?location=${encodeURIComponent(
+            location
+          )}&checkIn=${checkIn}&checkOut=${checkOut}&guests=${guests}`
+        );
+      }
+    }
+  }, [router]);
+
+  const handleSearch = () => {
+    if (!location || !checkIn || !checkOut) return;
+
+    const searchData = { location, checkIn, checkOut, guests };
+    localStorage.setItem("lastSearch", JSON.stringify(searchData));
+    localStorage.setItem("lastPage", "/hotels");
+
+    router.push(
+      `/hotels?location=${encodeURIComponent(
+        location
+      )}&checkIn=${checkIn}&checkOut=${checkOut}&guests=${guests}`
+    );
+  };
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main className={styles.container}>
+      <div className={styles.form}>
+        <h1>Поиск отелей</h1>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+        <input
+          type="text"
+          placeholder="Город или место"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+        />
+
+        <div className={styles.row}>
+          <input
+            type="date"
+            value={checkIn}
+            onChange={(e) => setCheckIn(e.target.value)}
+          />
+          <input
+            type="date"
+            value={checkOut}
+            onChange={(e) => setCheckOut(e.target.value)}
+          />
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        <input
+          type="number"
+          min={1}
+          value={guests}
+          onChange={(e) => setGuests(Number(e.target.value))}
+        />
+
+        <button onClick={handleSearch}>Найти</button>
+      </div>
+    </main>
   );
 }
