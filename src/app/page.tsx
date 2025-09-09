@@ -1,7 +1,7 @@
 "use client";
 
 import SearchForm from "@/components/SearchForm/SearchForm";
-import styles from "../styles/Home.module.scss";
+import styles from "@/styles/Home.module.scss";
 
 export default function HomePage() {
   return (

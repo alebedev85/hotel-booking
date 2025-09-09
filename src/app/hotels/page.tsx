@@ -3,8 +3,11 @@
 import HotelCard from "@/components/HotelCard/HotelCard";
 import HotelMap from "@/components/HotelMap/HotelMap";
 import SearchForm from "@/components/SearchForm/SearchForm";
+import { useAppDispatch, useAppSelector } from "@/store";
+import { setSearch } from "@/store/searchSlice";
 import { useSearchParams } from "next/navigation";
-import styles from "../../styles/Hotels.module.scss";
+import { useEffect } from "react";
+import styles from "@/styles/Hotels.module.scss";
 
 const hotels = [
   { id: 1, name: "Отель А", lat: 55.751244, lng: 37.618423, price: 5000 },
@@ -13,23 +16,29 @@ const hotels = [
 ];
 
 export default function HotelsPage() {
-  // Достаем параметры из адресной строки
   const params = useSearchParams();
+  const dispatch = useAppDispatch();
+  const searchState = useAppSelector((state) => state.search);
 
-  const location = params.get("location") || "";
-  const checkIn = params.get("checkIn") || "";
-  const checkOut = params.get("checkOut") || "";
-  const guests = params.get("guests") || "1";
+  // При первом рендере инициализируем store из URL, если store пустой
+  useEffect(() => {
+    if (!searchState.location) {
+      const location = params.get("location") || "";
+      const checkIn = params.get("checkIn") || "";
+      const checkOut = params.get("checkOut") || "";
+      const guests = Number(params.get("guests") || 1);
+
+      dispatch(setSearch({ location, checkIn, checkOut, guests }));
+    }
+  }, [params, dispatch, searchState.location]);
 
   return (
     <main className={styles.container}>
       <h1 className={styles.title}>Отели для вас:</h1>
-      <SearchForm
-        initialLocation={location}
-        initialCheckIn={checkIn}
-        initialCheckOut={checkOut}
-        initialGuests={guests}
-      />
+
+      {/* Форма поиска будет использовать данные из Redux */}
+      <SearchForm />
+
       <div className={styles.layout}>
         <div className={styles.list}>
           {hotels.map((hotel) => (

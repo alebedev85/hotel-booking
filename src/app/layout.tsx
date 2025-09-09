@@ -1,8 +1,8 @@
-// app/layout.tsx
-import { useRestoreLastPage } from "@/hooks/useRestoreLastPage";
+import RestoreLastPage from "@/components/RestoreLastPage/RestoreLastPage";
 import "leaflet/dist/leaflet.css";
 import type { Metadata } from "next";
 import "./globals.scss";
+import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   title: "Hotel Booking",
@@ -14,10 +14,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  useRestoreLastPage();
   return (
     <html lang="ru">
-      <body>{children}</body>
+      <Providers>
+        <RestoreLastPage />
+        {children}
+      </Providers>
     </html>
   );
 }

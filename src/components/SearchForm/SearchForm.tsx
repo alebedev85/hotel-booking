@@ -1,51 +1,44 @@
 "use client";
 
+import { useAppDispatch, useAppSelector } from "@/store";
+import { setSearch } from "@/store/searchSlice";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 import styles from "./SearchForm.module.scss";
 
-interface SearchFormProps {
-  initialLocation?: string;
-  initialCheckIn?: string;
-  initialCheckOut?: string;
-  initialGuests?: string;
+interface SearchState {
+  location: string;
+  checkIn: string;
+  checkOut: string;
+  guests: number;
 }
-
-export default function SearchForm({
-  initialLocation = "",
-  initialCheckIn = "",
-  initialCheckOut = "",
-  initialGuests = "1",
-}: SearchFormProps) {
+export default function SearchForm() {
   const router = useRouter();
 
-  // Локальное состояние для управления вводом пользователя
-  // Значения берутся напрямую из props при первом рендере
-  const [location, setLocation] = useState(initialLocation);
-  const [checkIn, setCheckIn] = useState(initialCheckIn);
-  const [checkOut, setCheckOut] = useState(initialCheckOut);
-  const [guests, setGuests] = useState(Number(initialGuests));
+  const dispatch = useAppDispatch();
+  const { location, checkIn, checkOut, guests } = useAppSelector(
+    (state) => state.search
+  );
+
+  const handleChange = (field: keyof SearchState, value: string | number) => {
+    dispatch(
+      setSearch({
+        ...{ location, checkIn, checkOut, guests },
+        [field]: value,
+      })
+    );
+  };
 
   const handleSearch = () => {
     if (!location || !checkIn || !checkOut) return;
-
-    // сохраняем текущие значения в localStorage
-    const searchData = { location, checkIn, checkOut, guests };
-    localStorage.setItem("lastSearch", JSON.stringify(searchData));
-    localStorage.setItem("lastPage", "/hotels");
-
-    // навигация с query-параметрами
     router.push(
-      `/hotels?location=${encodeURIComponent(location)}&checkIn=${checkIn}&checkOut=${checkOut}&guests=${guests}`
+      `/hotels?location=${encodeURIComponent(
+        location
+      )}&checkIn=${checkIn}&checkOut=${checkOut}&guests=${guests}`
     );
   };
 
   return (
-    // ключ заставляет React пересоздавать форму,
-    // если изменятся initialLocation / initialCheckIn и т.д.
-    // это убирает необходимость в useEffect
     <form
-      key={`${initialLocation}-${initialCheckIn}-${initialCheckOut}-${initialGuests}`}
       className={styles.form}
       onSubmit={(e) => {
         e.preventDefault();
@@ -59,7 +52,7 @@ export default function SearchForm({
           type="text"
           placeholder=" "
           value={location}
-          onChange={(e) => setLocation(e.target.value)}
+          onChange={(e) => handleChange("location", e.target.value)}
           required
         />
         <label htmlFor="location">Направление</label>
@@ -72,7 +65,7 @@ export default function SearchForm({
           type="date"
           placeholder=" "
           value={checkIn}
-          onChange={(e) => setCheckIn(e.target.value)}
+          onChange={(e) => handleChange("checkIn", e.target.value)}
           required
         />
         <label htmlFor="checkIn">Заезд</label>
@@ -85,7 +78,7 @@ export default function SearchForm({
           type="date"
           placeholder=" "
           value={checkOut}
-          onChange={(e) => setCheckOut(e.target.value)}
+          onChange={(e) => handleChange("checkOut", e.target.value)}
           required
         />
         <label htmlFor="checkOut">Выезд</label>
@@ -99,7 +92,7 @@ export default function SearchForm({
           min={1}
           placeholder=" "
           value={guests}
-          onChange={(e) => setGuests(Number(e.target.value))}
+          onChange={(e) => handleChange("guests", Number(e.target.value))}
           required
         />
         <label htmlFor="guests">Гости</label>
