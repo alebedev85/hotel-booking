@@ -16,10 +16,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru">
-      <Providers>
-        <RestoreLastPage />
-        {children}
-      </Providers>
+      <head />
+      <body>
+        <Providers>
+          <RestoreLastPage />
+          {/* <Header /> */}
+          {children}
+        </Providers>
+      </body>
     </html>
   );
 }

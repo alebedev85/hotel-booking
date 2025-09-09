@@ -7,6 +7,7 @@ const SEARCH_KEY = "lastSearch";
 // Загружаем состояние из localStorage
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const loadState = (): any => {
+  if (typeof window === "undefined") return undefined;
   try {
     const serializedState = localStorage.getItem(SEARCH_KEY);
     return serializedState
@@ -20,6 +21,7 @@ export const loadState = (): any => {
 
 // Сохраняем состояние в localStorage
 export function saveState(state: RootState) {
+  if (typeof window === "undefined") return;
   try {
     const serializedState = JSON.stringify(state.search);
     localStorage.setItem(SEARCH_KEY, serializedState);

@@ -3,10 +3,6 @@
 import HotelCard from "@/components/HotelCard/HotelCard";
 import HotelMap from "@/components/HotelMap/HotelMap";
 import SearchForm from "@/components/SearchForm/SearchForm";
-import { useAppDispatch, useAppSelector } from "@/store";
-import { setSearch } from "@/store/searchSlice";
-import { useSearchParams } from "next/navigation";
-import { useEffect } from "react";
 import styles from "@/styles/Hotels.module.scss";
 
 const hotels = [
@@ -16,22 +12,6 @@ const hotels = [
 ];
 
 export default function HotelsPage() {
-  const params = useSearchParams();
-  const dispatch = useAppDispatch();
-  const searchState = useAppSelector((state) => state.search);
-
-  // При первом рендере инициализируем store из URL, если store пустой
-  useEffect(() => {
-    if (!searchState.location) {
-      const location = params.get("location") || "";
-      const checkIn = params.get("checkIn") || "";
-      const checkOut = params.get("checkOut") || "";
-      const guests = Number(params.get("guests") || 1);
-
-      dispatch(setSearch({ location, checkIn, checkOut, guests }));
-    }
-  }, [params, dispatch, searchState.location]);
-
   return (
     <main className={styles.container}>
       <h1 className={styles.title}>Отели для вас:</h1>
