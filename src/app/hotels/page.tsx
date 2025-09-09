@@ -1,10 +1,10 @@
 "use client";
 
+import HotelCard from "@/components/HotelCard/HotelCard";
+import HotelMap from "@/components/HotelMap/HotelMap";
 import SearchForm from "@/components/SearchForm/SearchForm";
 import { useSearchParams } from "next/navigation";
 import styles from "../../styles/Hotels.module.scss";
-import HotelCard from "@/components/HotelCard/HotelCard";
-import HotelMap from "@/components/HotelMap/HotelMap";
 
 const hotels = [
   { id: 1, name: "Отель А", lat: 55.751244, lng: 37.618423, price: 5000 },
@@ -24,7 +24,6 @@ export default function HotelsPage() {
   return (
     <main className={styles.container}>
       <h1 className={styles.title}>Отели для вас:</h1>
-      {/* 🔹 Форма нового поиска с предзаполненными значениями */}
       <SearchForm
         initialLocation={location}
         initialCheckIn={checkIn}

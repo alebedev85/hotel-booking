@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styles from "./SearchForm.module.scss";
 
 interface SearchFormProps {
@@ -19,32 +19,40 @@ export default function SearchForm({
 }: SearchFormProps) {
   const router = useRouter();
 
+  // Локальное состояние для управления вводом пользователя
+  // Значения берутся напрямую из props при первом рендере
   const [location, setLocation] = useState(initialLocation);
   const [checkIn, setCheckIn] = useState(initialCheckIn);
   const [checkOut, setCheckOut] = useState(initialCheckOut);
   const [guests, setGuests] = useState(Number(initialGuests));
 
-  useEffect(() => {
-    setLocation(initialLocation);
-    setCheckIn(initialCheckIn);
-    setCheckOut(initialCheckOut);
-    setGuests(Number(initialGuests));
-  }, [initialLocation, initialCheckIn, initialCheckOut, initialGuests]);
-
   const handleSearch = () => {
     if (!location || !checkIn || !checkOut) return;
 
+    // сохраняем текущие значения в localStorage
     const searchData = { location, checkIn, checkOut, guests };
     localStorage.setItem("lastSearch", JSON.stringify(searchData));
     localStorage.setItem("lastPage", "/hotels");
 
+    // навигация с query-параметрами
     router.push(
       `/hotels?location=${encodeURIComponent(location)}&checkIn=${checkIn}&checkOut=${checkOut}&guests=${guests}`
     );
   };
 
   return (
-    <form className={styles.form} onSubmit={(e) => { e.preventDefault(); handleSearch(); }}>
+    // ключ заставляет React пересоздавать форму,
+    // если изменятся initialLocation / initialCheckIn и т.д.
+    // это убирает необходимость в useEffect
+    <form
+      key={`${initialLocation}-${initialCheckIn}-${initialCheckOut}-${initialGuests}`}
+      className={styles.form}
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleSearch();
+      }}
+    >
+      {/* Поле "Направление" */}
       <div className={styles.field}>
         <input
           id="location"
@@ -57,6 +65,7 @@ export default function SearchForm({
         <label htmlFor="location">Направление</label>
       </div>
 
+      {/* Поле "Заезд" */}
       <div className={styles.field}>
         <input
           id="checkIn"
@@ -69,6 +78,7 @@ export default function SearchForm({
         <label htmlFor="checkIn">Заезд</label>
       </div>
 
+      {/* Поле "Выезд" */}
       <div className={styles.field}>
         <input
           id="checkOut"
@@ -81,6 +91,7 @@ export default function SearchForm({
         <label htmlFor="checkOut">Выезд</label>
       </div>
 
+      {/* Поле "Гости" */}
       <div className={styles.field}>
         <input
           id="guests"
@@ -94,6 +105,7 @@ export default function SearchForm({
         <label htmlFor="guests">Гости</label>
       </div>
 
+      {/* Кнопка поиска */}
       <button type="submit" className={styles.searchButton}>
         Найти
       </button>
