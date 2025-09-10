@@ -1,15 +1,14 @@
 // Файл-хелпер для работы с localStorage
-
+import { STORAGE_KEYS } from "@/constants/storageKeys";
 import { RootState } from "../store";
 
-const SEARCH_KEY = "lastSearch";
 
 // Загружаем состояние из localStorage
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const loadState = (): any => {
   if (typeof window === "undefined") return undefined;
   try {
-    const serializedState = localStorage.getItem(SEARCH_KEY);
+    const serializedState = localStorage.getItem(STORAGE_KEYS.LAST_SEARCH);
     return serializedState
       ? { search: JSON.parse(serializedState) as RootState }
       : undefined;
@@ -24,7 +23,7 @@ export function saveState(state: RootState) {
   if (typeof window === "undefined") return;
   try {
     const serializedState = JSON.stringify(state.search);
-    localStorage.setItem(SEARCH_KEY, serializedState);
+    localStorage.setItem(STORAGE_KEYS.LAST_SEARCH, serializedState);
   } catch (err) {
     console.error("Ошибка при сохранении состояния в localStorage", err);
   }
