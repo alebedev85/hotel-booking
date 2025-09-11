@@ -3,8 +3,8 @@
 import HotelCard from "@/components/HotelCard/HotelCard";
 import HotelMap from "@/components/HotelMap/HotelMap";
 import SearchForm from "@/components/SearchForm/SearchForm";
-import styles from "@/styles/Hotels.module.scss";
 import { hotelsList } from "@/constants/hotels";
+import styles from "@/styles/Hotels.module.scss";
 
 export default function HotelsPage() {
   return (

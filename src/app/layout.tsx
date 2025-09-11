@@ -1,11 +1,12 @@
+import Header from "@/components/Header/Header";
 import RestoreLastPage from "@/components/RestoreLastPage/RestoreLastPage";
+import "@/styles/globals.scss";
 import "leaflet/dist/leaflet.css";
 import type { Metadata } from "next";
-import "./globals.scss";
 import { Providers } from "./providers";
 
 export const metadata: Metadata = {
-  title: "Hotel Booking",
+  title: "Бугорок!",
   description: "Приложение для бронирования отелей",
 };
 
@@ -20,7 +21,7 @@ export default function RootLayout({
       <body>
         <Providers>
           <RestoreLastPage />
-          {/* <Header /> */}
+          <Header />
           {children}
         </Providers>
       </body>

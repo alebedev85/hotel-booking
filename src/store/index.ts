@@ -2,6 +2,7 @@ import { loadState, saveState } from "@/utils/storageUtils";
 import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import searchReducer from "./searchSlice";
+import themeReducer from "./themeSlice";
 
 // Загружаем сохранённое состояние
 const preloadedState = loadState();
@@ -9,6 +10,7 @@ const preloadedState = loadState();
 export const store = configureStore({
   reducer: {
     search: searchReducer,
+    theme: themeReducer
   },
   preloadedState: preloadedState
     ? {
