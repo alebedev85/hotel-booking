@@ -1,6 +1,7 @@
 export const STORAGE_KEYS = {
   LAST_PAGE: "lastPage",
   LAST_SEARCH: "lastSearch",
+  SKIP_RESTORE: "skipRestore",
 };
 
 export const QUERY_PARAMS = {
