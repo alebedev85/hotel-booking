@@ -4,7 +4,7 @@
   box-sizing: border-box;
   width: 300px;
   box-shadow: var(--shadow-lg);
-  background-color: white;
+  background-color: var(--color-background);
   
 
   .inputs {
@@ -15,7 +15,7 @@
       padding: 5px;
     }
     .error {
-      color: red;
+      color: var(--text-red);
       font-size: var(--font-size-md);
       text-align: center;
       margin-bottom: 5px;
@@ -28,7 +28,7 @@
     border-radius: 5px;
     border: none;
     background: var(--color-primary);
-    color: #fff;
+    color: var(--color-button-text);
     font-weight: 600;
   }
 }

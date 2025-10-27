@@ -23,6 +23,7 @@ export default function LoginForm({ onClose }: AuthLoginForm) {
 
   const onSubmit = async ({ email, password }: FormData) => {
     console.log(email, password);
+    onClose();
   };
 
   return (

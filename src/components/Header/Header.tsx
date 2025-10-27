@@ -1,7 +1,8 @@
 "use client";
 
+import { useClickOutside } from "@/hooks/useClickOutside";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { FaUserCircle } from "react-icons/fa";
 import LoginForm from "../LoginForm/LoginForm";
 import { ThemeToggle } from "../ThemeToggle/ThemeToggle";
@@ -11,27 +12,8 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
-  // Эффект, который следит за кликами вне меню
-  useEffect(() => {
-    // Функция-обработчик кликов по документу
-    const handleClickOutside = (event: MouseEvent) => {
-      // Если клик произошёл вне области меню — закрываем его
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setMenuOpen(false);
-      }
-    };
+  useClickOutside(menuRef, () => setMenuOpen(false), menuOpen);
 
-    // Если меню открыто — подписываемся на событие клика по документу
-    if (menuOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      // Если меню закрыто — убираем слушатель (чтобы не было утечки)
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
-
-    // Очистка при размонтировании или смене состояния
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [menuOpen]); // Эффект зависит от состояния menuOpen
   return (
     <header className={styles.header}>
       <Link
