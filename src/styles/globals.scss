@@ -8,3 +8,9 @@ html, body {
   color: var(--color-text);
   transition: background 0.2s, color 0.2s;
 }
+
+button {
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+  }

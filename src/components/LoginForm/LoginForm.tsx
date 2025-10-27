@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import styles from "./LoginForm.module.scss";
 
@@ -16,6 +17,8 @@ export default function LoginForm({ onClose }: AuthLoginForm) {
     handleSubmit,
     formState: { errors },
   } = useForm<{ email: string; password: string }>();
+
+  const [isLoginMode, setLoginMode] = useState(true);
 
   // const dispatch = useDispatch();
   // const { isLoading } = useSelector((state: RootState) => state.auth);
@@ -59,7 +62,18 @@ export default function LoginForm({ onClose }: AuthLoginForm) {
         />
         {/* {error && <p className={styles.error}>Ошибка: {error}</p>} */}
       </div>
-      <button className={styles.button}>Войти</button>
+      <div className={styles.actions}>
+        <button className={styles.loginButton}>
+          {!isLoginMode ? "Зарегистрироваться" : "Войти"}
+        </button>
+        <button
+          type="button"
+          className={styles.modeButton}
+          onClick={() => setLoginMode(!isLoginMode)}
+        >
+          {isLoginMode ? "Зарегистрироваться" : "Войти"}
+        </button>
+      </div>
     </form>
   );
 }

@@ -35,7 +35,6 @@
     justify-content: center;
     border-radius: 50%;
     border:none;
-    cursor: pointer;
 
     &:hover {
       color: var(--color-primary-hover);
@@ -62,5 +61,5 @@
     top: 100%;
     margin-top: 0.25rem;
     z-index: 11;
-    // animation: fadeIn 0.3s ease-out forwards;
+    animation: fadeIn 0.3s ease-out forwards;
   }
