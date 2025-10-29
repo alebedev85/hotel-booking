@@ -5,3 +5,14 @@
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
+
+
+.map :global(.leaflet-container) {
+  z-index: 0 !important;
+}
+
+.map :global(.leaflet-pane),
+.map :global(.leaflet-marker-pane),
+.map :global(.leaflet-popup-pane) {
+  z-index: 0 !important;
+}
