@@ -1,7 +1,7 @@
-import { NextResponse } from "next/server";
-import bcrypt from "bcryptjs";
-import { prisma } from "@/lib/prisma";
 import { signJwt } from "@/lib/jwt";
+import { prisma } from "@/lib/prisma";
+import bcrypt from "bcryptjs";
+import { NextResponse } from "next/server";
 
 // Обработчик POST-запроса для авторизации пользователя
 export async function POST(req: Request) {
@@ -11,26 +11,38 @@ export async function POST(req: Request) {
 
     // Проверяем, что поля не пустые
     if (!email || !password) {
-      return NextResponse.json({ error: "Заполните все поля" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Заполните все поля" },
+        { status: 400 }
+      );
     }
 
     // Ищем пользователя в базе данных по email
     const user = await prisma.user.findUnique({ where: { email } });
     if (!user) {
-      return NextResponse.json({ error: "Неверный логин или пароль" }, { status: 401 });
+      return NextResponse.json(
+        { error: "Неверный логин или пароль" },
+        { status: 401 }
+      );
     }
 
     // Сравниваем введённый пароль с хешем из базы
     const valid = await bcrypt.compare(password, user.passwordHash);
     if (!valid) {
-      return NextResponse.json({ error: "Неверный логин или пароль" }, { status: 401 });
+      return NextResponse.json(
+        { error: "Неверный логин или пароль" },
+        { status: 401 }
+      );
     }
 
     // Генерируем JWT с id и email пользователя
     const token = signJwt({ id: user.id, email: user.email });
 
     // Формируем ответ и устанавливаем HttpOnly cookie с токеном
-    const res = NextResponse.json({ ok: true });
+    const res = NextResponse.json({
+      ok: true,
+      user: { id: user.id, email: user.email },
+    });
     res.cookies.set({
       name: "token",
       value: token,

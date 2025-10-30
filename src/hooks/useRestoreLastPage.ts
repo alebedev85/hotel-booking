@@ -20,7 +20,6 @@ export function useRestoreLastPage() {
     // Проверка выполнения только в браузере
     if (typeof window === "undefined") return;
 
-    console.log(localStorage.getItem("skipRestore"))
     // Если есть skipRestore → удаляем и не делаем редирект
     if (localStorage.getItem("skipRestore")) {
       console.log("skipRestore")

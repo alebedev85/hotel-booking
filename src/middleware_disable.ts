@@ -4,6 +4,7 @@ import { verifyJwt, JwtUserPayload } from "@/lib/jwt";
 
 // Middleware для защиты маршрутов, доступных только авторизованным пользователям
 export function middleware(req: NextRequest) {
+
   // Получаем JWT-токен из cookie
   const token = req.cookies.get("token")?.value;
 
