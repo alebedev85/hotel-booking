@@ -8,10 +8,10 @@
 }
 
 .logo {
-  font-size: 20px;
-  font-weight: 700;
   color: var(--color-text);
   text-decoration: none;
+  font-weight: 600;
+  font-size: var(--font-size-xl);
 
   &:hover {
     opacity: 0.8;
@@ -23,18 +23,23 @@
   gap: 1rem;
   align-items: center;
   position: relative;
-  z-index: 15;
-  
+  // z-index: 15;
+
   .loginButton {
     padding: 0;
     margin: 0;
-    color: var(--color-primary);;
-    font-size: 33px;
-    display: inline-flex;
-    align-items: center;
+    color: var(--color-primary);
+    display: flex;
+    font-size: var(--font-size-lg);
+    gap:8px;
+    font-weight: 500;
     justify-content: center;
     background: none;
-    border:none;
+    border: none;
+
+    svg {
+      font-size: 28px;
+    }
 
     &:hover {
       color: var(--color-primary-hover);
@@ -43,23 +48,23 @@
 }
 
 @keyframes fadeIn {
-    from {
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
   }
+  to {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
 
-  .dropdownMenu {
-    position: absolute;
-    right: 0;
-    top: 100%;
-    margin-top: 0.25rem;
-    z-index: 410;
-    animation: fadeIn 0.3s ease-out forwards;
-  }
+.dropdownMenu {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  margin-top: 0.25rem;
+  z-index: 410;
+  animation: fadeIn 0.3s ease-out forwards;
+}

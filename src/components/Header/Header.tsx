@@ -6,8 +6,8 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 import { FaUserCircle } from "react-icons/fa";
 import LoginForm from "../LoginForm/LoginForm";
-import LogoutForm from "../LogoutForm/LogoutForm";
 import { ThemeToggle } from "../ThemeToggle/ThemeToggle";
+import UserMenu from "../UserMenu/UserMenu";
 import styles from "./Header.module.scss";
 
 export default function Header() {
@@ -39,7 +39,7 @@ export default function Header() {
         {menuOpen && (
           <div className={styles.dropdownMenu}>
             {authenticated ? (
-              <LogoutForm onClose={() => setMenuOpen(false)} />
+              <UserMenu onClose={() => setMenuOpen(false)}/>
             ) : (
               <LoginForm onClose={() => setMenuOpen(false)} />
             )}

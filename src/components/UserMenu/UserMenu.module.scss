@@ -1,0 +1,83 @@
+.menu {
+  width: 320px;
+  background-color: var(--color-background);
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.header {
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 8px;
+
+  .email {
+    font-weight: 500;
+    color: #333;
+  }
+
+  .actions {
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    a {
+      color: #1a56db;
+      text-decoration: none;
+      font-weight: 500;
+
+      &:hover {
+        color: var(--color-primary-hover);
+      }
+    }
+    button {
+      color: var(--color-primary);
+      border: none;
+      font-weight: 500;
+      background: none;
+
+      &:hover {
+        color: var(--color-primary-hover);
+      }
+    }
+  }
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover {
+        color: var(--color-primary-hover);
+      }
+  }
+}
+
+.points {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 8px;
+
+  p {
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .count {
+    background: #eef2ff;
+    border-radius: 12px;
+    padding: 4px 8px;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+}
