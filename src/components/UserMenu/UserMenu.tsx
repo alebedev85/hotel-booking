@@ -1,9 +1,9 @@
 "use client";
 
 import { useAppDispatch, useAppSelector } from "@/store";
+import { logoutUser } from "@/store/authSlice";
 import Link from "next/link";
 import styles from "./UserMenu.module.scss";
-import { logoutUser } from "@/store/authSlice";
 
 interface LogoutFormProps {
   onClose: () => void;

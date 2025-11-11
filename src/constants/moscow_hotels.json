@@ -1,0 +1,2702 @@
+[
+  {
+    "id": "hotel_1",
+    "name": "Hotel Example 1",
+    "location": {
+      "lat": 55.71803255907345,
+      "lon": 37.6184875919379,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "pool",
+      "wifi",
+      "gym"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4475
+      },
+      {
+        "type": "deluxe",
+        "price": 5298
+      }
+    ],
+    "price_from": 2112,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_2",
+    "name": "Hotel Example 2",
+    "location": {
+      "lat": 55.796430799515385,
+      "lon": 37.63280941256133,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "spa",
+      "pool",
+      "parking"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 2372
+      },
+      {
+        "type": "deluxe",
+        "price": 4724
+      }
+    ],
+    "price_from": 4035,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_3",
+    "name": "Hotel Example 3",
+    "location": {
+      "lat": 55.772276012805385,
+      "lon": 37.656236011141765,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "pool",
+      "wifi",
+      "bar"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4222
+      },
+      {
+        "type": "deluxe",
+        "price": 6009
+      }
+    ],
+    "price_from": 3036,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_4",
+    "name": "Hotel Example 4",
+    "location": {
+      "lat": 55.7457864964506,
+      "lon": 37.56791942757818,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "spa",
+      "bar",
+      "wifi"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4829
+      },
+      {
+        "type": "deluxe",
+        "price": 6070
+      }
+    ],
+    "price_from": 4545,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_5",
+    "name": "Hotel Example 5",
+    "location": {
+      "lat": 55.70444025666212,
+      "lon": 37.571740709109854,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "pool",
+      "spa",
+      "wifi"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 3739
+      },
+      {
+        "type": "deluxe",
+        "price": 4262
+      }
+    ],
+    "price_from": 3870,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_6",
+    "name": "Hotel Example 6",
+    "location": {
+      "lat": 55.73101739330896,
+      "lon": 37.6054368136545,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "parking",
+      "bar",
+      "pool"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 3989
+      },
+      {
+        "type": "deluxe",
+        "price": 7558
+      }
+    ],
+    "price_from": 2591,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_7",
+    "name": "Hotel Example 7",
+    "location": {
+      "lat": 55.71783054217921,
+      "lon": 37.644844921427215,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "spa",
+      "wifi",
+      "pool"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 3726
+      },
+      {
+        "type": "deluxe",
+        "price": 7519
+      }
+    ],
+    "price_from": 4934,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_8",
+    "name": "Hotel Example 8",
+    "location": {
+      "lat": 55.72719979270808,
+      "lon": 37.59889821433394,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "bar",
+      "spa",
+      "wifi"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 3345
+      },
+      {
+        "type": "deluxe",
+        "price": 7720
+      }
+    ],
+    "price_from": 3450,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_9",
+    "name": "Hotel Example 9",
+    "location": {
+      "lat": 55.711360951814655,
+      "lon": 37.58010660955348,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "pool",
+      "wifi",
+      "parking"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4610
+      },
+      {
+        "type": "deluxe",
+        "price": 5314
+      }
+    ],
+    "price_from": 3207,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_10",
+    "name": "Hotel Example 10",
+    "location": {
+      "lat": 55.7469125875385,
+      "lon": 37.59700135073777,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "pool",
+      "wifi",
+      "spa"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 3657
+      },
+      {
+        "type": "deluxe",
+        "price": 5220
+      }
+    ],
+    "price_from": 4978,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_11",
+    "name": "Hotel Example 11",
+    "location": {
+      "lat": 55.78389508942871,
+      "lon": 37.56542699352213,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "pool",
+      "bar",
+      "parking"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4157
+      },
+      {
+        "type": "deluxe",
+        "price": 4989
+      }
+    ],
+    "price_from": 2602,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_12",
+    "name": "Hotel Example 12",
+    "location": {
+      "lat": 55.72434432701184,
+      "lon": 37.58767215437108,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "spa",
+      "parking",
+      "gym"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 2656
+      },
+      {
+        "type": "deluxe",
+        "price": 7689
+      }
+    ],
+    "price_from": 3164,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_13",
+    "name": "Hotel Example 13",
+    "location": {
+      "lat": 55.72209363913362,
+      "lon": 37.65084164022087,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "spa",
+      "wifi",
+      "pool"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 2695
+      },
+      {
+        "type": "deluxe",
+        "price": 4655
+      }
+    ],
+    "price_from": 4782,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_14",
+    "name": "Hotel Example 14",
+    "location": {
+      "lat": 55.70022683186129,
+      "lon": 37.57790981505549,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "spa",
+      "gym",
+      "wifi"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 3019
+      },
+      {
+        "type": "deluxe",
+        "price": 5227
+      }
+    ],
+    "price_from": 2738,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_15",
+    "name": "Hotel Example 15",
+    "location": {
+      "lat": 55.71642499799053,
+      "lon": 37.624762740224845,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "parking",
+      "spa",
+      "bar"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4621
+      },
+      {
+        "type": "deluxe",
+        "price": 5506
+      }
+    ],
+    "price_from": 2522,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_16",
+    "name": "Hotel Example 16",
+    "location": {
+      "lat": 55.72246989387751,
+      "lon": 37.61760233104775,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "spa",
+      "gym",
+      "parking"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4354
+      },
+      {
+        "type": "deluxe",
+        "price": 7079
+      }
+    ],
+    "price_from": 3275,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_17",
+    "name": "Hotel Example 17",
+    "location": {
+      "lat": 55.71790062346497,
+      "lon": 37.629136568983405,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "gym",
+      "bar",
+      "pool"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4832
+      },
+      {
+        "type": "deluxe",
+        "price": 6629
+      }
+    ],
+    "price_from": 3089,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_18",
+    "name": "Hotel Example 18",
+    "location": {
+      "lat": 55.71497752239542,
+      "lon": 37.56822913287108,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "gym",
+      "bar",
+      "spa"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4580
+      },
+      {
+        "type": "deluxe",
+        "price": 8202
+      }
+    ],
+    "price_from": 4499,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_19",
+    "name": "Hotel Example 19",
+    "location": {
+      "lat": 55.77788846501861,
+      "lon": 37.653980819510096,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "gym",
+      "wifi",
+      "spa"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4764
+      },
+      {
+        "type": "deluxe",
+        "price": 7730
+      }
+    ],
+    "price_from": 3429,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_20",
+    "name": "Hotel Example 20",
+    "location": {
+      "lat": 55.74765179604054,
+      "lon": 37.644905031283805,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "wifi",
+      "gym",
+      "parking"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 3772
+      },
+      {
+        "type": "deluxe",
+        "price": 8928
+      }
+    ],
+    "price_from": 2713,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_21",
+    "name": "Hotel Example 21",
+    "location": {
+      "lat": 55.785201613325505,
+      "lon": 37.636435143982865,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "bar",
+      "pool",
+      "gym"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 2401
+      },
+      {
+        "type": "deluxe",
+        "price": 7211
+      }
+    ],
+    "price_from": 3724,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_22",
+    "name": "Hotel Example 22",
+    "location": {
+      "lat": 55.79371656882744,
+      "lon": 37.625327838838594,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "pool",
+      "gym",
+      "bar"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 2936
+      },
+      {
+        "type": "deluxe",
+        "price": 5614
+      }
+    ],
+    "price_from": 3717,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_23",
+    "name": "Hotel Example 23",
+    "location": {
+      "lat": 55.782108454896665,
+      "lon": 37.631808720293314,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "spa",
+      "pool",
+      "bar"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 3491
+      },
+      {
+        "type": "deluxe",
+        "price": 7934
+      }
+    ],
+    "price_from": 3141,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_24",
+    "name": "Hotel Example 24",
+    "location": {
+      "lat": 55.77538934004456,
+      "lon": 37.62234589921748,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "bar",
+      "gym",
+      "pool"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4916
+      },
+      {
+        "type": "deluxe",
+        "price": 4490
+      }
+    ],
+    "price_from": 3876,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_25",
+    "name": "Hotel Example 25",
+    "location": {
+      "lat": 55.733435771626716,
+      "lon": 37.578765436003614,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "pool",
+      "spa",
+      "gym"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 3810
+      },
+      {
+        "type": "deluxe",
+        "price": 6627
+      }
+    ],
+    "price_from": 2905,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_26",
+    "name": "Hotel Example 26",
+    "location": {
+      "lat": 55.7643628150019,
+      "lon": 37.571309527656524,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "wifi",
+      "pool",
+      "parking"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4367
+      },
+      {
+        "type": "deluxe",
+        "price": 8901
+      }
+    ],
+    "price_from": 3552,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_27",
+    "name": "Hotel Example 27",
+    "location": {
+      "lat": 55.70651909408149,
+      "lon": 37.653226125620655,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "parking",
+      "wifi",
+      "pool"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 2689
+      },
+      {
+        "type": "deluxe",
+        "price": 7402
+      }
+    ],
+    "price_from": 4576,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_28",
+    "name": "Hotel Example 28",
+    "location": {
+      "lat": 55.77975188857227,
+      "lon": 37.64628325604937,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "bar",
+      "gym",
+      "pool"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4826
+      },
+      {
+        "type": "deluxe",
+        "price": 5544
+      }
+    ],
+    "price_from": 4709,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_29",
+    "name": "Hotel Example 29",
+    "location": {
+      "lat": 55.72418987208605,
+      "lon": 37.5798930106416,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "spa",
+      "gym",
+      "pool"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 2964
+      },
+      {
+        "type": "deluxe",
+        "price": 7679
+      }
+    ],
+    "price_from": 4573,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_30",
+    "name": "Hotel Example 30",
+    "location": {
+      "lat": 55.72637049116959,
+      "lon": 37.61194779628096,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "wifi",
+      "bar",
+      "spa"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 2176
+      },
+      {
+        "type": "deluxe",
+        "price": 6943
+      }
+    ],
+    "price_from": 2193,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_31",
+    "name": "Hotel Example 31",
+    "location": {
+      "lat": 55.74225781775233,
+      "lon": 37.610860973833674,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "wifi",
+      "spa",
+      "pool"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 3917
+      },
+      {
+        "type": "deluxe",
+        "price": 8706
+      }
+    ],
+    "price_from": 4712,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_32",
+    "name": "Hotel Example 32",
+    "location": {
+      "lat": 55.77330716947908,
+      "lon": 37.586057575394825,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "wifi",
+      "bar",
+      "gym"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 2508
+      },
+      {
+        "type": "deluxe",
+        "price": 4704
+      }
+    ],
+    "price_from": 3133,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_33",
+    "name": "Hotel Example 33",
+    "location": {
+      "lat": 55.78261636385575,
+      "lon": 37.56543152917134,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "bar",
+      "spa",
+      "parking"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4660
+      },
+      {
+        "type": "deluxe",
+        "price": 4426
+      }
+    ],
+    "price_from": 3965,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_34",
+    "name": "Hotel Example 34",
+    "location": {
+      "lat": 55.71023259628923,
+      "lon": 37.56009486814929,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "parking",
+      "pool",
+      "bar"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4622
+      },
+      {
+        "type": "deluxe",
+        "price": 7719
+      }
+    ],
+    "price_from": 3711,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_35",
+    "name": "Hotel Example 35",
+    "location": {
+      "lat": 55.747792085002594,
+      "lon": 37.58055905346297,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "pool",
+      "spa",
+      "bar"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4766
+      },
+      {
+        "type": "deluxe",
+        "price": 7026
+      }
+    ],
+    "price_from": 2493,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_36",
+    "name": "Hotel Example 36",
+    "location": {
+      "lat": 55.74179779859113,
+      "lon": 37.64735911117895,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "pool",
+      "parking",
+      "spa"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 3861
+      },
+      {
+        "type": "deluxe",
+        "price": 6442
+      }
+    ],
+    "price_from": 2682,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_37",
+    "name": "Hotel Example 37",
+    "location": {
+      "lat": 55.73750769273856,
+      "lon": 37.585467233413695,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "parking",
+      "pool",
+      "wifi"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4767
+      },
+      {
+        "type": "deluxe",
+        "price": 6594
+      }
+    ],
+    "price_from": 3512,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_38",
+    "name": "Hotel Example 38",
+    "location": {
+      "lat": 55.76761199585988,
+      "lon": 37.652980606944226,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "pool",
+      "parking",
+      "wifi"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 3538
+      },
+      {
+        "type": "deluxe",
+        "price": 8367
+      }
+    ],
+    "price_from": 4912,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_39",
+    "name": "Hotel Example 39",
+    "location": {
+      "lat": 55.70296036403637,
+      "lon": 37.58432890890147,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "pool",
+      "wifi",
+      "spa"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 3953
+      },
+      {
+        "type": "deluxe",
+        "price": 8276
+      }
+    ],
+    "price_from": 4135,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_40",
+    "name": "Hotel Example 40",
+    "location": {
+      "lat": 55.71687846044806,
+      "lon": 37.6433171046216,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "pool",
+      "wifi",
+      "parking"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 2278
+      },
+      {
+        "type": "deluxe",
+        "price": 8486
+      }
+    ],
+    "price_from": 2968,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_41",
+    "name": "Hotel Example 41",
+    "location": {
+      "lat": 55.78464876594863,
+      "lon": 37.58599101689811,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "wifi",
+      "parking",
+      "gym"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 2249
+      },
+      {
+        "type": "deluxe",
+        "price": 4554
+      }
+    ],
+    "price_from": 2926,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_42",
+    "name": "Hotel Example 42",
+    "location": {
+      "lat": 55.70570450838647,
+      "lon": 37.585091887304166,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "pool",
+      "wifi",
+      "parking"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4944
+      },
+      {
+        "type": "deluxe",
+        "price": 5068
+      }
+    ],
+    "price_from": 3041,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_43",
+    "name": "Hotel Example 43",
+    "location": {
+      "lat": 55.737303611401444,
+      "lon": 37.65707867405075,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "spa",
+      "wifi",
+      "gym"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4700
+      },
+      {
+        "type": "deluxe",
+        "price": 6854
+      }
+    ],
+    "price_from": 3550,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_44",
+    "name": "Hotel Example 44",
+    "location": {
+      "lat": 55.76850046133448,
+      "lon": 37.629081701917286,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "parking",
+      "pool",
+      "spa"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4408
+      },
+      {
+        "type": "deluxe",
+        "price": 8462
+      }
+    ],
+    "price_from": 2531,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_45",
+    "name": "Hotel Example 45",
+    "location": {
+      "lat": 55.77057615798382,
+      "lon": 37.59289500482254,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "spa",
+      "wifi",
+      "gym"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4450
+      },
+      {
+        "type": "deluxe",
+        "price": 6070
+      }
+    ],
+    "price_from": 4045,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_46",
+    "name": "Hotel Example 46",
+    "location": {
+      "lat": 55.78157377867777,
+      "lon": 37.612316978148485,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "wifi",
+      "spa",
+      "pool"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 3566
+      },
+      {
+        "type": "deluxe",
+        "price": 6347
+      }
+    ],
+    "price_from": 4484,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_47",
+    "name": "Hotel Example 47",
+    "location": {
+      "lat": 55.74221789376647,
+      "lon": 37.57262738933961,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "spa",
+      "wifi",
+      "parking"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 3879
+      },
+      {
+        "type": "deluxe",
+        "price": 6188
+      }
+    ],
+    "price_from": 4307,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_48",
+    "name": "Hotel Example 48",
+    "location": {
+      "lat": 55.761315501695925,
+      "lon": 37.5907961291286,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "spa",
+      "bar",
+      "gym"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4199
+      },
+      {
+        "type": "deluxe",
+        "price": 6129
+      }
+    ],
+    "price_from": 2838,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_49",
+    "name": "Hotel Example 49",
+    "location": {
+      "lat": 55.72344265637019,
+      "lon": 37.62915457622861,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "wifi",
+      "spa",
+      "parking"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 2237
+      },
+      {
+        "type": "deluxe",
+        "price": 8406
+      }
+    ],
+    "price_from": 4412,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_50",
+    "name": "Hotel Example 50",
+    "location": {
+      "lat": 55.70732539832651,
+      "lon": 37.61816352731675,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "pool",
+      "wifi",
+      "parking"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4824
+      },
+      {
+        "type": "deluxe",
+        "price": 8510
+      }
+    ],
+    "price_from": 4311,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_51",
+    "name": "Hotel Example 51",
+    "location": {
+      "lat": 55.71735847315461,
+      "lon": 37.60555163576713,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "pool",
+      "gym",
+      "parking"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 2638
+      },
+      {
+        "type": "deluxe",
+        "price": 6712
+      }
+    ],
+    "price_from": 2360,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_52",
+    "name": "Hotel Example 52",
+    "location": {
+      "lat": 55.742435962811776,
+      "lon": 37.560480012102545,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "gym",
+      "spa",
+      "wifi"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 2444
+      },
+      {
+        "type": "deluxe",
+        "price": 4441
+      }
+    ],
+    "price_from": 3184,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_53",
+    "name": "Hotel Example 53",
+    "location": {
+      "lat": 55.76601612748549,
+      "lon": 37.603704474031275,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "spa",
+      "gym",
+      "pool"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 2732
+      },
+      {
+        "type": "deluxe",
+        "price": 6740
+      }
+    ],
+    "price_from": 4972,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_54",
+    "name": "Hotel Example 54",
+    "location": {
+      "lat": 55.77225353991861,
+      "lon": 37.574917600300154,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "spa",
+      "wifi",
+      "parking"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4720
+      },
+      {
+        "type": "deluxe",
+        "price": 7688
+      }
+    ],
+    "price_from": 3867,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_55",
+    "name": "Hotel Example 55",
+    "location": {
+      "lat": 55.79935942361352,
+      "lon": 37.64841872513131,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "wifi",
+      "pool",
+      "spa"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4534
+      },
+      {
+        "type": "deluxe",
+        "price": 7492
+      }
+    ],
+    "price_from": 4973,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_56",
+    "name": "Hotel Example 56",
+    "location": {
+      "lat": 55.76980541018336,
+      "lon": 37.57369824417437,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "pool",
+      "parking",
+      "gym"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4570
+      },
+      {
+        "type": "deluxe",
+        "price": 8254
+      }
+    ],
+    "price_from": 2200,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_57",
+    "name": "Hotel Example 57",
+    "location": {
+      "lat": 55.75741435668703,
+      "lon": 37.577824089340325,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "bar",
+      "wifi",
+      "parking"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4465
+      },
+      {
+        "type": "deluxe",
+        "price": 8806
+      }
+    ],
+    "price_from": 3416,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_58",
+    "name": "Hotel Example 58",
+    "location": {
+      "lat": 55.7743865531654,
+      "lon": 37.62885306144776,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "wifi",
+      "bar",
+      "spa"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 3765
+      },
+      {
+        "type": "deluxe",
+        "price": 6496
+      }
+    ],
+    "price_from": 3270,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_59",
+    "name": "Hotel Example 59",
+    "location": {
+      "lat": 55.79078097926289,
+      "lon": 37.63443457581079,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "bar",
+      "wifi",
+      "pool"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4251
+      },
+      {
+        "type": "deluxe",
+        "price": 7587
+      }
+    ],
+    "price_from": 2043,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_60",
+    "name": "Hotel Example 60",
+    "location": {
+      "lat": 55.75806767580449,
+      "lon": 37.59918720441203,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "wifi",
+      "bar",
+      "gym"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 3834
+      },
+      {
+        "type": "deluxe",
+        "price": 8050
+      }
+    ],
+    "price_from": 2497,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_61",
+    "name": "Hotel Example 61",
+    "location": {
+      "lat": 55.731360874044206,
+      "lon": 37.57451416090004,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "bar",
+      "gym",
+      "parking"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 2526
+      },
+      {
+        "type": "deluxe",
+        "price": 4819
+      }
+    ],
+    "price_from": 2822,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_62",
+    "name": "Hotel Example 62",
+    "location": {
+      "lat": 55.75841233116749,
+      "lon": 37.58698434692962,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "wifi",
+      "spa",
+      "pool"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 2637
+      },
+      {
+        "type": "deluxe",
+        "price": 6473
+      }
+    ],
+    "price_from": 4902,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_63",
+    "name": "Hotel Example 63",
+    "location": {
+      "lat": 55.758996397457935,
+      "lon": 37.642454682208744,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "bar",
+      "spa",
+      "gym"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4419
+      },
+      {
+        "type": "deluxe",
+        "price": 5406
+      }
+    ],
+    "price_from": 3442,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_64",
+    "name": "Hotel Example 64",
+    "location": {
+      "lat": 55.73872368943797,
+      "lon": 37.582357138354396,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "gym",
+      "spa",
+      "wifi"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 3886
+      },
+      {
+        "type": "deluxe",
+        "price": 5245
+      }
+    ],
+    "price_from": 4657,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_65",
+    "name": "Hotel Example 65",
+    "location": {
+      "lat": 55.7781790607039,
+      "lon": 37.63500239179045,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "spa",
+      "parking",
+      "wifi"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 2528
+      },
+      {
+        "type": "deluxe",
+        "price": 5016
+      }
+    ],
+    "price_from": 4330,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_66",
+    "name": "Hotel Example 66",
+    "location": {
+      "lat": 55.70918348147228,
+      "lon": 37.61680382214582,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "pool",
+      "bar",
+      "parking"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 3229
+      },
+      {
+        "type": "deluxe",
+        "price": 6990
+      }
+    ],
+    "price_from": 4287,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_67",
+    "name": "Hotel Example 67",
+    "location": {
+      "lat": 55.72133923044487,
+      "lon": 37.63670968116133,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "parking",
+      "spa",
+      "pool"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4595
+      },
+      {
+        "type": "deluxe",
+        "price": 4554
+      }
+    ],
+    "price_from": 4226,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_68",
+    "name": "Hotel Example 68",
+    "location": {
+      "lat": 55.78324523166944,
+      "lon": 37.57868399255904,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "gym",
+      "spa",
+      "wifi"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 2187
+      },
+      {
+        "type": "deluxe",
+        "price": 7605
+      }
+    ],
+    "price_from": 2407,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_69",
+    "name": "Hotel Example 69",
+    "location": {
+      "lat": 55.71157495513326,
+      "lon": 37.61360873330722,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "spa",
+      "bar",
+      "pool"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4867
+      },
+      {
+        "type": "deluxe",
+        "price": 7365
+      }
+    ],
+    "price_from": 3592,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_70",
+    "name": "Hotel Example 70",
+    "location": {
+      "lat": 55.73246082612569,
+      "lon": 37.62515555552529,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "spa",
+      "parking",
+      "pool"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4559
+      },
+      {
+        "type": "deluxe",
+        "price": 6393
+      }
+    ],
+    "price_from": 3680,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_71",
+    "name": "Hotel Example 71",
+    "location": {
+      "lat": 55.74822022721695,
+      "lon": 37.65499665406468,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "gym",
+      "wifi",
+      "spa"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 2626
+      },
+      {
+        "type": "deluxe",
+        "price": 8663
+      }
+    ],
+    "price_from": 4454,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_72",
+    "name": "Hotel Example 72",
+    "location": {
+      "lat": 55.78361456521134,
+      "lon": 37.638369064447645,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "wifi",
+      "bar",
+      "pool"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 3033
+      },
+      {
+        "type": "deluxe",
+        "price": 6488
+      }
+    ],
+    "price_from": 4511,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_73",
+    "name": "Hotel Example 73",
+    "location": {
+      "lat": 55.72721211387731,
+      "lon": 37.588233699521744,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "bar",
+      "pool",
+      "gym"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4364
+      },
+      {
+        "type": "deluxe",
+        "price": 8445
+      }
+    ],
+    "price_from": 4402,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_74",
+    "name": "Hotel Example 74",
+    "location": {
+      "lat": 55.740316176786585,
+      "lon": 37.571771643518794,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "parking",
+      "gym",
+      "spa"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4046
+      },
+      {
+        "type": "deluxe",
+        "price": 7284
+      }
+    ],
+    "price_from": 3054,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_75",
+    "name": "Hotel Example 75",
+    "location": {
+      "lat": 55.712122433436534,
+      "lon": 37.64741284852888,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "gym",
+      "parking",
+      "spa"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 3977
+      },
+      {
+        "type": "deluxe",
+        "price": 4081
+      }
+    ],
+    "price_from": 3231,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_76",
+    "name": "Hotel Example 76",
+    "location": {
+      "lat": 55.73418085081569,
+      "lon": 37.56183308980608,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "gym",
+      "parking",
+      "pool"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 2347
+      },
+      {
+        "type": "deluxe",
+        "price": 6084
+      }
+    ],
+    "price_from": 4209,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_77",
+    "name": "Hotel Example 77",
+    "location": {
+      "lat": 55.79249467023757,
+      "lon": 37.60652227977244,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "gym",
+      "pool",
+      "parking"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 3201
+      },
+      {
+        "type": "deluxe",
+        "price": 5848
+      }
+    ],
+    "price_from": 2363,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_78",
+    "name": "Hotel Example 78",
+    "location": {
+      "lat": 55.77483016939827,
+      "lon": 37.633578056369956,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "bar",
+      "spa",
+      "gym"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 2881
+      },
+      {
+        "type": "deluxe",
+        "price": 8138
+      }
+    ],
+    "price_from": 3277,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_79",
+    "name": "Hotel Example 79",
+    "location": {
+      "lat": 55.78086957055085,
+      "lon": 37.60365365959194,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "parking",
+      "spa",
+      "wifi"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 2872
+      },
+      {
+        "type": "deluxe",
+        "price": 8994
+      }
+    ],
+    "price_from": 2041,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_80",
+    "name": "Hotel Example 80",
+    "location": {
+      "lat": 55.71869439751118,
+      "lon": 37.632978094379204,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "wifi",
+      "bar",
+      "pool"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4973
+      },
+      {
+        "type": "deluxe",
+        "price": 5581
+      }
+    ],
+    "price_from": 4486,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_81",
+    "name": "Hotel Example 81",
+    "location": {
+      "lat": 55.74507406367254,
+      "lon": 37.64873697776896,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "bar",
+      "pool",
+      "gym"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 2467
+      },
+      {
+        "type": "deluxe",
+        "price": 7100
+      }
+    ],
+    "price_from": 2180,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_82",
+    "name": "Hotel Example 82",
+    "location": {
+      "lat": 55.70235938336012,
+      "lon": 37.65087534234218,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "bar",
+      "pool",
+      "gym"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4590
+      },
+      {
+        "type": "deluxe",
+        "price": 5075
+      }
+    ],
+    "price_from": 2658,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_83",
+    "name": "Hotel Example 83",
+    "location": {
+      "lat": 55.706971137738144,
+      "lon": 37.6227429207838,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "spa",
+      "pool",
+      "parking"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4819
+      },
+      {
+        "type": "deluxe",
+        "price": 6213
+      }
+    ],
+    "price_from": 2649,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_84",
+    "name": "Hotel Example 84",
+    "location": {
+      "lat": 55.7408839408902,
+      "lon": 37.62150151977254,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "spa",
+      "pool",
+      "wifi"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 3342
+      },
+      {
+        "type": "deluxe",
+        "price": 4180
+      }
+    ],
+    "price_from": 4751,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_85",
+    "name": "Hotel Example 85",
+    "location": {
+      "lat": 55.72580148145509,
+      "lon": 37.612822050484034,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "spa",
+      "gym",
+      "bar"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 3907
+      },
+      {
+        "type": "deluxe",
+        "price": 5291
+      }
+    ],
+    "price_from": 4741,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_86",
+    "name": "Hotel Example 86",
+    "location": {
+      "lat": 55.73090806599256,
+      "lon": 37.595293961304925,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "spa",
+      "parking",
+      "gym"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 2019
+      },
+      {
+        "type": "deluxe",
+        "price": 5192
+      }
+    ],
+    "price_from": 2169,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_87",
+    "name": "Hotel Example 87",
+    "location": {
+      "lat": 55.76551636400409,
+      "lon": 37.599250573762795,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "parking",
+      "pool",
+      "bar"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4980
+      },
+      {
+        "type": "deluxe",
+        "price": 7600
+      }
+    ],
+    "price_from": 3454,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_88",
+    "name": "Hotel Example 88",
+    "location": {
+      "lat": 55.78596225289689,
+      "lon": 37.580822853686655,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "bar",
+      "wifi",
+      "parking"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 3537
+      },
+      {
+        "type": "deluxe",
+        "price": 7878
+      }
+    ],
+    "price_from": 4531,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_89",
+    "name": "Hotel Example 89",
+    "location": {
+      "lat": 55.79266437415287,
+      "lon": 37.65184215043672,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "gym",
+      "spa",
+      "wifi"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 3832
+      },
+      {
+        "type": "deluxe",
+        "price": 6505
+      }
+    ],
+    "price_from": 3297,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_90",
+    "name": "Hotel Example 90",
+    "location": {
+      "lat": 55.76055806322112,
+      "lon": 37.560942142391035,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "gym",
+      "spa",
+      "parking"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 2032
+      },
+      {
+        "type": "deluxe",
+        "price": 6646
+      }
+    ],
+    "price_from": 4197,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_91",
+    "name": "Hotel Example 91",
+    "location": {
+      "lat": 55.763558694057934,
+      "lon": 37.63269280859331,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "gym",
+      "bar",
+      "pool"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 3502
+      },
+      {
+        "type": "deluxe",
+        "price": 7635
+      }
+    ],
+    "price_from": 4073,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_92",
+    "name": "Hotel Example 92",
+    "location": {
+      "lat": 55.79462376322063,
+      "lon": 37.659396238457624,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "wifi",
+      "gym",
+      "spa"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 2113
+      },
+      {
+        "type": "deluxe",
+        "price": 8335
+      }
+    ],
+    "price_from": 3227,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_93",
+    "name": "Hotel Example 93",
+    "location": {
+      "lat": 55.795281058586575,
+      "lon": 37.569088168997546,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "spa",
+      "pool",
+      "bar"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 2433
+      },
+      {
+        "type": "deluxe",
+        "price": 6660
+      }
+    ],
+    "price_from": 4754,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_94",
+    "name": "Hotel Example 94",
+    "location": {
+      "lat": 55.79200810430232,
+      "lon": 37.628721332585556,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "spa",
+      "wifi",
+      "gym"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 3856
+      },
+      {
+        "type": "deluxe",
+        "price": 7970
+      }
+    ],
+    "price_from": 2761,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_95",
+    "name": "Hotel Example 95",
+    "location": {
+      "lat": 55.76182548764738,
+      "lon": 37.59953827700577,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "wifi",
+      "spa",
+      "parking"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4942
+      },
+      {
+        "type": "deluxe",
+        "price": 6176
+      }
+    ],
+    "price_from": 3268,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_96",
+    "name": "Hotel Example 96",
+    "location": {
+      "lat": 55.756652414967384,
+      "lon": 37.60351591408802,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "wifi",
+      "spa",
+      "gym"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4718
+      },
+      {
+        "type": "deluxe",
+        "price": 7907
+      }
+    ],
+    "price_from": 2964,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_97",
+    "name": "Hotel Example 97",
+    "location": {
+      "lat": 55.77142607745126,
+      "lon": 37.63071571529419,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "gym",
+      "wifi",
+      "parking"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4993
+      },
+      {
+        "type": "deluxe",
+        "price": 4521
+      }
+    ],
+    "price_from": 3133,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_98",
+    "name": "Hotel Example 98",
+    "location": {
+      "lat": 55.719450149024595,
+      "lon": 37.59747197858931,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "spa",
+      "bar",
+      "wifi"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 3375
+      },
+      {
+        "type": "deluxe",
+        "price": 4692
+      }
+    ],
+    "price_from": 4205,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_99",
+    "name": "Hotel Example 99",
+    "location": {
+      "lat": 55.71574602891152,
+      "lon": 37.58549370971052,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "parking",
+      "wifi",
+      "spa"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 3836
+      },
+      {
+        "type": "deluxe",
+        "price": 4670
+      }
+    ],
+    "price_from": 3374,
+    "currency": "RUB"
+  },
+  {
+    "id": "hotel_100",
+    "name": "Hotel Example 100",
+    "location": {
+      "lat": 55.78387935334851,
+      "lon": 37.5698720680863,
+      "city": "Moscow",
+      "country": "Russia"
+    },
+    "facilities": [
+      "gym",
+      "bar",
+      "spa"
+    ],
+    "rooms": [
+      {
+        "type": "standard",
+        "price": 4767
+      },
+      {
+        "type": "deluxe",
+        "price": 7523
+      }
+    ],
+    "price_from": 2937,
+    "currency": "RUB"
+  }
+]
