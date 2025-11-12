@@ -24,7 +24,8 @@
       }
     ],
     "price_from": 2112,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.2
   },
   {
     "id": "hotel_2",
@@ -51,7 +52,8 @@
       }
     ],
     "price_from": 4035,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.0
   },
   {
     "id": "hotel_3",
@@ -78,7 +80,8 @@
       }
     ],
     "price_from": 3036,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.2
   },
   {
     "id": "hotel_4",
@@ -105,7 +108,8 @@
       }
     ],
     "price_from": 4545,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.8
   },
   {
     "id": "hotel_5",
@@ -132,7 +136,8 @@
       }
     ],
     "price_from": 3870,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.0
   },
   {
     "id": "hotel_6",
@@ -159,7 +164,8 @@
       }
     ],
     "price_from": 2591,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 5.0
   },
   {
     "id": "hotel_7",
@@ -186,7 +192,8 @@
       }
     ],
     "price_from": 4934,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.8
   },
   {
     "id": "hotel_8",
@@ -213,7 +220,8 @@
       }
     ],
     "price_from": 3450,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.4
   },
   {
     "id": "hotel_9",
@@ -240,7 +248,8 @@
       }
     ],
     "price_from": 3207,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.5
   },
   {
     "id": "hotel_10",
@@ -267,7 +276,8 @@
       }
     ],
     "price_from": 4978,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.9
   },
   {
     "id": "hotel_11",
@@ -294,7 +304,8 @@
       }
     ],
     "price_from": 2602,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.5
   },
   {
     "id": "hotel_12",
@@ -321,7 +332,8 @@
       }
     ],
     "price_from": 3164,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.1
   },
   {
     "id": "hotel_13",
@@ -348,7 +360,8 @@
       }
     ],
     "price_from": 4782,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.3
   },
   {
     "id": "hotel_14",
@@ -375,7 +388,8 @@
       }
     ],
     "price_from": 2738,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.7
   },
   {
     "id": "hotel_15",
@@ -402,7 +416,8 @@
       }
     ],
     "price_from": 2522,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.3
   },
   {
     "id": "hotel_16",
@@ -429,7 +444,8 @@
       }
     ],
     "price_from": 3275,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.2
   },
   {
     "id": "hotel_17",
@@ -456,7 +472,8 @@
       }
     ],
     "price_from": 3089,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.4
   },
   {
     "id": "hotel_18",
@@ -483,7 +500,8 @@
       }
     ],
     "price_from": 4499,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.3
   },
   {
     "id": "hotel_19",
@@ -510,7 +528,8 @@
       }
     ],
     "price_from": 3429,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.2
   },
   {
     "id": "hotel_20",
@@ -537,7 +556,8 @@
       }
     ],
     "price_from": 2713,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.9
   },
   {
     "id": "hotel_21",
@@ -564,7 +584,8 @@
       }
     ],
     "price_from": 3724,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.9
   },
   {
     "id": "hotel_22",
@@ -591,7 +612,8 @@
       }
     ],
     "price_from": 3717,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.0
   },
   {
     "id": "hotel_23",
@@ -618,7 +640,8 @@
       }
     ],
     "price_from": 3141,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.5
   },
   {
     "id": "hotel_24",
@@ -645,7 +668,8 @@
       }
     ],
     "price_from": 3876,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.9
   },
   {
     "id": "hotel_25",
@@ -672,7 +696,8 @@
       }
     ],
     "price_from": 2905,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.7
   },
   {
     "id": "hotel_26",
@@ -699,7 +724,8 @@
       }
     ],
     "price_from": 3552,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.5
   },
   {
     "id": "hotel_27",
@@ -726,7 +752,8 @@
       }
     ],
     "price_from": 4576,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.1
   },
   {
     "id": "hotel_28",
@@ -753,7 +780,8 @@
       }
     ],
     "price_from": 4709,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.8
   },
   {
     "id": "hotel_29",
@@ -780,7 +808,8 @@
       }
     ],
     "price_from": 4573,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.6
   },
   {
     "id": "hotel_30",
@@ -807,7 +836,8 @@
       }
     ],
     "price_from": 2193,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.8
   },
   {
     "id": "hotel_31",
@@ -834,7 +864,8 @@
       }
     ],
     "price_from": 4712,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.3
   },
   {
     "id": "hotel_32",
@@ -861,7 +892,8 @@
       }
     ],
     "price_from": 3133,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.6
   },
   {
     "id": "hotel_33",
@@ -888,7 +920,8 @@
       }
     ],
     "price_from": 3965,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.5
   },
   {
     "id": "hotel_34",
@@ -915,7 +948,8 @@
       }
     ],
     "price_from": 3711,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.5
   },
   {
     "id": "hotel_35",
@@ -942,7 +976,8 @@
       }
     ],
     "price_from": 2493,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.7
   },
   {
     "id": "hotel_36",
@@ -969,7 +1004,8 @@
       }
     ],
     "price_from": 2682,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.2
   },
   {
     "id": "hotel_37",
@@ -996,7 +1032,8 @@
       }
     ],
     "price_from": 3512,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.1
   },
   {
     "id": "hotel_38",
@@ -1023,7 +1060,8 @@
       }
     ],
     "price_from": 4912,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.7
   },
   {
     "id": "hotel_39",
@@ -1050,7 +1088,8 @@
       }
     ],
     "price_from": 4135,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.8
   },
   {
     "id": "hotel_40",
@@ -1077,7 +1116,8 @@
       }
     ],
     "price_from": 2968,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.3
   },
   {
     "id": "hotel_41",
@@ -1104,7 +1144,8 @@
       }
     ],
     "price_from": 2926,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.1
   },
   {
     "id": "hotel_42",
@@ -1131,7 +1172,8 @@
       }
     ],
     "price_from": 3041,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.1
   },
   {
     "id": "hotel_43",
@@ -1158,7 +1200,8 @@
       }
     ],
     "price_from": 3550,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.1
   },
   {
     "id": "hotel_44",
@@ -1185,7 +1228,8 @@
       }
     ],
     "price_from": 2531,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.4
   },
   {
     "id": "hotel_45",
@@ -1212,7 +1256,8 @@
       }
     ],
     "price_from": 4045,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.7
   },
   {
     "id": "hotel_46",
@@ -1239,7 +1284,8 @@
       }
     ],
     "price_from": 4484,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.8
   },
   {
     "id": "hotel_47",
@@ -1266,7 +1312,8 @@
       }
     ],
     "price_from": 4307,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.2
   },
   {
     "id": "hotel_48",
@@ -1293,7 +1340,8 @@
       }
     ],
     "price_from": 2838,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.8
   },
   {
     "id": "hotel_49",
@@ -1320,7 +1368,8 @@
       }
     ],
     "price_from": 4412,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.5
   },
   {
     "id": "hotel_50",
@@ -1347,7 +1396,8 @@
       }
     ],
     "price_from": 4311,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.4
   },
   {
     "id": "hotel_51",
@@ -1374,7 +1424,8 @@
       }
     ],
     "price_from": 2360,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.1
   },
   {
     "id": "hotel_52",
@@ -1401,7 +1452,8 @@
       }
     ],
     "price_from": 3184,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.8
   },
   {
     "id": "hotel_53",
@@ -1428,7 +1480,8 @@
       }
     ],
     "price_from": 4972,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.9
   },
   {
     "id": "hotel_54",
@@ -1455,7 +1508,8 @@
       }
     ],
     "price_from": 3867,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.5
   },
   {
     "id": "hotel_55",
@@ -1482,7 +1536,8 @@
       }
     ],
     "price_from": 4973,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.5
   },
   {
     "id": "hotel_56",
@@ -1509,7 +1564,8 @@
       }
     ],
     "price_from": 2200,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.9
   },
   {
     "id": "hotel_57",
@@ -1536,7 +1592,8 @@
       }
     ],
     "price_from": 3416,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.6
   },
   {
     "id": "hotel_58",
@@ -1563,7 +1620,8 @@
       }
     ],
     "price_from": 3270,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.7
   },
   {
     "id": "hotel_59",
@@ -1590,7 +1648,8 @@
       }
     ],
     "price_from": 2043,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.3
   },
   {
     "id": "hotel_60",
@@ -1617,7 +1676,8 @@
       }
     ],
     "price_from": 2497,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.9
   },
   {
     "id": "hotel_61",
@@ -1644,7 +1704,8 @@
       }
     ],
     "price_from": 2822,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.1
   },
   {
     "id": "hotel_62",
@@ -1671,7 +1732,8 @@
       }
     ],
     "price_from": 4902,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.1
   },
   {
     "id": "hotel_63",
@@ -1698,7 +1760,8 @@
       }
     ],
     "price_from": 3442,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.2
   },
   {
     "id": "hotel_64",
@@ -1725,7 +1788,8 @@
       }
     ],
     "price_from": 4657,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.2
   },
   {
     "id": "hotel_65",
@@ -1752,7 +1816,8 @@
       }
     ],
     "price_from": 4330,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.8
   },
   {
     "id": "hotel_66",
@@ -1779,7 +1844,8 @@
       }
     ],
     "price_from": 4287,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.8
   },
   {
     "id": "hotel_67",
@@ -1806,7 +1872,8 @@
       }
     ],
     "price_from": 4226,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.7
   },
   {
     "id": "hotel_68",
@@ -1833,7 +1900,8 @@
       }
     ],
     "price_from": 2407,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.8
   },
   {
     "id": "hotel_69",
@@ -1860,7 +1928,8 @@
       }
     ],
     "price_from": 3592,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.0
   },
   {
     "id": "hotel_70",
@@ -1887,7 +1956,8 @@
       }
     ],
     "price_from": 3680,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.0
   },
   {
     "id": "hotel_71",
@@ -1914,7 +1984,8 @@
       }
     ],
     "price_from": 4454,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.1
   },
   {
     "id": "hotel_72",
@@ -1941,7 +2012,8 @@
       }
     ],
     "price_from": 4511,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.0
   },
   {
     "id": "hotel_73",
@@ -1968,7 +2040,8 @@
       }
     ],
     "price_from": 4402,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.4
   },
   {
     "id": "hotel_74",
@@ -1995,7 +2068,8 @@
       }
     ],
     "price_from": 3054,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.6
   },
   {
     "id": "hotel_75",
@@ -2022,7 +2096,8 @@
       }
     ],
     "price_from": 3231,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.5
   },
   {
     "id": "hotel_76",
@@ -2049,7 +2124,8 @@
       }
     ],
     "price_from": 4209,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.8
   },
   {
     "id": "hotel_77",
@@ -2076,7 +2152,8 @@
       }
     ],
     "price_from": 2363,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.7
   },
   {
     "id": "hotel_78",
@@ -2103,7 +2180,8 @@
       }
     ],
     "price_from": 3277,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.5
   },
   {
     "id": "hotel_79",
@@ -2130,7 +2208,8 @@
       }
     ],
     "price_from": 2041,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.9
   },
   {
     "id": "hotel_80",
@@ -2157,7 +2236,8 @@
       }
     ],
     "price_from": 4486,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.6
   },
   {
     "id": "hotel_81",
@@ -2184,7 +2264,8 @@
       }
     ],
     "price_from": 2180,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.1
   },
   {
     "id": "hotel_82",
@@ -2211,7 +2292,8 @@
       }
     ],
     "price_from": 2658,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.3
   },
   {
     "id": "hotel_83",
@@ -2238,7 +2320,8 @@
       }
     ],
     "price_from": 2649,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.6
   },
   {
     "id": "hotel_84",
@@ -2265,7 +2348,8 @@
       }
     ],
     "price_from": 4751,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.7
   },
   {
     "id": "hotel_85",
@@ -2292,7 +2376,8 @@
       }
     ],
     "price_from": 4741,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.7
   },
   {
     "id": "hotel_86",
@@ -2319,7 +2404,8 @@
       }
     ],
     "price_from": 2169,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.5
   },
   {
     "id": "hotel_87",
@@ -2346,7 +2432,8 @@
       }
     ],
     "price_from": 3454,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.2
   },
   {
     "id": "hotel_88",
@@ -2373,7 +2460,8 @@
       }
     ],
     "price_from": 4531,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.1
   },
   {
     "id": "hotel_89",
@@ -2400,7 +2488,8 @@
       }
     ],
     "price_from": 3297,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.4
   },
   {
     "id": "hotel_90",
@@ -2427,7 +2516,8 @@
       }
     ],
     "price_from": 4197,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.9
   },
   {
     "id": "hotel_91",
@@ -2454,7 +2544,8 @@
       }
     ],
     "price_from": 4073,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.7
   },
   {
     "id": "hotel_92",
@@ -2481,7 +2572,8 @@
       }
     ],
     "price_from": 3227,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.5
   },
   {
     "id": "hotel_93",
@@ -2508,7 +2600,8 @@
       }
     ],
     "price_from": 4754,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.1
   },
   {
     "id": "hotel_94",
@@ -2535,7 +2628,8 @@
       }
     ],
     "price_from": 2761,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.5
   },
   {
     "id": "hotel_95",
@@ -2562,7 +2656,8 @@
       }
     ],
     "price_from": 3268,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.7
   },
   {
     "id": "hotel_96",
@@ -2589,7 +2684,8 @@
       }
     ],
     "price_from": 2964,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.3
   },
   {
     "id": "hotel_97",
@@ -2616,7 +2712,8 @@
       }
     ],
     "price_from": 3133,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.4
   },
   {
     "id": "hotel_98",
@@ -2643,7 +2740,8 @@
       }
     ],
     "price_from": 4205,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 4.3
   },
   {
     "id": "hotel_99",
@@ -2670,7 +2768,8 @@
       }
     ],
     "price_from": 3374,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 5.0
   },
   {
     "id": "hotel_100",
@@ -2697,6 +2796,7 @@
       }
     ],
     "price_from": 2937,
-    "currency": "RUB"
+    "currency": "RUB",
+    "rating": 3.3
   }
 ]
