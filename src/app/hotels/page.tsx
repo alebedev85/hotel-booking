@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 
 export default function HotelsPage() {
   const [hotels, setHotels] = useState<IHotel[]>([]);
+  const [activeHotelId, setActiveHotelId] = useState<string | null>(null);
   const { location } = useAppSelector((state) => state.search);
 
   useEffect(() => {
@@ -25,15 +26,21 @@ export default function HotelsPage() {
     <main className={styles.page}>
       <SearchForm />
 
+      <h2 className={styles.title}>Отели в {location || "..."}:</h2>
       <div className={styles.layout}>
         <section className={styles.list}>
           {hotels.map((hotel) => (
-            <HotelCard key={hotel.id} hotel={hotel} />
+            <HotelCard
+              key={hotel.id}
+              hotel={hotel}
+              onHover={() => setActiveHotelId(hotel.id)}
+              onLeave={() => setActiveHotelId(null)}
+            />
           ))}
         </section>
 
         <aside className={styles.map}>
-          <HotelMap hotels={hotels} />
+          <HotelMap hotels={hotels} activeHotelId={activeHotelId} />
         </aside>
       </div>
     </main>

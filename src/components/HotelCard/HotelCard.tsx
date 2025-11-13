@@ -3,11 +3,17 @@ import styles from "./HotelCard.module.scss";
 
 interface HotelCardProps {
   hotel: IHotel;
+  onHover: () => void;
+  onLeave: () => void;
 }
 
-export default function HotelCard({ hotel }: HotelCardProps) {
+export default function HotelCard({ hotel, onHover, onLeave }: HotelCardProps) {
   return (
-    <article className={styles.card}>
+    <article
+      className={styles.card}
+      onMouseEnter={onHover}
+      onMouseLeave={onLeave}
+    >
       <img src="/hotel.jpg" alt="" className={styles.image} />
 
       <div className={styles.content}>
