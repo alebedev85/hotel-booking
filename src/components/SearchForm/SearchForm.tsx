@@ -28,13 +28,52 @@ export default function SearchForm() {
     );
   };
 
-  const handleSearch = () => {
+  const handleSearch = async () => {
     if (!location || !checkIn || !checkOut) return;
-    router.push(
-      `/hotels?location=${encodeURIComponent(
-        location
-      )}&checkIn=${checkIn}&checkOut=${checkOut}&guests=${guests}`
-    );
+
+    try {
+      // 1️⃣ Запрашиваем координаты у OpenStreetMap Nominatim
+      const res = await fetch(
+        `https://nominatim.openstreetmap.org/search?city=${encodeURIComponent(
+          location
+        )}&format=json&limit=1`,
+        {
+          headers: {
+            "User-Agent": "HotelBookingApp/1.0",
+          },
+        }
+      );
+
+      const data = await res.json();
+
+      if (!data || data.length === 0) {
+        console.error("Ошибка при поиске города:");
+        return;
+      }
+
+      const { lat, lon } = data[0];
+
+      // 2️⃣ Обновляем Redux: добавляем координаты
+      dispatch(
+        setSearch({
+          location,
+          checkIn,
+          checkOut,
+          guests,
+          lat: parseFloat(lat),
+          lon: parseFloat(lon),
+        })
+      );
+
+      // 3️⃣ Переходим на страницу отелей
+      router.push(
+        `/hotels?location=${encodeURIComponent(
+          location
+        )}&checkIn=${checkIn}&checkOut=${checkOut}&guests=${guests}`
+      );
+    } catch (err) {
+      console.error("Ошибка при поиске города:", err);
+    }
   };
 
   return (

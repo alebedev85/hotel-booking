@@ -5,6 +5,8 @@ interface SearchState {
   checkIn: string;
   checkOut: string;
   guests: number;
+  lat?: number;
+  lon?: number;
 }
 
 const initialState: SearchState = {

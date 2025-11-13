@@ -6,7 +6,10 @@ import "leaflet/dist/leaflet.css";
 import dynamic from "next/dynamic";
 import { useEffect, useMemo, useRef } from "react";
 import styles from "./HotelMap.module.scss";
+import { useAppSelector } from "@/store";
+import { useMap } from "react-leaflet"; // нужно для управления центром карты
 
+// --- динамические импорты, чтобы Leaflet не ломался при SSR ---
 const MapContainer = dynamic(
   () => import("react-leaflet").then((mod) => mod.MapContainer),
   { ssr: false }
@@ -23,13 +26,31 @@ const Popup = dynamic(() => import("react-leaflet").then((mod) => mod.Popup), {
   ssr: false,
 });
 
+// --- Компонент для плавного перемещения карты при смене города ---
+function MapUpdater({ center }: { center: LatLngExpression }) {
+  const map = useMap();
+
+  useEffect(() => {
+    // когда центр обновляется, карта плавно двигается в новое место
+    map.setView(center, 12, { animate: true });
+  }, [center, map]);
+
+  return null;
+}
+
 interface HotelMapProps {
   hotels: IHotel[];
   activeHotelId: string | null;
 }
 
 export default function HotelMap({ hotels, activeHotelId }: HotelMapProps) {
+  // 🔹 достаём координаты города из Redux
+  const { lat, lon } = useAppSelector((state) => state.search);
+
+  // 🔹 ссылка на все маркеры (чтобы управлять попапами)
   const markersRef = useRef<Record<string, L.Marker>>({});
+
+  // 🔹 создаём иконку отеля (один раз)
   const hotelIcon = useMemo(() => {
     if (typeof window === "undefined") return null;
     // eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports
@@ -41,25 +62,29 @@ export default function HotelMap({ hotels, activeHotelId }: HotelMapProps) {
       popupAnchor: [0, -32],
     });
   }, []);
-  // Безопасно берём координаты центра
-  const center: LatLngExpression = hotels.length
-    ? [hotels[0].location.lat, hotels[0].location.lon]
-    : [55.7558, 37.6173]; // Москва по умолчанию
 
+  // --- Определяем центр карты ---
+  const defaultCenter: LatLngExpression = [55.7558, 37.6173]; // Москва
+  const hasCityCoords = lat && lon;
+  // если есть координаты из Redux — используем их, иначе первый отель или Москва
+  const center: LatLngExpression = hasCityCoords
+    ? [lat!, lon!]
+    : hotels.length
+    ? [hotels[0].location.lat, hotels[0].location.lon]
+    : defaultCenter;
+
+  // --- Управление попапами при наведении ---
   useEffect(() => {
     if (!activeHotelId) {
-      // Закрываем все попапы при уходе мыши
       Object.values(markersRef.current).forEach((m) => m.closePopup());
       return;
     }
 
     const marker = markersRef.current[activeHotelId];
-    if (marker) {
-      marker.openPopup();
-    }
+    if (marker) marker.openPopup();
   }, [activeHotelId]);
 
-  if (!hotels.length) return null;
+  if (!hotels.length && !hasCityCoords) return null;
 
   return (
     <div className={styles.map}>
@@ -68,14 +93,18 @@ export default function HotelMap({ hotels, activeHotelId }: HotelMapProps) {
         zoom={12}
         style={{ height: "100%", width: "100%" }}
       >
+        {/* 🔄 двигаем карту при смене города */}
+        <MapUpdater center={center} />
+
+        {/* Слой карты (OpenStreetMap) */}
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         />
 
+        {/* Рендерим маркеры отелей */}
         {hotels.map((hotel) => {
           const { lat, lon } = hotel.location;
-
           return (
             <Marker
               key={hotel.id}
@@ -86,8 +115,8 @@ export default function HotelMap({ hotels, activeHotelId }: HotelMapProps) {
               }}
             >
               <Popup>
-                <strong>{hotel.name}</strong> <br />⭐ {hotel.rating} — от{" "}
-                {hotel.price_from} ₽
+                <strong>{hotel.name}</strong> <br />
+                ⭐ {hotel.rating} — от {hotel.price_from} ₽
               </Popup>
             </Marker>
           );
