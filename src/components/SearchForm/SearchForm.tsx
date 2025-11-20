@@ -1,145 +1,74 @@
 "use client";
 
+import { useForm } from "react-hook-form";
 import { useAppDispatch, useAppSelector } from "@/store";
-import { setSearch } from "@/store/searchSlice";
+import { setField, fetchCoordinates } from "@/store/searchSlice";
 import { useRouter } from "next/navigation";
 import styles from "./SearchForm.module.scss";
 
-interface SearchState {
+interface FormValues {
   location: string;
   checkIn: string;
   checkOut: string;
   guests: number;
 }
+
 export default function SearchForm() {
   const router = useRouter();
-
   const dispatch = useAppDispatch();
-  const { location, checkIn, checkOut, guests } = useAppSelector(
-    (state) => state.search
-  );
+  
+  const {loading, location, checkIn, checkOut, guests} = useAppSelector((state) => state.search);
 
-  const handleChange = (field: keyof SearchState, value: string | number) => {
-    dispatch(
-      setSearch({
-        ...{ location, checkIn, checkOut, guests },
-        [field]: value,
-      })
+  const { register, handleSubmit } = useForm<FormValues>({
+    defaultValues: {
+      location: location,
+      checkIn: checkIn,
+      checkOut: checkOut,
+      guests: guests,
+    },
+  });
+
+  const onSubmit = async (data: FormValues) => {
+    const { location, checkIn, checkOut, guests } = data;
+
+    // сохраняем поля в стор
+    dispatch(setField({ field: "location", value: location }));
+    dispatch(setField({ field: "checkIn", value: checkIn }));
+    dispatch(setField({ field: "checkOut", value: checkOut }));
+    dispatch(setField({ field: "guests", value: guests }));
+
+    // загружаем координаты
+    await dispatch(fetchCoordinates(location));
+
+    router.push(
+      `/hotels?location=${encodeURIComponent(location)}&checkIn=${checkIn}&checkOut=${checkOut}&guests=${guests}`
     );
   };
 
-  const handleSearch = async () => {
-    if (!location || !checkIn || !checkOut) return;
-
-    try {
-      // 1️⃣ Запрашиваем координаты у OpenStreetMap Nominatim
-      const res = await fetch(
-        `https://nominatim.openstreetmap.org/search?city=${encodeURIComponent(
-          location
-        )}&format=json&limit=1`,
-        {
-          headers: {
-            "User-Agent": "HotelBookingApp/1.0",
-          },
-        }
-      );
-
-      const data = await res.json();
-
-      if (!data || data.length === 0) {
-        console.error("Ошибка при поиске города:");
-        return;
-      }
-
-      const { lat, lon } = data[0];
-
-      // 2️⃣ Обновляем Redux: добавляем координаты
-      dispatch(
-        setSearch({
-          location,
-          checkIn,
-          checkOut,
-          guests,
-          lat: parseFloat(lat),
-          lon: parseFloat(lon),
-        })
-      );
-
-      // 3️⃣ Переходим на страницу отелей
-      router.push(
-        `/hotels?location=${encodeURIComponent(
-          location
-        )}&checkIn=${checkIn}&checkOut=${checkOut}&guests=${guests}`
-      );
-    } catch (err) {
-      console.error("Ошибка при поиске города:", err);
-    }
-  };
-
   return (
-    <form
-      className={styles.form}
-      onSubmit={(e) => {
-        e.preventDefault();
-        handleSearch();
-      }}
-    >
-      {/* Поле "Направление" */}
+    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.field}>
-        <input
-          id="location"
-          type="text"
-          placeholder=" "
-          value={location}
-          onChange={(e) => handleChange("location", e.target.value)}
-          required
-        />
+        <input id="location" placeholder=" " {...register("location")} required />
         <label htmlFor="location">Направление</label>
       </div>
 
-      {/* Поле "Заезд" */}
       <div className={styles.field}>
-        <input
-          id="checkIn"
-          type="date"
-          placeholder=" "
-          value={checkIn}
-          onChange={(e) => handleChange("checkIn", e.target.value)}
-          required
-        />
+        <input id="checkIn" type="date" {...register("checkIn")} required />
         <label htmlFor="checkIn">Заезд</label>
       </div>
 
-      {/* Поле "Выезд" */}
       <div className={styles.field}>
-        <input
-          id="checkOut"
-          type="date"
-          placeholder=" "
-          value={checkOut}
-          onChange={(e) => handleChange("checkOut", e.target.value)}
-          required
-        />
+        <input id="checkOut" type="date" {...register("checkOut")} required />
         <label htmlFor="checkOut">Выезд</label>
       </div>
 
-      {/* Поле "Гости" */}
       <div className={styles.field}>
-        <input
-          id="guests"
-          type="number"
-          min={1}
-          placeholder=" "
-          value={guests}
-          onChange={(e) => handleChange("guests", Number(e.target.value))}
-          required
-        />
+        <input id="guests" type="number" min={1} {...register("guests")} required />
         <label htmlFor="guests">Гости</label>
       </div>
 
-      {/* Кнопка поиска */}
-      <button type="submit" className={styles.searchButton}>
-        Найти
+      <button type="submit" className={styles.searchButton} disabled={loading}>
+        {loading ? "Поиск..." : "Найти"}
       </button>
     </form>
   );
