@@ -1,38 +1,18 @@
+import hotels from "@/data/moscow_hotels_city_id.json"; // пока один файл
 import { NextResponse } from "next/server";
-import hotels from "@/data/moscow_hotels.json";
-
-// Словарь русские → английские города
-const cityMap: Record<string, string> = {
-  "москва": "Moscow",
-  "санкт-петербург": "Saint Petersburg",
-  "казань": "Kazan",
-  "сочи": "Sochi",
-  "новосибирск": "Novosibirsk",
-  "екатеринбург": "Yekaterinburg"
-  // добавь остальные города по необходимости
-};
 
 export async function GET(req: Request) {
-  const { searchParams } = new URL(req.url);
-  const city = searchParams.get("location");
+  const url = new URL(req.url);
+  const city_id = Number(url.searchParams.get("city_id"));
 
-  if (!city) {
+  if (!city_id) {
     return NextResponse.json({ hotels: [], total: 0 });
   }
 
-  // Ищем английское название через словарь
-  const cityEng = cityMap[city.toLowerCase()];
-  if (!cityEng) {
-    return NextResponse.json({ hotels: [], total: 0 });
-  }
-
-  // Фильтр по английскому названию города
-  const filtered = hotels.filter(
-    (h) => h.location.city === cityEng
-  );
+  const filtered = hotels.filter((h) => h.city_id === city_id);
 
   return NextResponse.json({
     hotels: filtered,
-    total: filtered.length,
+    total: filtered.length
   });
 }

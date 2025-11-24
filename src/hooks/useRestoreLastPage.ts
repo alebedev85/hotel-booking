@@ -27,7 +27,7 @@ export function useRestoreLastPage() {
       return;
     }
 
-    const location = searchParams.get(QUERY_PARAMS.LOCATION);
+    const city_id = searchParams.get(QUERY_PARAMS.CITY_ID);
     const checkIn = searchParams.get(QUERY_PARAMS.CHECK_IN);
     const checkOut = searchParams.get(QUERY_PARAMS.CHECK_OUT);
     const guests = searchParams.get(QUERY_PARAMS.GUESTS);
@@ -39,10 +39,10 @@ export function useRestoreLastPage() {
     const lastSearch = localStorage.getItem(STORAGE_KEYS.LAST_SEARCH);
 
     if (lastSearch) {
-      const { location, checkIn, checkOut, guests } = JSON.parse(lastSearch);
+      const { city_id, checkIn, checkOut, guests } = JSON.parse(lastSearch);
 
       router.replace(
-        `/hotels?location=${encodeURIComponent(location)}&checkIn=${checkIn}&checkOut=${checkOut}&guests=${guests}`
+        `/hotels?city_id=${city_id}&checkIn=${checkIn}&checkOut=${checkOut}&guests=${guests}`
       );
     } else {
       router.replace("/");

@@ -13,3 +13,9 @@ export interface IHotel {
   currency: string;
   rating: number;
 }
+
+export interface ICity {
+  id: number;
+  name_ru: string;
+  name_en: string;
+}

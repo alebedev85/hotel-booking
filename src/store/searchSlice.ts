@@ -1,8 +1,9 @@
 // store/searchSlice.ts
-import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface SearchState {
-  location: string;
+  city_name: string;
+  city_id: number | null;
   checkIn: string;
   checkOut: string;
   guests: number;
@@ -13,7 +14,8 @@ interface SearchState {
 }
 
 const initialState: SearchState = {
-  location: "",
+  city_name: "",
+  city_id: null,
   checkIn: "",
   checkOut: "",
   guests: 1,
@@ -26,11 +28,11 @@ const initialState: SearchState = {
 // Асинхронный экшен для получения координат города
 export const fetchCoordinates = createAsyncThunk(
   "search/fetchCoordinates",
-  async (city: string, { rejectWithValue }) => {
+  async (city_name: string, { rejectWithValue }) => {
     try {
       const res = await fetch(
         `https://nominatim.openstreetmap.org/search?city=${encodeURIComponent(
-          city
+          city_name
         )}&format=json&limit=1`,
         {
           headers: { "User-Agent": "HotelApp/1.0" },
@@ -59,7 +61,10 @@ const searchSlice = createSlice({
   reducers: {
     setField(
       state,
-      action: PayloadAction<{ field: keyof SearchState; value: string | number }>
+      action: PayloadAction<{
+        field: keyof SearchState;
+        value: string | number;
+      }>
     ) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (state[action.payload.field] as any) = action.payload.value;

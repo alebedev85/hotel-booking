@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 export default function HotelsPage() {
   const [hotels, setHotels] = useState<IHotel[]>([]);
   const [activeHotelId, setActiveHotelId] = useState<string | null>(null);
-  const { location, loading } = useAppSelector((state) => state.search);
+  const { city_name, city_id, loading } = useAppSelector((state) => state.search);
   const [loadingHotels, setLoadingHotels] = useState<boolean>(false);
   const [mounted, setMounted] = useState<boolean>(false);
 
@@ -24,16 +24,15 @@ export default function HotelsPage() {
 
   // Загружаем отели после монтирования и когда меняется location
   useEffect(() => {
-    if (!mounted || !location) return;
+    if (!mounted || !city_id) return;
 
     const loadHotels = async () => {
       setLoadingHotels(true);
       try {
         const res = await fetch(
-          `/api/hotels?location=${encodeURIComponent(location)}`
+          `/api/hotels?city_id=${city_id}`
         );
         const data = await res.json();
-        console.log(data);
         setHotels(data.hotels);
       } catch (err) {
         console.error("Ошибка при загрузке отелей:", err);
@@ -44,7 +43,7 @@ export default function HotelsPage() {
     };
 
     loadHotels();
-  }, [mounted, location]);
+  }, [mounted, city_name]);
 
   // Пока компонент не смонтирован на клиенте, показываем лоадер
   if (!mounted) {
@@ -60,7 +59,7 @@ export default function HotelsPage() {
       <SearchForm />
 
       {location ? (
-        <h2 className={styles.title}>Отели в {location}:</h2>
+        <h2 className={styles.title}>Отели в {city_name}:</h2>
       ) : (
         <h2 className={styles.title}>Выберите город</h2>
       )}

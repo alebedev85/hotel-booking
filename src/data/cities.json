@@ -1,0 +1,6 @@
+[
+  { "id": 1, "name_ru": "Москва", "name_en": "Moscow" },
+  { "id": 2, "name_ru": "Санкт-Петербург", "name_en": "Saint Petersburg" },
+  { "id": 3, "name_ru": "Казань", "name_en": "Kazan" },
+  { "id": 4, "name_ru": "Сочи", "name_en": "Sochi" }
+]
