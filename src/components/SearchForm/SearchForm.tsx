@@ -1,106 +1,145 @@
 "use client";
 
 import { useAppDispatch, useAppSelector } from "@/store";
-import { setSearch } from "@/store/searchSlice";
+import { fetchCoordinates, setField } from "@/store/searchSlice";
+import { ICity } from "@/types";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import styles from "./SearchForm.module.scss";
 
-interface SearchState {
-  location: string;
+interface FormValues {
+  city_name: string; // отображаемое имя
+  city_id: number;
   checkIn: string;
   checkOut: string;
   guests: number;
 }
+
 export default function SearchForm() {
   const router = useRouter();
-
   const dispatch = useAppDispatch();
-  const { location, checkIn, checkOut, guests } = useAppSelector(
-    (state) => state.search
-  );
 
-  const handleChange = (field: keyof SearchState, value: string | number) => {
-    dispatch(
-      setSearch({
-        ...{ location, checkIn, checkOut, guests },
-        [field]: value,
-      })
-    );
+  const { loading, city_id, city_name, checkIn, checkOut, guests } =
+    useAppSelector((state) => state.search);
+
+  const { register, handleSubmit, setValue, watch } = useForm<FormValues>({
+    defaultValues: {
+      city_name: city_name || "",
+      city_id: city_id || 0,
+      checkIn,
+      checkOut,
+      guests,
+    },
+  });
+
+  const [cities, setCities] = useState<ICity[]>([]);
+  const [showList, setShowList] = useState(false);
+
+  const query = watch("city_name");
+
+  // Автокомплит городов
+  useEffect(() => {
+    const loadCities = async () => {
+      if (!query || query.length < 2) {
+        setCities([]);
+        return;
+      }
+      const res = await fetch(`/api/cities?query=${encodeURIComponent(query)}`);
+      const data = await res.json();
+      setCities(data);
+    };
+
+    loadCities();
+  }, [query]);
+
+  // Выбор города из списка
+  const selectCity = (city: ICity) => {
+    setValue("city_name", city.name_ru);
+    setValue("city_id", city.id);
+    setCities([]);
+    setShowList(false);
   };
 
-  const handleSearch = () => {
-    if (!location || !checkIn || !checkOut) return;
+  const onSubmit = async (data: FormValues) => {
+    if (!city_id) {
+      alert("Выберите город из списка");
+      return;
+    }
+
+    dispatch(setField({ field: "checkIn", value: data.checkIn }));
+    dispatch(setField({ field: "checkOut", value: data.checkOut }));
+    dispatch(setField({ field: "guests", value: data.guests }));
+
+    // загружаем координаты
+    await dispatch(fetchCoordinates(data.city_name));
+    dispatch(setField({ field: "city_id", value: data.city_id }));
+    dispatch(setField({ field: "city_name", value: data.city_name }));
+
+    setCities([]);
+    setShowList(false);
+
     router.push(
-      `/hotels?location=${encodeURIComponent(
-        location
-      )}&checkIn=${checkIn}&checkOut=${checkOut}&guests=${guests}`
+      `/hotels?city_id=${city_id}&checkIn=${data.checkIn}&checkOut=${data.checkOut}&guests=${data.guests}`
     );
   };
 
   return (
-    <form
-      className={styles.form}
-      onSubmit={(e) => {
-        e.preventDefault();
-        handleSearch();
-      }}
-    >
-      {/* Поле "Направление" */}
+    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+      {/* ГОРОД */}
       <div className={styles.field}>
         <input
-          id="location"
-          type="text"
+          id="city_name"
           placeholder=" "
-          value={location}
-          onChange={(e) => handleChange("location", e.target.value)}
+          {...register("city_name")}
+          onFocus={() => setShowList(true)}
+          autoComplete="off"
           required
         />
-        <label htmlFor="location">Направление</label>
+        <label htmlFor="city_name">Направление</label>
+        <input
+          id="city_id"
+          type="hidden"
+          placeholder=" "
+          {...register("city_id")}
+        />
+
+        {showList && cities.length > 0 && (
+          <ul className={styles.dropdown}>
+            {cities.map((city) => (
+              <li key={city.id} onClick={() => selectCity(city)}>
+                {city.name_ru}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
 
-      {/* Поле "Заезд" */}
+      {/* ДАТЫ */}
       <div className={styles.field}>
-        <input
-          id="checkIn"
-          type="date"
-          placeholder=" "
-          value={checkIn}
-          onChange={(e) => handleChange("checkIn", e.target.value)}
-          required
-        />
+        <input id="checkIn" type="date" {...register("checkIn")} required />
         <label htmlFor="checkIn">Заезд</label>
       </div>
 
-      {/* Поле "Выезд" */}
       <div className={styles.field}>
-        <input
-          id="checkOut"
-          type="date"
-          placeholder=" "
-          value={checkOut}
-          onChange={(e) => handleChange("checkOut", e.target.value)}
-          required
-        />
+        <input id="checkOut" type="date" {...register("checkOut")} required />
         <label htmlFor="checkOut">Выезд</label>
       </div>
 
-      {/* Поле "Гости" */}
+      {/* ГОСТИ */}
       <div className={styles.field}>
         <input
           id="guests"
           type="number"
           min={1}
-          placeholder=" "
-          value={guests}
-          onChange={(e) => handleChange("guests", Number(e.target.value))}
+          {...register("guests")}
           required
         />
         <label htmlFor="guests">Гости</label>
       </div>
 
-      {/* Кнопка поиска */}
-      <button type="submit" className={styles.searchButton}>
-        Найти
+      <button type="submit" className={styles.searchButton} disabled={loading}>
+        {loading ? "Поиск..." : "Найти"}
       </button>
     </form>
   );

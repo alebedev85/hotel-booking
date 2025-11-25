@@ -4,6 +4,7 @@ import "@/styles/globals.scss";
 import "leaflet/dist/leaflet.css";
 import type { Metadata } from "next";
 import { Providers } from "./providers";
+import AuthChecker from "@/components/AuthChecker/AuthChecker";
 
 export const metadata: Metadata = {
   title: "Бугорок!",
@@ -20,6 +21,7 @@ export default function RootLayout({
       <head />
       <body>
         <Providers>
+          <AuthChecker /> 
           <RestoreLastPage />
           <Header />
           {children}

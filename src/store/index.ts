@@ -3,6 +3,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import searchReducer from "./searchSlice";
 import themeReducer from "./themeSlice";
+import authReducer from "./authSlice";
 
 // Загружаем сохранённое состояние
 const preloadedState = loadState();
@@ -10,7 +11,8 @@ const preloadedState = loadState();
 export const store = configureStore({
   reducer: {
     search: searchReducer,
-    theme: themeReducer
+    theme: themeReducer,
+    auth: authReducer,
   },
   preloadedState: preloadedState
     ? {

@@ -12,6 +12,10 @@
       margin-bottom: 5px;
       width: 100%;
       padding: 5px;
+      outline: none;
+      &:focus {
+        border: 2px solid var(--color-primary);
+      }
     }
     .error {
       color: var(--text-red);
@@ -21,20 +25,29 @@
     }
   }
 }
+.success {
+  color: var(--color-success);
+}
+
+.error {
+  color: var(--color-warning);
+}
 
 .actions {
+  margin-top: 5px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
 
   .loginButton {
-    margin-top: 5px;
+    
     padding: 5px 10px;
     border-radius: 5px;
     border: none;
     background: var(--color-primary);
     color: var(--color-button-text);
-    font-weight: 600;
+    font-weight: 500;
+    font-size: var(--font-size-sm);
 
     &:hover {
       background: var(--color-primary-hover);
@@ -45,7 +58,8 @@
     color: var(--color-primary);
     background: none;
     border: none;
-    font-weight: 600;
+    font-weight: 500;
+    font-size: var(--font-size-md);
 
     &:hover {
       color: var(--color-primary-hover);

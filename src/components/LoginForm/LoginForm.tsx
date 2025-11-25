@@ -1,5 +1,11 @@
-import { useState } from "react";
+"use client";
+
+import { AppDispatch, RootState } from "@/store";
+import { clearError, loginUser, registerUser } from "@/store/authSlice";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import Loader from "../Loader/Loader";
 import styles from "./LoginForm.module.scss";
 
 interface FormData {
@@ -12,29 +18,62 @@ interface AuthLoginForm {
 }
 
 export default function LoginForm({ onClose }: AuthLoginForm) {
+  const dispatch = useDispatch<AppDispatch>();
+  const { loading, error, authenticated } = useSelector(
+    (state: RootState) => state.auth
+  );
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<{ email: string; password: string }>();
+  } = useForm<FormData>();
 
   const [isLoginMode, setLoginMode] = useState(true);
+  const [message, setMessage] = useState(""); // сообщение
+  const [messageType, setMessageType] = useState<"success" | "error">(
+    "success"
+  );
 
-  // const dispatch = useDispatch();
-  // const { isLoading } = useSelector((state: RootState) => state.auth);
-  // const [error, setError] = useState<string | null>(null);
+  useEffect(() => {
+    if (authenticated) {
+      setMessage(isLoginMode ? "Вы вошли!" : "Регистрация успешна!");
+      setMessageType("success");
+    } else if (error) {
+      setMessage(error);
+      setMessageType("error");
+    }
+  }, [authenticated, error, isLoginMode]);
 
   const onSubmit = async ({ email, password }: FormData) => {
-    console.log(email, password);
-    onClose();
+    setMessage("");
+    dispatch(clearError());
+
+    try {
+      if (isLoginMode) {
+        // Логин
+        await dispatch(loginUser({ email, password })).unwrap();
+      } else {
+        // Регистрация
+        await dispatch(registerUser({ email, password })).unwrap();
+      }
+      //При необходимости закрыть форму:
+      onClose();
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (err: any) {
+      setMessage(err.message || "Ошибка");
+      setMessageType("error");
+    }
+  };
+
+  const handleToggle = () => {
+    setLoginMode(!isLoginMode);
+    setMessage("");
+    dispatch(clearError());
   };
 
   return (
-    <form
-      // autoComplete="off"
-      className={styles.loginForm}
-      onSubmit={handleSubmit(onSubmit)}
-    >
+    <form className={styles.loginForm} onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.inputs}>
         <input
           id="email"
@@ -60,20 +99,33 @@ export default function LoginForm({ onClose }: AuthLoginForm) {
             },
           })}
         />
-        {/* {error && <p className={styles.error}>Ошибка: {error}</p>} */}
       </div>
-      <div className={styles.actions}>
-        <button className={styles.loginButton}>
-          {!isLoginMode ? "Зарегистрироваться" : "Войти"}
-        </button>
-        <button
-          type="button"
-          className={styles.modeButton}
-          onClick={() => setLoginMode(!isLoginMode)}
+
+      {/* Сообщение об успехе или ошибке */}
+      {message && (
+        <p
+          className={messageType === "success" ? styles.success : styles.error}
         >
-          {isLoginMode ? "Зарегистрироваться" : "Войти"}
-        </button>
-      </div>
+          {message}
+        </p>
+      )}
+
+      {loading ? (
+        <Loader />
+      ) : (
+        <div className={styles.actions}>
+          <button className={styles.loginButton}>
+            {isLoginMode ? "Войти" : "Зарегистрироваться"}
+          </button>
+          <button
+            type="button"
+            className={styles.modeButton}
+            onClick={handleToggle}
+          >
+            {isLoginMode ? "Зарегистрироваться" : "Войти"}
+          </button>
+        </div>
+      )}
     </form>
   );
 }

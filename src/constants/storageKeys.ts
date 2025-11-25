@@ -5,7 +5,7 @@ export const STORAGE_KEYS = {
 };
 
 export const QUERY_PARAMS = {
-  LOCATION: "location",
+  CITY_ID: "city_id",
   CHECK_IN: "checkIn",
   CHECK_OUT: "checkOut",
   GUESTS: "guests",
