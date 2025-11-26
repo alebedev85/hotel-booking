@@ -94,7 +94,6 @@ export default function SearchForm() {
           {...register("city_name")}
           onFocus={() => setShowList(true)}
           autoComplete="off"
-          required
         />
         <label htmlFor="city_name">Направление</label>
         <input
