@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 
 // Тип payload для твоего проекта
 export interface JwtUserPayload {
-  id: number;
+  id: string;
   email: string;
 }
 
