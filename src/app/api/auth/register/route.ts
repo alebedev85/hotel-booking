@@ -1,6 +1,6 @@
-import { NextResponse } from "next/server";
-import bcrypt from "bcryptjs";
 import { prisma } from "@/lib/prisma";
+import bcrypt from "bcryptjs";
+import { NextResponse } from "next/server";
 
 // Обработчик POST-запроса для регистрации нового пользователя
 export async function POST(req: Request) {
@@ -10,7 +10,10 @@ export async function POST(req: Request) {
 
     // Проверяем, что оба поля заполнены
     if (!email || !password) {
-      return NextResponse.json({ error: "Заполните все поля" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Заполните все поля" },
+        { status: 400 }
+      );
     }
 
     // Проверяем, существует ли пользователь с таким email
@@ -27,7 +30,9 @@ export async function POST(req: Request) {
 
     // Создаём нового пользователя в базе данных
     const newUser = await prisma.user.create({
-      data: { email, passwordHash },
+      data: {
+        email, passwordHash,
+      },
     });
 
     // Возвращаем успешный ответ с данными созданного пользователя
