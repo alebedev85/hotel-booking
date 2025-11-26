@@ -1,5 +1,4 @@
 import Header from "@/components/Header/Header";
-import RestoreLastPageComponent from "@/components/RestoreLastPage/RestoreLastPage";
 import "@/styles/globals.scss";
 import "leaflet/dist/leaflet.css";
 import type { Metadata } from "next";
@@ -21,8 +20,7 @@ export default function RootLayout({
       <head />
       <body>
         <Providers>
-          <AuthChecker /> 
-          <RestoreLastPageComponent />
+          <AuthChecker />
           <Header />
           {children}
         </Providers>
