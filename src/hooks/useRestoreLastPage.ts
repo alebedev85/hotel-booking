@@ -33,7 +33,7 @@ export function useRestoreLastPage() {
     const guests = searchParams.get(QUERY_PARAMS.GUESTS);
 
     // Если параметры поиска есть в URL → остаёмся
-    if (location && checkIn && checkOut && guests) return;
+    if (city_id && checkIn && checkOut && guests) return;
 
     // Берём данные из localStorage
     const lastSearch = localStorage.getItem(STORAGE_KEYS.LAST_SEARCH);
