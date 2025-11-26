@@ -1,8 +1,8 @@
-// components/RestoreLastPage.tsx
 "use client";
+
 import { useRestoreLastPage } from "@/hooks/useRestoreLastPage";
 
-export default function RestoreLastPage() {
+export default function RestoreLastPageComponent() {
   useRestoreLastPage();
-  return null;
+  return null; // этот компонент ничего не рендерит
 }
