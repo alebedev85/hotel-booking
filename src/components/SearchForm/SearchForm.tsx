@@ -70,7 +70,7 @@ export default function SearchForm() {
 
   const onSubmit = async (data: FormValues) => {
     // Проверка выбора города
-    if (!data.city_id) {
+    if (errors) {
       return;
     }
 
