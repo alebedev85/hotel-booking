@@ -1,9 +1,11 @@
+import AuthChecker from "@/components/AuthChecker/AuthChecker";
 import Header from "@/components/Header/Header";
+import RestoreLastPage from "@/components/RestoreLastPage/RestoreLastPage";
 import "@/styles/globals.scss";
 import "leaflet/dist/leaflet.css";
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Providers } from "./providers";
-import AuthChecker from "@/components/AuthChecker/AuthChecker";
 
 export const metadata: Metadata = {
   title: "Бугорок!",
@@ -21,6 +23,9 @@ export default function RootLayout({
       <body>
         <Providers>
           <AuthChecker />
+          <Suspense fallback={<div>Redirecting...</div>}>
+            <RestoreLastPage />
+          </Suspense>
           <Header />
           {children}
         </Providers>

@@ -69,10 +69,6 @@ export default function SearchForm() {
   };
 
   const onSubmit = async (data: FormValues) => {
-    // Проверка выбора города
-    if (errors) {
-      return;
-    }
 
     dispatch(setField({ field: "checkIn", value: data.checkIn }));
     dispatch(setField({ field: "checkOut", value: data.checkOut }));

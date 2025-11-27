@@ -22,7 +22,6 @@ export function useRestoreLastPage() {
 
     // Если есть skipRestore → удаляем и не делаем редирект
     if (localStorage.getItem("skipRestore")) {
-      console.log("skipRestore")
       localStorage.removeItem("skipRestore");
       return;
     }
