@@ -9,7 +9,7 @@ import { useForm } from "react-hook-form";
 import styles from "./SearchForm.module.scss";
 
 interface FormValues {
-  city_name: string; // отображаемое имя
+  city_name: string;
   city_id: number;
   checkIn: string;
   checkOut: string;
@@ -23,7 +23,13 @@ export default function SearchForm() {
   const { loading, city_id, city_name, checkIn, checkOut, guests } =
     useAppSelector((state) => state.search);
 
-  const { register, handleSubmit, setValue, watch } = useForm<FormValues>({
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    watch,
+    formState: { errors },
+  } = useForm<FormValues>({
     defaultValues: {
       city_name: city_name || "",
       city_id: city_id || 0,
@@ -37,14 +43,16 @@ export default function SearchForm() {
   const [showList, setShowList] = useState(false);
 
   const query = watch("city_name");
+  const selectedCityId = watch("city_id");
 
-  // Автокомплит городов
+  // Автокомплит
   useEffect(() => {
     const loadCities = async () => {
       if (!query || query.length < 2) {
         setCities([]);
         return;
       }
+
       const res = await fetch(`/api/cities?query=${encodeURIComponent(query)}`);
       const data = await res.json();
       setCities(data);
@@ -53,17 +61,16 @@ export default function SearchForm() {
     loadCities();
   }, [query]);
 
-  // Выбор города из списка
   const selectCity = (city: ICity) => {
-    setValue("city_name", city.name_ru);
-    setValue("city_id", city.id);
+    setValue("city_name", city.name_ru, { shouldValidate: true });
+    setValue("city_id", city.id, { shouldValidate: true });
     setCities([]);
     setShowList(false);
   };
 
   const onSubmit = async (data: FormValues) => {
-    if (!city_id) {
-      alert("Выберите город из списка");
+    // Проверка выбора города
+    if (!data.city_id) {
       return;
     }
 
@@ -71,8 +78,8 @@ export default function SearchForm() {
     dispatch(setField({ field: "checkOut", value: data.checkOut }));
     dispatch(setField({ field: "guests", value: data.guests }));
 
-    // загружаем координаты
     await dispatch(fetchCoordinates(data.city_name));
+
     dispatch(setField({ field: "city_id", value: data.city_id }));
     dispatch(setField({ field: "city_name", value: data.city_name }));
 
@@ -80,28 +87,28 @@ export default function SearchForm() {
     setShowList(false);
 
     router.push(
-      `/hotels?city_id=${city_id}&checkIn=${data.checkIn}&checkOut=${data.checkOut}&guests=${data.guests}`
+      `/hotels?city_id=${data.city_id}&checkIn=${data.checkIn}&checkOut=${data.checkOut}&guests=${data.guests}`
     );
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+    <form className={styles.form} onSubmit={handleSubmit(onSubmit)} noValidate>
       {/* ГОРОД */}
       <div className={styles.field}>
         <input
           id="city_name"
           placeholder=" "
-          {...register("city_name")}
+          {...register("city_name", {
+            required: "Введите город",
+            validate: () =>
+              selectedCityId > 0 || "Выберите город из списка",
+          })}
           onFocus={() => setShowList(true)}
           autoComplete="off"
         />
         <label htmlFor="city_name">Направление</label>
-        <input
-          id="city_id"
-          type="hidden"
-          placeholder=" "
-          {...register("city_id")}
-        />
+
+        <input type="hidden" {...register("city_id")} />
 
         {showList && cities.length > 0 && (
           <ul className={styles.dropdown}>
@@ -112,17 +119,40 @@ export default function SearchForm() {
             ))}
           </ul>
         )}
+
+        {errors.city_name && (
+          <p className={styles.error}>{errors.city_name.message}</p>
+        )}
       </div>
 
-      {/* ДАТЫ */}
+      {/* ДАТА ЗАЕЗДА */}
       <div className={styles.field}>
-        <input id="checkIn" type="date" {...register("checkIn")} required />
+        <input
+          id="checkIn"
+          type="date"
+          {...register("checkIn", {
+            required: "Выберите дату заезда",
+          })}
+        />
         <label htmlFor="checkIn">Заезд</label>
+        {errors.checkIn && (
+          <p className={styles.error}>{errors.checkIn.message}</p>
+        )}
       </div>
 
+      {/* ДАТА ВЫЕЗДА */}
       <div className={styles.field}>
-        <input id="checkOut" type="date" {...register("checkOut")} required />
+        <input
+          id="checkOut"
+          type="date"
+          {...register("checkOut", {
+            required: "Выберите дату выезда",
+          })}
+        />
         <label htmlFor="checkOut">Выезд</label>
+        {errors.checkOut && (
+          <p className={styles.error}>{errors.checkOut.message}</p>
+        )}
       </div>
 
       {/* ГОСТИ */}
@@ -131,10 +161,15 @@ export default function SearchForm() {
           id="guests"
           type="number"
           min={1}
-          {...register("guests")}
-          required
+          {...register("guests", {
+            required: "Укажите количество гостей",
+            min: { value: 1, message: "Минимум 1 гость" },
+          })}
         />
         <label htmlFor="guests">Гости</label>
+        {errors.guests && (
+          <p className={styles.error}>{errors.guests.message}</p>
+        )}
       </div>
 
       <button type="submit" className={styles.searchButton} disabled={loading}>
