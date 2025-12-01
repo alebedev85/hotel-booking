@@ -19,3 +19,11 @@ export interface ICity {
   name_ru: string;
   name_en: string;
 }
+
+export interface IFormValues {
+  city_name: string;
+  city_id: number;
+  checkIn: string;
+  checkOut: string;
+  guests: number;
+}
