@@ -22,7 +22,7 @@ export default function Header() {
       <Link
         href="/"
         className={styles.logo}
-        onClick={() => localStorage.setItem("skipRestore", "true")}
+        onClick={() => sessionStorage.setItem("skipRestore", "true")}
       >
         Бугорок!
       </Link>

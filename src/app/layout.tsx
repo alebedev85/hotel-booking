@@ -1,6 +1,6 @@
 import AuthChecker from "@/components/AuthChecker/AuthChecker";
 import Header from "@/components/Header/Header";
-import RestoreLastPage from "@/components/RestoreLastPage/RestoreLastPage";
+import RestoreLastSearchComponent from "@/components/RestoreLastSearchComponent/useRestoreLastSearch";
 import "@/styles/globals.scss";
 import "leaflet/dist/leaflet.css";
 import type { Metadata } from "next";
@@ -24,7 +24,7 @@ export default function RootLayout({
         <Providers>
           <AuthChecker />
           <Suspense fallback={<div>Redirecting...</div>}>
-            <RestoreLastPage />
+            <RestoreLastSearchComponent />
           </Suspense>
           <Header />
           {children}
