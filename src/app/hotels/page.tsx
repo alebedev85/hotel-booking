@@ -6,59 +6,27 @@ import HotelMap from "@/components/HotelMap/HotelMap";
 import Loader from "@/components/Loader/Loader";
 import SearchForm from "@/components/SearchForm/SearchForm";
 import { useAppSelector } from "@/store";
+import { useGetHotelsByCityQuery } from "@/store/hotelsApi";
 import styles from "@/styles/Hotels.module.scss";
-import { IHotel } from "@/types";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function HotelsPage() {
-  const [hotels, setHotels] = useState<IHotel[]>([]);
+  const { city_name, city_id, loading } = useAppSelector(
+    (state) => state.search
+  );
   const [activeHotelId, setActiveHotelId] = useState<string | null>(null);
-  const { city_name, city_id, loading } = useAppSelector((state) => state.search);
-  const [loadingHotels, setLoadingHotels] = useState<boolean>(false);
-  const [mounted, setMounted] = useState<boolean>(false);
 
-  // Устанавливаем mounted = true только на клиенте
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  // Используем RTK Query хук для загрузки отелей
+  const { data, isLoading, isError } = useGetHotelsByCityQuery(city_id!, {
+    skip: !city_id, // пропускаем запрос, если город не выбран
+  });
 
-  // Загружаем отели после монтирования и когда меняется location
-  useEffect(() => {
-    if (!mounted || !city_id) return;
-
-    const loadHotels = async () => {
-      setLoadingHotels(true);
-      try {
-        const res = await fetch(
-          `/api/hotels?city_id=${city_id}`
-        );
-        const data = await res.json();
-        setHotels(data.hotels);
-      } catch (err) {
-        console.error("Ошибка при загрузке отелей:", err);
-        setHotels([]);
-      } finally {
-        setLoadingHotels(false);
-      }
-    };
-
-    loadHotels();
-  }, [mounted, city_name]);
-
-  // Пока компонент не смонтирован на клиенте, показываем лоадер
-  if (!mounted) {
-    return (
-      <main className={styles.page}>
-        <Loader />
-      </main>
-    );
-  }
+  const hotels = data?.hotels || [];
 
   return (
     <main className={styles.page}>
       <SearchForm />
-
-      {location ? (
+      {city_id ? (
         <h2 className={styles.title}>Отели в {city_name}:</h2>
       ) : (
         <h2 className={styles.title}>Выберите город</h2>
@@ -66,10 +34,12 @@ export default function HotelsPage() {
 
       <div className={styles.layout}>
         <section className={styles.list}>
-          {loading || loadingHotels
+          {loading || isLoading
             ? Array.from({ length: 10 }).map((_, i) => (
                 <HotelCardSkeleton key={i} />
               ))
+            : isError
+            ? "Ошибка при загрузке отелей"
             : hotels.length === 0
             ? "Ничего не найдено"
             : hotels.map((hotel) => (
@@ -83,7 +53,7 @@ export default function HotelsPage() {
         </section>
 
         <aside className={styles.map}>
-          {loading || loadingHotels ? (
+          {loading || isLoading ? (
             <Loader />
           ) : (
             <HotelMap hotels={hotels} activeHotelId={activeHotelId} />

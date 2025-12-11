@@ -1,24 +1,21 @@
 // store/index.ts
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import {
-  TypedUseSelectorHook,
-  useDispatch,
-  useSelector,
-} from "react-redux";
-import {
-  persistStore,
-  persistReducer,
   FLUSH,
-  REHYDRATE,
   PAUSE,
   PERSIST,
+  persistReducer,
+  persistStore,
   PURGE,
   REGISTER,
+  REHYDRATE,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage"; // localStorage по умолчанию
+import authReducer from "./authSlice";
+import { hotelsApi } from "./hotelsApi";
 import searchReducer from "./searchSlice";
 import themeReducer from "./themeSlice";
-import authReducer from "./authSlice";
 
 // Конфиг для redux-persist
 const persistConfig = {
@@ -33,6 +30,7 @@ const rootReducer = combineReducers({
   search: searchReducer,
   theme: themeReducer,
   auth: authReducer,
+  [hotelsApi.reducerPath]: hotelsApi.reducer,
 });
 
 // Оборачиваем в persistReducer
@@ -47,7 +45,7 @@ export const store = configureStore({
         // Нужно для корректной работы redux-persist
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }),
+    }).concat(hotelsApi.middleware),
 });
 
 // Создаем persistor
