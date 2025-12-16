@@ -1,3 +1,4 @@
+import api from "@/api/axiosInstance";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 interface AuthState {
@@ -22,15 +23,9 @@ export const loginUser = createAsyncThunk(
     { rejectWithValue }
   ) => {
     try {
-      const res = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
+      const { data, status } = await api.post("/login", { email, password });
 
-      const data = await res.json();
-
-      if (!res.ok) return rejectWithValue(data.error || "Ошибка входа");
+      if (status !== 200) return rejectWithValue(data.error || "Ошибка входа");
 
       return data.user;
     } catch (err) {
@@ -47,15 +42,9 @@ export const registerUser = createAsyncThunk(
     { rejectWithValue }
   ) => {
     try {
-      const res = await fetch("/api/auth/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
+      const { data, status } = await api.post("/register", { email, password });
 
-      const data = await res.json();
-
-      if (!res.ok) return rejectWithValue(data.error || "Ошибка регистрации");
+      if (status !== 200) return rejectWithValue(data.error || "Ошибка регистрации");
 
       return data.user;
     } catch (err) {
@@ -68,36 +57,35 @@ export const registerUser = createAsyncThunk(
 export const logoutUser = createAsyncThunk("auth/logoutUser", async () => {
   try {
     // Удаляем cookie с токеном на сервере
-    await fetch("/api/auth/logout", { method: "POST" });
+    await api.post("/logout");
   } catch (error) {
     console.warn("Ошибка при logout-запросе:", error);
   }
   // Возвращаем ничего — просто очищаем store
 });
 
-// Очистка ошибок
-export const clearError = createAsyncThunk(
-  "auth/clearError",
-  async (_, { dispatch }) => {
-    return;
-  }
-);
-
 // Thunk для проверки авторизации при старте приложения
 export const checkAuth = createAsyncThunk(
   "auth/checkAuth",
   async (_, { rejectWithValue }) => {
     try {
-      const res = await fetch("/api/auth/check", { method: "GET" });
-      const data = await res.json();
+      const { data, status } = await api.get("/check");
 
-      if (!res.ok || !data.authenticated)
+      if (status !== 200 || !data.authenticated)
         return rejectWithValue("Не авторизован");
 
-      return data.user; // { id, email }
+      return data.user;
     } catch (err) {
       return rejectWithValue("Ошибка сервера");
     }
+  }
+);
+
+// Очистка ошибок
+export const clearError = createAsyncThunk(
+  "auth/clearError",
+  async (_, { dispatch }) => {
+    return;
   }
 );
 
@@ -138,14 +126,14 @@ const authSlice = createSlice({
 
     // Разлогирование
     builder
+      .addCase(logoutUser.pending, (state) => {
+        state.loading = true;
+      })
       .addCase(logoutUser.fulfilled, (state) => {
         state.user = null;
         state.authenticated = false;
         state.loading = false;
         state.error = null;
-      })
-      .addCase(logoutUser.pending, (state) => {
-        state.loading = true;
       })
       .addCase(logoutUser.rejected, (state) => {
         state.loading = false;

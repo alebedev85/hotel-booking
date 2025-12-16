@@ -12,6 +12,7 @@
 - **SCSS Modules**
 - **Prisma ORM**
 - **PostgreSQL (Neon.tech)**
-- **JWT (JSON Web Token)** — для авторизации
-- **bcrypt** — для хеширования паролей
-- **Redux Toolkit** — для состояния UI (тема, попапы и т.д.)
+- **JWT (JSON Web Token)** - для авторизации
+- **bcrypt** - для хеширования паролей
+- **Redux Toolkit** - для состояния UI (тема, попапы и т.д.)
+- **RTK Query** и **Thunk** - для асинхронных запросов

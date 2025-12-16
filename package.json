@@ -12,6 +12,7 @@
   "dependencies": {
     "@prisma/client": "5.16.1",
     "@reduxjs/toolkit": "^2.9.0",
+    "axios": "^1.13.2",
     "bcryptjs": "^3.0.2",
     "jsonwebtoken": "^9.0.2",
     "leaflet": "^1.9.4",
