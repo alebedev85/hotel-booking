@@ -80,7 +80,6 @@
   z-index: 20;
   width: 100%;
   max-width: 1050px;
-  // Используем shadow-lg из переменных для "парения" формы
   box-shadow: var(--shadow-lg);
   border-radius: var(--radius-lg);
   transform: translateY(48px); 

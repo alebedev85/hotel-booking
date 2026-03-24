@@ -3,20 +3,20 @@
   max-width: 1050px;
   margin: 0 auto;
   
-  // ЭФФЕКТ СТЕКЛА ИЗ КОНСТАНТ
+  // ЭФФЕКТ СТЕКЛА
   background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(var(--glass-blur)); 
   backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
+
   border: 1px solid var(--glass-border);
-  
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
   padding: var(--spacing-xs);
+  // position: relative; // Добавь для стабильности
 }
 
 .grid {
   display: grid;
-  // Направление, Заезд, Выезд, Гости + Кнопка
   grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
   align-items: stretch;
 
@@ -29,8 +29,8 @@
   }
 }
 
-// Контейнер для города
-.lastField {
+// Поле с выпадающим списком (Город)
+.fieldWithDropdown {
   position: relative;
   border-right: 1px solid var(--color-border);
 
@@ -40,17 +40,18 @@
   }
 }
 
-// Разделители для колонок
-.grid > div:not(:last-child):not(.cityFiled) {
+// Универсальный селектор разделителей для всех прямых детей grid, кроме последнего
+.grid > div:not(:last-child):not(.fieldWithDropdown) {
   border-right: 1px solid var(--color-border);
   
   @media (max-width: 900px) {
+    // Логика для сетки в 2 колонки
     &:nth-child(even) { border-right: none; }
     border-bottom: 1px solid var(--color-border);
   }
 }
 
-// Последняя секция: Гости + Кнопка
+// Последняя секция: Инпут + Кнопка
 .lastField {
   display: flex;
   align-items: center;
@@ -65,18 +66,14 @@
 .searchButton {
   background-color: var(--color-primary);
   color: var(--color-button-text);
-  
   width: 56px;
   height: 56px;
   min-width: 56px;
-  
   border-radius: var(--radius-md);
   border: none;
-  
   display: flex;
   align-items: center;
   justify-content: center;
-  
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: var(--shadow-sm);
@@ -86,17 +83,7 @@
     background-color: var(--color-primary-hover);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   }
-
-  &:active {
-    transform: scale(0.95);
-  }
-
-  &:disabled {
-    opacity: 0.5;
-    background-color: var(--color-text-muted);
-    cursor: not-allowed;
-  }
-
+  
   span {
     font-size: 24px;
     font-variation-settings: 'FILL' 0, 'wght' 500;
