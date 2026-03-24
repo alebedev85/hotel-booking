@@ -10,6 +10,10 @@ body {
   transition: background 0.2s, color 0.2s;
 }
 
+h1, h2, h3 {
+  font-family: var(--font-family-serif);
+}
+
 button {
   cursor: pointer;
   margin: 0;

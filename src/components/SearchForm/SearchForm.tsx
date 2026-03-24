@@ -21,64 +21,70 @@ export default function SearchForm() {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)} noValidate>
-      {/* ГОРОД */}
-      <div className={styles.cityFiled}>
+      <div className={styles.grid}>
+        
+        {/* ГОРОД */}
+        <div className={styles.fieldWithDropdown}>
+          <FormInput
+            name="city_name"
+            label="Destination"
+            icon="location_on"
+            placeholder="Куда поедем?"
+            register={register}
+            errors={errors}
+            rules={{
+              required: "Введите город",
+              validate: () => selectedCityId > 0 || "Выберите город из списка",
+            }}
+            onFocus={() => setShowList(true)}
+          />
+          <input type="hidden" {...register("city_id")} />
+          <CityDropdown cities={cities} show={showList} onSelect={selectCity} />
+        </div>
+
+        {/* ДАТЫ */}
         <FormInput
-          name="city_name"
-          label="Направление"
+          name="checkIn"
+          type="text" // Используем текст для стилизации как в макете, или date
+          label="Check-in"
+          icon="calendar_month"
+          placeholder="Укажите дату"
           register={register}
           errors={errors}
-          rules={{
-            required: "Введите город",
-            validate: () => selectedCityId > 0 || "Выберите город из списка",
-          }}
-          onFocus={() => setShowList(true)}
+          rules={{ required: "Дата заезда" }}
         />
 
-        <input type="hidden" {...register("city_id")} />
+        <FormInput
+          name="checkOut"
+          type="text"
+          label="Check-out"
+          icon="calendar_today"
+          placeholder="Укажите дату"
+          register={register}
+          errors={errors}
+          rules={{ required: "Дата выезда" }}
+        />
 
-        <CityDropdown cities={cities} show={showList} onSelect={selectCity} />
+        {/* ГОСТИ + КНОПКА */}
+        <div className={styles.lastField}>
+          <FormInput
+            name="guests"
+            type="text"
+            label="Guests"
+            icon="person"
+            placeholder="Количество гостей"
+            register={register}
+            errors={errors}
+            rules={{ required: "Кол-во гостей" }}
+          />
+          
+          <button type="submit" className={styles.searchButton} disabled={loading}>
+            <span className="material-symbols-outlined">
+              {loading ? "sync" : "search"}
+            </span>
+          </button>
+        </div>
       </div>
-
-      {/* Даты */}
-      <FormInput
-        name="checkIn"
-        type="date"
-        label="Заезд"
-        register={register}
-        errors={errors}
-        rules={{
-          required: "Выберите дату заезда",
-        }}
-      />
-
-      <FormInput
-        name="checkOut"
-        type="date"
-        label="Выезд"
-        register={register}
-        errors={errors}
-        rules={{
-          required: "Выберите дату выезда",
-        }}
-      />
-
-      {/* Гости */}
-      <FormInput
-        name="guests"
-        type="number"
-        label="Гости"
-        register={register}
-        errors={errors}
-        rules={{
-          required: "Укажите количество гостей",
-          min: { value: 1, message: "Минимум 1 гость" },
-        }}
-      />
-
-      <button type="submit" className={styles.searchButton} disabled={loading}>
-        {loading ? "Поиск..." : "Найти"}
-      </button>
     </form>
   );
 }

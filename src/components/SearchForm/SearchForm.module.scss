@@ -1,29 +1,104 @@
 .form {
-  display: flex;
-  gap: 1rem;
-  background: var(--color-background-hover);
-  padding: 1rem 0.5rem 1.3rem;
-  border-radius: 12px;
-  align-items: center;
+  width: 100%;
+  max-width: 1050px;
+  margin: 0 auto;
+  
+  // ЭФФЕКТ СТЕКЛА ИЗ КОНСТАНТ
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-xs);
 }
 
-.cityFiled {
+.grid {
+  display: grid;
+  // Направление, Заезд, Выезд, Гости + Кнопка
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  align-items: stretch;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Контейнер для города
+.lastField {
   position: relative;
-  flex: 1;
+  border-right: 1px solid var(--color-border);
+
+  @media (max-width: 600px) {
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+  }
+}
+
+// Разделители для колонок
+.grid > div:not(:last-child):not(.cityFiled) {
+  border-right: 1px solid var(--color-border);
+  
+  @media (max-width: 900px) {
+    &:nth-child(even) { border-right: none; }
+    border-bottom: 1px solid var(--color-border);
+  }
+}
+
+// Последняя секция: Гости + Кнопка
+.lastField {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: var(--spacing-sm);
+
+  & > div {
+    flex: 1;
+  }
 }
 
 .searchButton {
-  padding: 0.9rem 1.5rem;
-  border: none;
-  border-radius: 8px;
-  background:var(--color-primary);
+  background-color: var(--color-primary);
   color: var(--color-button-text);
-  font-size: 1rem;
-  font-weight: 600;
+  
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  
+  border-radius: var(--radius-md);
+  border: none;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-sm);
 
   &:hover {
-    background: var(--color-primary-hover);
+    transform: scale(1.05);
+    background-color: var(--color-primary-hover);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    background-color: var(--color-text-muted);
+    cursor: not-allowed;
+  }
+
+  span {
+    font-size: 24px;
+    font-variation-settings: 'FILL' 0, 'wght' 500;
   }
 }
