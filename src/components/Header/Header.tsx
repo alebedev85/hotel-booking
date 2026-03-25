@@ -7,10 +7,13 @@ import { useRef, useState } from "react";
 import { FaUserCircle } from "react-icons/fa";
 import LoginForm from "../LoginForm/LoginForm";
 import { ThemeToggle } from "../ThemeToggle/ThemeToggle";
+import { useAppDispatch } from "@/store";
+import { resetSearch } from "@/store/searchSlice";
 import UserMenu from "../UserMenu/UserMenu";
 import styles from "./Header.module.scss";
 
 export default function Header() {
+  const dispatch = useAppDispatch();
   const [menuOpen, setMenuOpen] = useState(false);
   const { user, authenticated } = useAppSelector((state) => state.auth);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -22,7 +25,8 @@ export default function Header() {
       <Link
         href="/"
         className={styles.logo}
-        onClick={() => sessionStorage.setItem("skipRestore", "true")}
+        // onClick={() => sessionStorage.setItem("skipRestore", "true")}
+        onClick={() => dispatch(resetSearch())}
       >
         Бугорок!
       </Link>

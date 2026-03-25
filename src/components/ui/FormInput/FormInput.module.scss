@@ -46,7 +46,7 @@
   padding: 0;
 
   &::placeholder {
-    color: #adb5bd;
+    color: var(--color-primary);
     font-weight: 400;
   }
 
@@ -60,7 +60,7 @@
 
 .errorMessage {
   position: absolute;
-  bottom: -18px;
+  bottom: 5px;
   left: 1.5rem;
   font-size: 11px;
   color: #d32f2f;

@@ -4,7 +4,7 @@
   font-family: var(--font-family-base);
   background-color: var(--color-background);
   color: var(--color-text);
-  min-height: 100vh;
+  min-height: 100%;
 }
 
 // --- HERO SECTION ---
@@ -82,7 +82,7 @@
   max-width: 1050px;
   box-shadow: var(--shadow-lg);
   border-radius: var(--radius-lg);
-  transform: translateY(48px); 
+  margin-top: 48px;
   animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
@@ -112,11 +112,11 @@
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(60px);
+    transform: translateY(20px); // Начинаем чуть ниже финальной точки
   }
   to {
     opacity: 1;
-    transform: translateY(48px);
+    transform: translateY(0);    // Возвращаемся в идеальный ноль
   }
 }
 
