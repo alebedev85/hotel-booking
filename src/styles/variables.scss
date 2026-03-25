@@ -1,25 +1,27 @@
 :root {
   /* --- Цвета (Luxury Palette) --- */
-  --color-primary: #1a1a1a;           /* Глубокий черный для кнопок и текста */
+  --color-primary: #1a1a1a; /* Глубокий черный для кнопок и текста */
   --color-primary-hover: #000000;
-  --color-accent: #d4af37;            /* Золотой для звезд и акцентов */
-  
+  --color-accent: #d4af37; /* Золотой для звезд и акцентов */
+  --button-hover-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+
   --color-background: #ffffff;
-  --color-background-soft: #f8f9fa;    /* Для секции Editorial Choice */
+  --color-background-soft: #f8f9fa; /* Для секции Editorial Choice */
   --color-text: #1a1a1a;
-  --color-text-muted: #5f6368;        /* Для подписей в форме */
+  --color-text-muted: #5f6368; /* Для подписей в форме */
   --color-button-text: #ffffff;
-  
+
   --color-border: rgba(0, 0, 0, 0.08); /* Очень тонкие линии */
   --color-glass-border: rgba(255, 255, 255, 0.3);
-  
+
   --color-warning: #d32f2f;
   --color-success: #2e7d32;
 
   /* --- Шрифты --- */
   --font-family-base: "Inter", sans-serif;
-  --font-family-serif: "Playfair Display", serif; /* Тот самый премиальный шрифт */
-  
+  --font-family-serif:
+    "Playfair Display", serif; /* Тот самый премиальный шрифт */
+
   --font-size-xs: 0.65rem;
   --font-size-sm: 0.875rem;
   --font-size-md: 1rem;
@@ -37,15 +39,15 @@
   /* --- Скругления и тени --- */
   --radius-sm: 8px;
   --radius-md: 12px;
-  --radius-lg: 24px;   /* Для основной стеклянной панели */
+  --radius-lg: 24px; /* Для основной стеклянной панели */
 
   /* Обновленные тени (уходим от черных плотных теней к мягким) */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
   --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
 
-  --glass-bg: rgba(255, 255, 255, 0.7);      /* Цвет подложки */
-  --glass-border: rgba(255, 255, 255, 0.3);  /* Цвет границы */
-  --glass-blur: 10px;                        /* Сила размытия */
+  --glass-bg: rgba(255, 255, 255, 0.7); /* Цвет подложки */
+  --glass-border: rgba(255, 255, 255, 0.3); /* Цвет границы */
+  --glass-blur: 10px; /* Сила размытия */
 
   --hover-overlay: rgba(0, 0, 0, 0.02);
 }
@@ -54,13 +56,14 @@
 [data-theme="dark"] {
   --color-primary: #ffffff;
   --color-primary-hover: #eeeeee;
+  --button-hover-shadow: 0 6px 20px rgba(216, 216, 216, 0.15);
   --color-background: #0f0f0f;
   --color-text: #f5f5f5;
   --color-text-muted: #9aa0a6;
   --color-border: rgba(255, 255, 255, 0.1);
-  
+
   --glass-bg: rgba(20, 20, 20, 0.6);
   --glass-border: rgba(255, 255, 255, 0.1);
-  
+
   --color-button-text: #1a1a1a;
 }

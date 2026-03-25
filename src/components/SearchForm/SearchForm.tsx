@@ -3,6 +3,7 @@
 import CityDropdown from "@/components/ui/CityDropdown/CityDropdown";
 import FormInput from "@/components/ui/FormInput/FormInput";
 import { useSearchForm } from "@/hooks/useSearchForm";
+import { useEffect, useRef } from "react";
 import styles from "./SearchForm.module.scss";
 
 export default function SearchForm() {
@@ -19,10 +20,26 @@ export default function SearchForm() {
     onSubmit,
   } = useSearchForm();
 
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (formRef.current && !formRef.current.contains(event.target as Node)) {
+        setShowList(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [setShowList]);
+
   return (
-    <form className={styles.form} onSubmit={handleSubmit(onSubmit)} noValidate>
+    <form
+      ref={formRef}
+      className={styles.form}
+      onSubmit={handleSubmit(onSubmit)}
+      noValidate
+    >
       <div className={styles.grid}>
-        
         {/* ГОРОД */}
         <div className={styles.fieldWithDropdown}>
           <FormInput
@@ -39,7 +56,12 @@ export default function SearchForm() {
             onFocus={() => setShowList(true)}
           />
           <input type="hidden" {...register("city_id")} />
-          <CityDropdown cities={cities} show={showList} onSelect={selectCity} />
+          <CityDropdown
+            cities={cities}
+            setShow={setShowList}
+            show={showList}
+            onSelect={selectCity}
+          />
         </div>
 
         {/* ДАТЫ */}
@@ -58,7 +80,7 @@ export default function SearchForm() {
           name="checkOut"
           type="text"
           label="Check-out"
-          icon="calendar_today"
+          icon="calendar_month"
           placeholder="Укажите дату"
           register={register}
           errors={errors}
@@ -77,8 +99,12 @@ export default function SearchForm() {
             errors={errors}
             rules={{ required: "Кол-во гостей" }}
           />
-          
-          <button type="submit" className={styles.searchButton} disabled={loading}>
+
+          <button
+            type="submit"
+            className={styles.searchButton}
+            disabled={loading}
+          >
             <span className="material-symbols-outlined">
               {loading ? "sync" : "search"}
             </span>

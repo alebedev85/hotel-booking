@@ -1,27 +1,69 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .dropdown {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 8px; // Небольшой отступ внутри для элементов
   position: absolute;
-  top: 100%;
+  top: calc(100% + 8px); // Чуть ниже формы
   left: 0;
-  width: 100%;
-  background: var(--color-background);
-  border: 1px solid var(--color-border);
-  border-radius: 6px;
-  margin-top: 4px;
-  max-height: 240px;
+  width: 90%;
+  animation: fadeIn 0.2s ease-out;
+
+  // ЭФФЕКТ СТЕКЛА
+  background: var(--glass-bg); // Тот же фон, что у формы
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  max-height: 280px;
   overflow-y: auto;
-  z-index: 99;
-  box-shadow: var(--shadow-sm);
+  z-index: 100;
+  box-shadow: var(--shadow-lg);
+
+  // Кастомный скроллбар (чтобы не портил вид)
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+  }
 
   li {
-    padding: 10px 12px;
+    padding: 12px 16px;
     cursor: pointer;
-    transition: background 0.15s ease;
+    border-radius: var(--radius-md); // Закругляем пункты при ховере
+    transition: all 0.2s ease;
+    color: var(--color-text);
+    font-size: 14px;
+    font-weight: 500;
 
     &:hover {
-      background: var(--color-background-hover);
+      background: rgba(255, 255, 255, 0.1); // Легкий блик при наведении
+      padding-left: 20px; // Небольшая анимация смещения
+      color: var(--color-primary);
+    }
+
+    // Разделитель между городами (опционально)
+    &:not(:last-child) {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
   }
+}
+
+.cityItem {
+  display: flex;
+  align-items: center;
+  gap: 8px; // Расстояние между иконкой и текстом
 }

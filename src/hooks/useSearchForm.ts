@@ -86,8 +86,8 @@ export function useSearchForm() {
    *  - запускаем валидацию через RHF
    */
   const selectCity = (city: ICity) => {
-    setValue("city_name", city.name_ru, { shouldValidate: true });
     setValue("city_id", city.id, { shouldValidate: true });
+    setValue("city_name", city.name_ru, { shouldValidate: true });
     setCities([]);
     setShowList(false);
   };
