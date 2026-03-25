@@ -23,7 +23,7 @@ export interface ICity {
 export interface IFormValues {
   city_name: string;
   city_id: number;
-  checkIn: string;
-  checkOut: string;
+  checkIn: Date | null;
+  checkOut: Date | null;
   guests: number;
 }

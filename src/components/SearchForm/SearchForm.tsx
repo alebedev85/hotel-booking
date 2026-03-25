@@ -4,6 +4,7 @@ import CityDropdown from "@/components/ui/CityDropdown/CityDropdown";
 import FormInput from "@/components/ui/FormInput/FormInput";
 import { useSearchForm } from "@/hooks/useSearchForm";
 import { useEffect, useRef } from "react";
+import FormDatePicker from "../ui/FormDatePicker/FormDatePicker";
 import styles from "./SearchForm.module.scss";
 
 export default function SearchForm() {
@@ -17,7 +18,9 @@ export default function SearchForm() {
     selectCity,
     loading,
     selectedCityId,
+    control,
     onSubmit,
+    watch,
   } = useSearchForm();
 
   const formRef = useRef<HTMLFormElement>(null);
@@ -64,28 +67,34 @@ export default function SearchForm() {
           />
         </div>
 
-        {/* ДАТЫ */}
-        <FormInput
-          name="checkIn"
-          type="text" // Используем текст для стилизации как в макете, или date
-          label="Check-in"
-          icon="calendar_month"
-          placeholder="Укажите дату"
-          register={register}
-          errors={errors}
-          rules={{ required: "Дата заезда" }}
-        />
+        {/* Дата заезда */}
+        <div className={styles.lastField}>
+          <FormDatePicker
+            name="checkIn"
+            label="Check-in"
+            icon="calendar_month"
+            placeholder="Когда заезд?"
+            control={control}
+            required="Выберите дату заезда"
+          />
+        </div>
 
-        <FormInput
-          name="checkOut"
-          type="text"
-          label="Check-out"
-          icon="calendar_month"
-          placeholder="Укажите дату"
-          register={register}
-          errors={errors}
-          rules={{ required: "Дата выезда" }}
-        />
+        {/* Дата выезда */}
+        <div className={styles.lastField}>
+          <FormDatePicker
+            name="checkOut"
+            label="Check-out"
+            icon="calendar_month"
+            placeholder="Когда выезд?"
+            control={control}
+            minDate={
+              watch("checkIn") && watch("checkIn") !== null
+                ? new Date(watch("checkIn")!)
+                : new Date()
+            }
+            required="Выберите дату выезда"
+          />
+        </div>
 
         {/* ГОСТИ + КНОПКА */}
         <div className={styles.lastField}>

@@ -4,8 +4,8 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 interface SearchState {
   city_name: string;
   city_id: number | null;
-  checkIn: string;
-  checkOut: string;
+  checkIn: Date | null;
+  checkOut: Date | null;
   guests: number;
   lat: number | null;
   lon: number | null;
@@ -16,8 +16,8 @@ interface SearchState {
 const initialState: SearchState = {
   city_name: "",
   city_id: null,
-  checkIn: "",
-  checkOut: "",
+  checkIn: null,
+  checkOut: null,
   guests: 1,
   lat: null,
   lon: null,

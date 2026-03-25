@@ -1,137 +1,146 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { ICity } from "@/types";
 import { useAppDispatch, useAppSelector } from "@/store";
 import { fetchCoordinates, setField } from "@/store/searchSlice";
+import { ICity, IFormValues } from "@/types";
 import { useRouter } from "next/navigation";
-import { IFormValues } from "@/types";
+import { useEffect, useRef, useState } from "react";
+import { useForm } from "react-hook-form";
 
-/**
- * Хук инкапсулирует всю логику формы поиска:
- *  - управление RHF (react-hook-form)
- *  - автокомплит городов
- *  - валидацию выбранного города
- *  - обновление Redux полей
- *  - редирект на страницу с отелями
- */
 export function useSearchForm() {
   const dispatch = useAppDispatch();
   const router = useRouter();
 
-  // Получаем текущие значения из Redux,
-  // чтобы подставить их в defaultValues (восстановление состояния)
+  // Реф для хранения таймера дебаунса
+  const debounceTimer = useRef<NodeJS.Timeout | null>(null);
+
+  // Получаем данные из Redux
   const { loading, city_id, city_name, checkIn, checkOut, guests } =
     useAppSelector((state) => state.search);
 
-  /**
-   * Инициализация формы.
-   * RHF берёт данные из Redux как стартовые —
-   * позволяет сохранять введённые поля при возврате на форму.
-   */
   const {
     register,
     handleSubmit,
     setValue,
     watch,
+    control, // Необходим для FormDatePicker
+    clearErrors, // Для фикса красной ошибки при выборе города
     formState: { errors },
   } = useForm<IFormValues>({
     defaultValues: {
       city_name: city_name || "",
       city_id: city_id || 0,
-      checkIn,
-      checkOut,
-      guests,
+      // DatePicker ожидает объект Date или null
+      checkIn: checkIn ? new Date(checkIn) : null,
+      checkOut: checkOut ? new Date(checkOut) : null,
+      guests: guests || 2,
     },
   });
 
-  /** Состояние списка городов для автокомплита */
   const [cities, setCities] = useState<ICity[]>([]);
-
-  /** Флаг отображения выпадающего списка */
   const [showList, setShowList] = useState(false);
 
-  /** Отслеживаем ввод города */
+  // Следим за значениями для логики автокомплита и валидации
   const query = watch("city_name");
-
-  /** Id выбранного города — для валидации */
   const selectedCityId = watch("city_id");
+  const checkInDate = watch("checkIn");
 
   /**
-   * Автозагрузка городов при вводе
-   * Срабатывает, когда пользователь вводит хотя бы 2 символа
+   * Автозагрузка городов с дебаунсом 300мс
    */
   useEffect(() => {
-    const load = async () => {
-      // Если введено меньше 2 символов — скрываем список
-      if (!query || query.length < 2) {
-        setCities([]);
-        return;
+    if (debounceTimer.current) clearTimeout(debounceTimer.current);
+
+    if (!query || query.length < 2) {
+      setCities([]);
+      return;
+    }
+
+    debounceTimer.current = setTimeout(async () => {
+      try {
+        const res = await fetch(
+          `/api/cities?query=${encodeURIComponent(query)}`,
+        );
+        if (res.ok) {
+          const data = await res.json();
+          setCities(data);
+        }
+      } catch (err) {
+        console.error("Failed to fetch cities:", err);
       }
+    }, 300);
 
-      // Запрашиваем подходящие города с сервера
-      const res = await fetch(`/api/cities?query=${query}`);
-      const data = await res.json();
-      setCities(data);
+    return () => {
+      if (debounceTimer.current) clearTimeout(debounceTimer.current);
     };
-
-    load();
   }, [query]);
 
   /**
-   * Выбор города из списка:
-   *  - заполняем поля city_name и city_id
-   *  - скрываем список
-   *  - запускаем валидацию через RHF
+   * Выбор города: исправляем порядок и чистим ошибки
    */
   const selectCity = (city: ICity) => {
+    // 1. Сначала обновляем ID
     setValue("city_id", city.id, { shouldValidate: true });
+    // 2. Обновляем имя
     setValue("city_name", city.name_ru, { shouldValidate: true });
+    // 3. Принудительно чистим ошибку, возникшую из-за потери фокуса
+    clearErrors("city_name");
+
     setCities([]);
     setShowList(false);
   };
 
   /**
-   * Сабмит формы:
-   *  1. Записываем данные в Redux
-   *  2. Фетчим координаты города (асинхронно)
-   *  3. Обновляем дополнительные поля
-   *  4. Перенаправляем на страницу отелей с параметрами
+   * Сабмит: форматируем даты перед сохранением
    */
   const onSubmit = async (data: IFormValues) => {
-    // Обновляем даты и гостей
-    dispatch(setField({ field: "checkIn", value: data.checkIn }));
-    dispatch(setField({ field: "checkOut", value: data.checkOut }));
+    // Превращаем Date объекты в ISO строки для Redux/API
+    const isoCheckIn =
+      data.checkIn instanceof Date
+        ? data.checkIn.toISOString()
+        : data.checkIn || "";
+    const isoCheckOut =
+      data.checkOut instanceof Date
+        ? data.checkOut.toISOString()
+        : data.checkOut || "";
+
+    // Обновляем Redux
+    dispatch(setField({ field: "checkIn", value: isoCheckIn }));
+    dispatch(setField({ field: "checkOut", value: isoCheckOut }));
     dispatch(setField({ field: "guests", value: data.guests }));
-
-    // Получаем координаты выбранного города
-    await dispatch(fetchCoordinates(data.city_name));
-
-    // Сохраняем id и название в Redux
     dispatch(setField({ field: "city_id", value: data.city_id }));
     dispatch(setField({ field: "city_name", value: data.city_name }));
 
-    // Редирект с параметрами
-    router.push(
-      `/hotels?city_id=${data.city_id}&checkIn=${data.checkIn}&checkOut=${data.checkOut}&guests=${data.guests}`
-    );
+    // Координаты
+    await dispatch(fetchCoordinates(data.city_name));
+
+    // Формируем query-параметры для URL
+    const params = new URLSearchParams({
+      city_id: String(data.city_id),
+      checkIn: isoCheckIn,
+      checkOut: isoCheckOut || "",
+      guests: String(data.guests),
+    });
+
+    router.push(`/hotels?${params.toString()}`);
   };
 
-  /**
-   * Возвращаем наружу только то, что требуется форме.
-   * Лишняя логика и состояние остаётся инкапсулировано в хуке.
-   */
   return {
+    // RHF
     register,
+    control,
     handleSubmit,
     errors,
+    watch,
+    // Состояние городов
+    cities,
     showList,
     setShowList,
-    cities,
     selectCity,
+    // Данные для UI
     loading,
     selectedCityId,
+    checkInDate, // Чтобы ограничить minDate во втором календаре
     onSubmit,
   };
 }
