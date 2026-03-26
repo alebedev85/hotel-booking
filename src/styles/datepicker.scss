@@ -1,0 +1,64 @@
+//Сброс стилей для datepicker, чтобы не мешали кастомным
+.react-datepicker {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(var(--glass-blur)) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-lg);
+  font-family: inherit;
+
+  &__header {
+    background: transparent !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  &__current-month,
+  &__day-name {
+    color: var(--color-text) !important;
+  }
+
+  &__day {
+    color: var(--color-text) !important;
+    &:hover {
+      background: rgba(255, 255, 255, 0.1) !important;
+    }
+    &--selected {
+      background: var(--color-primary) !important;
+    }
+    &--today {
+      border: 1px solid var(--color-primary) !important;
+      background: none !important;
+    }
+    &--disabled {
+      opacity: 0.2;
+    }
+  }
+}
+
+.react-datepicker__navigation {
+    top: 8px; // Выравниваем по вертикали в хедере
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1); // Блик при наведении
+    }
+  }
+
+  // Сами иконки-стрелочки (внутренние элементы)
+  .react-datepicker__navigation-icon {
+    &::before {
+      border-color: var(--color-text); // Цвет стрелочек под твой текст
+      border-width: 2px;
+      top: 10px;
+    }
+  }
+
+  // Убираем стандартные фоны, если они где-то вылезают
+  .react-datepicker__navigation--previous,
+  .react-datepicker__navigation--next {
+    border: none;
+    background: none;
+  }
