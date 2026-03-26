@@ -1,15 +1,13 @@
 "use client";
 
 import { useClickOutside } from "@/hooks/useClickOutside";
-import { useAppSelector } from "@/store";
+import { useAppSelector, useAppDispatch } from "@/store";
+import { resetSearch } from "@/store/searchSlice";
 import Link from "next/link";
 import { useRef, useState } from "react";
-import { FaUserCircle } from "react-icons/fa";
 import LoginForm from "../LoginForm/LoginForm";
-import { ThemeToggle } from "../ThemeToggle/ThemeToggle";
-import { useAppDispatch } from "@/store";
-import { resetSearch } from "@/store/searchSlice";
 import UserMenu from "../UserMenu/UserMenu";
+import { ThemeToggle } from "../ThemeToggle/ThemeToggle";
 import styles from "./Header.module.scss";
 
 export default function Header() {
@@ -22,33 +20,44 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      <Link
-        href="/"
-        className={styles.logo}
-        // onClick={() => sessionStorage.setItem("skipRestore", "true")}
-        onClick={() => dispatch(resetSearch())}
-      >
-        Бугорок!
-      </Link>
-
-      <div className={styles.actions} ref={menuRef}>
-        <ThemeToggle />
-        <button
-          className={styles.loginButton}
-          onClick={() => setMenuOpen(!menuOpen)}
+      <div className={styles.container}>
+        {/* ЛОГОТИП */}
+        <Link
+          href="/"
+          className={styles.logo}
+          onClick={() => dispatch(resetSearch())}
         >
-          <FaUserCircle />
-          {user?.email}
-        </button>
-        {menuOpen && (
-          <div className={styles.dropdownMenu}>
-            {authenticated ? (
-              <UserMenu onClose={() => setMenuOpen(false)}/>
-            ) : (
-              <LoginForm onClose={() => setMenuOpen(false)} />
-            )}
-          </div>
-        )}
+          Бугорок!
+        </Link>
+
+        {/* ЦЕНТРАЛЬНАЯ НАВИГАЦИЯ */}
+        <div className={styles.navLinks}>
+          <Link href="#" className={styles.link}>Мои бронирования</Link>
+          <Link href="#" className={styles.link}>Язык</Link>
+          <Link href="#" className={styles.link}>Валюта</Link>
+        </div>
+
+        {/* ПРАВАЯ ЧАСТЬ */}
+        <div className={styles.actions} ref={menuRef}>
+          <ThemeToggle />
+          
+          <button
+            className={styles.loginButton}
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {authenticated ? user?.email?.split('@')[0] : "Вход"}
+          </button>
+
+          {menuOpen && (
+            <div className={styles.dropdownMenu}>
+              {authenticated ? (
+                <UserMenu onClose={() => setMenuOpen(false)} />
+              ) : (
+                <LoginForm onClose={() => setMenuOpen(false)} />
+              )}
+            </div>
+          )}
+        </div>
       </div>
     </header>
   );
