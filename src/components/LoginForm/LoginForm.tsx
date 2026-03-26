@@ -30,102 +30,67 @@ export default function LoginForm({ onClose }: AuthLoginForm) {
   } = useForm<FormData>();
 
   const [isLoginMode, setLoginMode] = useState(true);
-  const [message, setMessage] = useState(""); // сообщение
-  const [messageType, setMessageType] = useState<"success" | "error">(
-    "success"
-  );
-
-  useEffect(() => {
-    if (authenticated) {
-      setMessage(isLoginMode ? "Вы вошли!" : "Регистрация успешна!");
-      setMessageType("success");
-    } else if (error) {
-      setMessage(error);
-      setMessageType("error");
-    }
-  }, [authenticated, error, isLoginMode]);
 
   const onSubmit = async ({ email, password }: FormData) => {
-    setMessage("");
     dispatch(clearError());
-
     try {
       if (isLoginMode) {
-        // Логин
         await dispatch(loginUser({ email, password })).unwrap();
       } else {
-        // Регистрация
         await dispatch(registerUser({ email, password })).unwrap();
       }
-      //При необходимости закрыть форму:
       onClose();
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (err: any) {
-      setMessage(err.message || "Ошибка");
-      setMessageType("error");
+    } catch (err) {
+      console.error(err);
     }
-  };
-
-  const handleToggle = () => {
-    setLoginMode(!isLoginMode);
-    setMessage("");
-    dispatch(clearError());
   };
 
   return (
-    <form className={styles.loginForm} onSubmit={handleSubmit(onSubmit)}>
-      <div className={styles.inputs}>
-        <input
-          id="email"
-          type="email"
-          placeholder="Почта"
-          {...register("email", {
-            required: "Email обязателен",
-            pattern: {
-              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-              message: "Введите корректный email",
-            },
-          })}
-        />
-        <input
-          id="password"
-          type="password"
-          placeholder="Пароль"
-          {...register("password", {
-            required: "Пароль обязателен",
-            minLength: {
-              value: 6,
-              message: "Пароль должен содержать минимум 6 символа",
-            },
-          })}
-        />
-      </div>
-
-      {/* Сообщение об успехе или ошибке */}
-      {message && (
-        <p
-          className={messageType === "success" ? styles.success : styles.error}
-        >
-          {message}
-        </p>
-      )}
-
-      {loading ? (
-        <Loader />
-      ) : (
-        <div className={styles.actions}>
-          <button className={styles.loginButton}>
-            {isLoginMode ? "Войти" : "Зарегистрироваться"}
-          </button>
-          <button
-            type="button"
-            className={styles.modeButton}
-            onClick={handleToggle}
-          >
-            {isLoginMode ? "Зарегистрироваться" : "Войти"}
-          </button>
+    <div className={styles.glassWrapper}>
+      <form className={styles.loginForm} onSubmit={handleSubmit(onSubmit)}>
+        <h3 className={styles.title}>{isLoginMode ? "Вход" : "Создать аккаунт"}</h3>
+        
+        <div className={styles.inputs}>
+          <div className={styles.inputGroup}>
+            <span className="material-symbols-outlined">mail</span>
+            <input
+              type="email"
+              placeholder="Email"
+              {...register("email", { required: true })}
+            />
+          </div>
+          
+          <div className={styles.inputGroup}>
+            <span className="material-symbols-outlined">lock</span>
+            <input
+              type="password"
+              placeholder="Password"
+              {...register("password", { required: true })}
+            />
+          </div>
         </div>
-      )}
-    </form>
+
+        {error && <p className={styles.errorText}>{error}</p>}
+
+        <div className={styles.actions}>
+          {loading ? (
+            <Loader />
+          ) : (
+            <>
+              <button type="submit" className={styles.submitBtn}>
+                {isLoginMode ? "Войти" : "Зарегистрироваться"}
+              </button>
+              <button
+                type="button"
+                className={styles.switchBtn}
+                onClick={() => setLoginMode(!isLoginMode)}
+              >
+                {isLoginMode ? "Создать аккаунт" : "Уже есть аккаунт?"}
+              </button>
+            </>
+          )}
+        </div>
+      </form>
+    </div>
   );
 }

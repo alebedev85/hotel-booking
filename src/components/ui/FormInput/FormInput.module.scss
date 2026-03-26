@@ -17,7 +17,7 @@
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-weight: 800;
-  color: #5f6368; // on-surface-variant
+  color: var(--color-text-muted); // on-surface-variant
   margin-bottom: 6px;
   cursor: pointer;
 }
