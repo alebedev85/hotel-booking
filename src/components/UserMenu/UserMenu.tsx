@@ -15,34 +15,51 @@ export default function UserMenu({ onClose }: LogoutFormProps) {
 
   const handleLogout = async () => {
     try {
-      // Вызываем logout thunk — он делает POST /api/auth/logout
       await dispatch(logoutUser()).unwrap();
-
-      // Закрываем меню (например, модальное окно)
       onClose();
     } catch (error) {
       console.error("Ошибка при выходе:", error);
     }
   };
+
   return (
-    <aside className={styles.menu}>
+    <aside className={styles.glassWrapper}>
       <div className={styles.header}>
-        <span className={styles.email}>{user?.email}</span>
-        <div className={styles.actions}>
-          <Link href="/settings">Настройки</Link>
-          <button onClick={handleLogout}>Выход</button>
+        <div className={styles.userInfo}>
+          <span className="material-symbols-outlined">account_circle</span>
+          <span className={styles.email}>{user?.email?.split('@')[0]}</span>
+        </div>
+        <div className={styles.topActions}>
+          <Link href="/settings" className={styles.iconLink} title="Settings">
+            <span className="material-symbols-outlined">settings</span>
+          </Link>
+          <button onClick={handleLogout} className={styles.iconLink} title="Logout">
+            <span className="material-symbols-outlined">logout</span>
+          </button>
         </div>
       </div>
 
       <nav className={styles.nav}>
-        <Link href="/bookings">Мои бронирования</Link>
-        <Link href="/transfers">Мои трансферы</Link>
-        <Link href="/favorites">Мои избранные отели</Link>
+        <Link href="/bookings" className={styles.navLink}>
+          <span className="material-symbols-outlined">hotel</span>
+          Мои бронирования
+        </Link>
+        <Link href="/transfers" className={styles.navLink}>
+          <span className="material-symbols-outlined">directions_car</span>
+          Мои трансферы
+        </Link>
+        <Link href="/favorites" className={styles.navLink}>
+          <span className="material-symbols-outlined">favorite</span>
+          Мои избранные отели
+        </Link>
       </nav>
 
       <section className={styles.points}>
-        <p>Ваши баллы</p>
-        <span className={styles.count}>0 ⭐</span>
+        <div className={styles.pointsLabel}>
+          <span className="material-symbols-outlined">stars</span>
+          <p>Ваши баллы</p>
+        </div>
+        <span className={styles.count}>0</span>
       </section>
     </aside>
   );
