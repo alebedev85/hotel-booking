@@ -2,7 +2,7 @@
 
 import { AppDispatch, RootState } from "@/store";
 import { clearError, loginUser, registerUser } from "@/store/authSlice";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../Loader/Loader";
@@ -19,8 +19,8 @@ interface AuthLoginForm {
 
 export default function LoginForm({ onClose }: AuthLoginForm) {
   const dispatch = useDispatch<AppDispatch>();
-  const { loading, error, authenticated } = useSelector(
-    (state: RootState) => state.auth
+  const { loading, error } = useSelector(
+    (state: RootState) => state.auth,
   );
 
   const {
@@ -48,8 +48,10 @@ export default function LoginForm({ onClose }: AuthLoginForm) {
   return (
     <div className={styles.glassWrapper}>
       <form className={styles.loginForm} onSubmit={handleSubmit(onSubmit)}>
-        <h3 className={styles.title}>{isLoginMode ? "Вход" : "Создать аккаунт"}</h3>
-        
+        <h3 className={styles.title}>
+          {isLoginMode ? "Вход" : "Создать аккаунт"}
+        </h3>
+
         <div className={styles.inputs}>
           <div className={styles.inputGroup}>
             <span className="material-symbols-outlined">mail</span>
@@ -59,7 +61,7 @@ export default function LoginForm({ onClose }: AuthLoginForm) {
               {...register("email", { required: true })}
             />
           </div>
-          
+
           <div className={styles.inputGroup}>
             <span className="material-symbols-outlined">lock</span>
             <input

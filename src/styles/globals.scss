@@ -1,6 +1,10 @@
 @use "./variables.scss" as *;
 @use "./datepicker.scss" as *;
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   margin: 0;
