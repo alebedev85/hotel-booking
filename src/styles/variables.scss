@@ -1,5 +1,4 @@
 :root {
-  /* --- Цвета (Luxury Palette) --- */
   --color-primary:#16120F; /* Глубокий черный для кнопок и текста */
   --color-primary-hover: #000000;
   --color-accent: #d4af37; /* Золотой для звезд и акцентов */
@@ -20,7 +19,7 @@
   /* --- Шрифты --- */
   --font-family-base: "Inter", sans-serif;
   --font-family-serif:
-    "Playfair Display", serif; /* Тот самый премиальный шрифт */
+    "Playfair Display", serif;
 
   --font-size-xs: 0.65rem;
   --font-size-sm: 0.875rem;
@@ -67,4 +66,7 @@
   --glass-border: rgba(255, 255, 255, 0.1);
 
   --color-button-text: #1a1a1a;
+
+  --hover-overlay: rgba(255, 255, 255, 0.05); /* Светлый блик вместо темного пятна */
+  --color-glass-border: rgba(255, 255, 255, 0.15);
 }
