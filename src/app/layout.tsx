@@ -8,6 +8,7 @@ import 'material-symbols';
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Providers } from "./providers";
+import Footer from "@/components/Footer/Footer";
 
 export const metadata: Metadata = {
   title: "Бугорок!",
@@ -44,6 +45,7 @@ export default function RootLayout({
           </Suspense>
           <Header />
           {children}
+          <Footer />
         </Providers>
       </body>
     </html>

@@ -1,0 +1,132 @@
+.footer {
+  width: 100%;
+  background-color: var(--color-background-hard);
+  color: var(--color-text);
+  border-top: 1px solid var(--color-border);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--spacing-xl);
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.brandSection {
+  max-width: 320px;
+
+  .logo {
+    font-family: var(--font-family-serif);
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-extra-wide);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+  }
+
+  .tagline {
+    font-size: var(--font-size-md);
+    color: var(--color-primary);
+    line-height: 1.6;
+  }
+}
+
+.linksGrid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 60px;
+}
+
+.columnTitle {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-extra-wide);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+
+  a {
+    text-decoration: none;
+    color: var(--color-primary);
+    font-size: var(--font-size-md);
+    font-weight: 500;
+    width: fit-content;
+    position: relative;
+    padding-bottom: 2px;
+    transition: color 0.3s ease;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 1px;
+      background-color: var(--color-text);
+      transition:
+        width 0.3s ease,
+        left 0.3s ease;
+    }
+
+    &:hover {
+      text-shadow: 0 0 0.5px var(--color-text);
+      color: var(--color-primary-hover);
+      &::after {
+        width: 100%;
+        left: 0;
+      }
+    }
+  }
+}
+
+.bottomBar {
+  border-top: 1px solid var(--color-border);
+  padding: var(--spacing-lg) 0;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.bottomContainer {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .copyright {
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+  }
+
+  .socials {
+    display: flex;
+    gap: var(--spacing-lg);
+    color: var(--color-text);
+
+    span {
+      font-size: 20px;
+      cursor: pointer;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: var(--color-primary);
+        transform: scale(1.1);
+      }
+    }
+  }
+}
