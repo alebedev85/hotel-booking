@@ -2,7 +2,7 @@
 
 import SearchForm from "@/components/SearchForm/SearchForm";
 import Image from "next/image";
-// import TrendingDestinations from "@/components/TrendingDestinations/TrendingDestinations";
+import TrendingDestinations from "@/components/TrendingDestinations/TrendingDestinations";
 // import EditorialChoice from "@/components/EditorialChoice/EditorialChoice";
 import styles from "@/styles/Home.module.scss";
 
@@ -31,9 +31,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* НОВЫЕ СЕКЦИИ 
       <TrendingDestinations />
-      <EditorialChoice /> */}
+      {/* <EditorialChoice /> */}
     </main>
   );
 }
