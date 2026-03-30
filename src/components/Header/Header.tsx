@@ -1,13 +1,13 @@
 "use client";
 
 import { useClickOutside } from "@/hooks/useClickOutside";
-import { useAppSelector, useAppDispatch } from "@/store";
+import { useAppDispatch, useAppSelector } from "@/store";
 import { resetSearch } from "@/store/searchSlice";
 import Link from "next/link";
 import { useRef, useState } from "react";
 import LoginForm from "../LoginForm/LoginForm";
-import UserMenu from "../UserMenu/UserMenu";
 import { ThemeToggle } from "../ThemeToggle/ThemeToggle";
+import UserMenu from "../UserMenu/UserMenu";
 import styles from "./Header.module.scss";
 
 export default function Header() {
@@ -32,20 +32,26 @@ export default function Header() {
 
         {/* ЦЕНТРАЛЬНАЯ НАВИГАЦИЯ */}
         <div className={styles.navLinks}>
-          <Link href="#" className={styles.link}>Мои бронирования</Link>
-          <Link href="#" className={styles.link}>Язык</Link>
-          <Link href="#" className={styles.link}>Валюта</Link>
+          <Link href="#" className={styles.link}>
+            Мои бронирования
+          </Link>
+          <Link href="#" className={styles.link}>
+            Язык
+          </Link>
+          <Link href="#" className={styles.link}>
+            Валюта
+          </Link>
         </div>
 
         {/* ПРАВАЯ ЧАСТЬ */}
         <div className={styles.actions} ref={menuRef}>
           <ThemeToggle />
-          
+
           <button
             className={styles.loginButton}
             onClick={() => setMenuOpen(!menuOpen)}
           >
-            {authenticated ? user?.email?.split('@')[0] : "Вход"}
+            {authenticated ? user?.email?.split("@")[0] : "Вход"}
           </button>
 
           {menuOpen && (

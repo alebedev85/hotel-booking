@@ -20,6 +20,7 @@
 
   @media (max-width: 768px) {
     height: 700px;
+    justify-content: space-between;
   }
 }
 
@@ -55,12 +56,20 @@
   margin-bottom: var(--spacing-xl);
   animation: fadeInDown 0.8s ease-out;
 
+  @media (max-width: 768px) {
+    margin-bottom: 0;
+  }
+
   .title {
     font-size: var(--font-size-hero);
     color: #ffffff; // В Hero всегда белый для контраста с фото
     margin-bottom: var(--spacing-md);
     font-weight: 400;
     text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+    @media (max-width: 768px) {
+    margin-bottom: 0;
+  }
   }
 
   .subtitle {
@@ -82,8 +91,12 @@
   max-width: 1050px;
   box-shadow: var(--shadow-lg);
   border-radius: var(--radius-lg);
-  margin-top: 48px;
+  margin-top: var(--spacing-lg);
   animation: fadeInUp 0.8s ease-out 0.2s both;
+
+  @media (max-width: 768px) {
+    margin-top: 0;
+  }
 }
 
 // Подпись "Привет, браток"
@@ -116,7 +129,7 @@
   }
   to {
     opacity: 1;
-    transform: translateY(0);    // Возвращаемся в идеальный ноль
+    transform: translateY(0); // Возвращаемся в идеальный ноль
   }
 }
 
