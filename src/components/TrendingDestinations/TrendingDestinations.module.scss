@@ -2,7 +2,7 @@
   max-width: 1280px;
   margin: var(--spacing-md) auto;
   padding: 0 var(--spacing-lg);
-  margin-top: 120px; // Адаптировал mt-48 под твою систему
+  margin-top: 100px; // Адаптировал mt-48 под твою систему
   margin-bottom: 80px;
 }
 
@@ -20,7 +20,6 @@
   }
 
   .title {
-    font-family: var(--font-family-serif);
     font-size: var(--font-size-title);
     color: var(--color-primary);
     margin-top: var(--spacing-xs);
@@ -29,7 +28,6 @@
 
 .viewAll {
   color: var(--color-primary);
-  font-weight: 600;
   text-decoration: none;
   font-size: var(--font-size-sm);
   position: relative;

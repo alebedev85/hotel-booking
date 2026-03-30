@@ -5,6 +5,7 @@ import Image from "next/image";
 import TrendingDestinations from "@/components/TrendingDestinations/TrendingDestinations";
 // import EditorialChoice from "@/components/EditorialChoice/EditorialChoice";
 import styles from "@/styles/Home.module.scss";
+import EditorialChoice from "@/components/EditorialChoice/EditorialChoice";
 
 export default function HomePage() {
   return (
@@ -30,9 +31,8 @@ export default function HomePage() {
           <SearchForm />
         </div>
       </section>
-
       <TrendingDestinations />
-      {/* <EditorialChoice /> */}
+      <EditorialChoice />
     </main>
   );
 }

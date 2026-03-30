@@ -8,10 +8,10 @@ export default function TrendingDestinations() {
     <section className={styles.section}>
       <div className={styles.header}>
         <div>
-          <span className={styles.label}>The Season&apos;s Best</span>
-          <h2 className={styles.title}>Trending Destinations</h2>
+          <span className={styles.label}>Лучшее в этом сезоне</span>
+          <h2 className={styles.title}>Популярные направления</h2>
         </div>
-        <a href="#" className={styles.viewAll}>View All Destinations</a>
+        <a href="#" className={styles.viewAll}>Смотреть все направления</a>
       </div>
 
       <div className={styles.grid}>
