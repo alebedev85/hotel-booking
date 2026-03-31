@@ -40,12 +40,12 @@
 }
 
 .link {
-  position: relative; // Обязательно для корректной работы ::after
+  position: relative;
   font-weight: 500;
   color: var(--color-text);
   text-decoration: none;
   display: inline-block; // Чтобы отступы и линия работали корректно
-  padding: 4px 0; // Даем немного места линии
+  padding: 4px 0;
 
   // Убираем transition: all, анимируем только нужные свойства
   transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -77,8 +77,13 @@
 .actions {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: var(--spacing-lg);
   position: relative;
+  padding-left: var(--spacing-md);
+
+  @media (max-width: 768px) {
+    gap: var(--spacing-md);
+  }
 }
 
 .loginButton {
