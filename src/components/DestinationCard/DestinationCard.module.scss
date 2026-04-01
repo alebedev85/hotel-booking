@@ -25,6 +25,17 @@
   position: absolute;
   inset: 0;
   z-index: 0;
+  
+  /* Заглушка: используем мягкий фон или чуть темнее */
+  background-color: var(--color-background-soft); 
+  
+  /* легкий градиент-скелетон */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, var(--color-background-soft), #e2e2e2);
+  }
 }
 
 .nextImage {
