@@ -26,35 +26,6 @@
     object-fit: cover;
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   }
-
-  .favoriteBtn {
-    position: absolute;
-    top: var(--spacing-md);
-    right: var(--spacing-md);
-    background: var(--glass-bg);
-    backdrop-filter: blur(var(--glass-blur));
-    border: 1px solid var(--glass-border);
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: var(--color-primary);
-    transition: all 0.3s ease;
-    z-index: 50;
-
-    span {
-      font-size: 18px;
-      font-variation-settings: "wght" 300;
-    }
-
-    &:hover {
-      background: #ffffff;
-      color: var(--color-warning); // Или красный для сердечка
-    }
-  }
 }
 
 .content {
