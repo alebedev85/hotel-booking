@@ -93,6 +93,10 @@
   font-size: var(--font-size-md);
   transition: all 0.2s ease;
 
+  @media (max-width: 768px) {
+    padding: 0.5rem;
+  }
+
   &:hover {
     opacity: 0.9;
   }
