@@ -1,8 +1,8 @@
 .glassWrapper {
-  width: 270px; // Можно вынести в --login-form-width, если нужно менять
+  width: 270px;
   background: var(--glass-bg);
   backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
+  // -webkit-backdrop-filter: blur(var(--glass-blur));
   
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-md);
