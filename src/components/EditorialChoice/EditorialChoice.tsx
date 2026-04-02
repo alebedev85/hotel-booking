@@ -1,5 +1,6 @@
-import EditorialHotelCard from "./EditorialHotelCard/EditorialHotelCard";
+import Link from "next/link";
 import styles from "./EditorialChoice.module.scss";
+import EditorialHotelCard from "./EditorialHotelCard/EditorialHotelCard";
 import { hotels } from "./hotels";
 
 export default function EditorialChoice() {
@@ -17,14 +18,19 @@ export default function EditorialChoice() {
 
         <div className={styles.grid}>
           {hotels.map((hotel, index) => (
-            <EditorialHotelCard
+            <Link
+              href={`/hotel/${hotel.id}`}
               key={hotel.id}
-              name={hotel.name}
-              location={hotel.location}
-              price={hotel.price}
-              image={hotel.img}
-              priority={index < 2} // Первые две картинки грузим сразу
-            />
+              className={styles.cardLink}
+            >
+              <EditorialHotelCard
+                name={hotel.name}
+                location={hotel.location}
+                price={hotel.price}
+                image={hotel.img}
+                priority={index < 2}
+              />
+            </Link>
           ))}
         </div>
       </div>
