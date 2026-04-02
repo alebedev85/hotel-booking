@@ -6,7 +6,7 @@ import { resetSearch } from "@/store/searchSlice";
 import Link from "next/link";
 import { useRef, useState } from "react";
 import LoginForm from "../LoginForm/LoginForm";
-import { ThemeToggle } from "../ThemeToggle/ThemeToggle";
+import { ThemeToggle } from "../ui/ThemeToggle/ThemeToggle";
 import UserMenu from "../UserMenu/UserMenu";
 import styles from "./Header.module.scss";
 

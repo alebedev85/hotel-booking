@@ -8,7 +8,7 @@
 .container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 80px var(--spacing-lg);
+  padding: 80px var(--spacing-lg) ;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -42,7 +42,7 @@
 .linksGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 60px;
+  gap: var(--spacing-lg);
 }
 
 .columnTitle {

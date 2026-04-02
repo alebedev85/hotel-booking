@@ -1,6 +1,6 @@
 import { destinations } from "./TrendingDestinationsData";
 
-import DestinationCard from "../DestinationCard/DestinationCard";
+import DestinationCard from "./DestinationCard/DestinationCard";
 import styles from "./TrendingDestinations.module.scss";
 
 export default function TrendingDestinations() {

@@ -5,7 +5,7 @@ import { clearError, loginUser, registerUser } from "@/store/authSlice";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import Loader from "../Loader/Loader";
+import Loader from "../ui/Loader/Loader";
 import styles from "./LoginForm.module.scss";
 
 interface FormData {
@@ -19,9 +19,7 @@ interface AuthLoginForm {
 
 export default function LoginForm({ onClose }: AuthLoginForm) {
   const dispatch = useDispatch<AppDispatch>();
-  const { loading, error } = useSelector(
-    (state: RootState) => state.auth,
-  );
+  const { loading, error } = useSelector((state: RootState) => state.auth);
 
   const {
     register,

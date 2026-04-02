@@ -1,4 +1,4 @@
-import EditorialHotelCard from "../EditorialHotelCard/EditorialHotelCard";
+import EditorialHotelCard from "./EditorialHotelCard/EditorialHotelCard";
 import styles from "./EditorialChoice.module.scss";
 import { hotels } from "./hotels";
 
