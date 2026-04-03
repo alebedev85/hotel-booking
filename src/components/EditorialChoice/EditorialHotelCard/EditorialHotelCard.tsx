@@ -30,6 +30,7 @@ export default function EditorialHotelCard({
           priority={priority}
         />
         <FavoriteButton
+          className={styles.favoritePosition}
           initialIsFavorite={false}
           onToggle={(val) => console.log("Is favorite:", val)}
         />

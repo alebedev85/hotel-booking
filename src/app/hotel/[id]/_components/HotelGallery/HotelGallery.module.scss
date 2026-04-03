@@ -1,0 +1,83 @@
+.gallery {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2fr 1fr; // Соотношение 2/3 и 1/3
+  gap: var(--spacing-md);
+  height: 600px;
+  margin-bottom: var(--spacing-xl);
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+}
+
+.mainImage {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--color-background-soft);
+
+  &:hover .objectCover {
+    transform: scale(1.05);
+  }
+}
+
+.sideImages {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.subImage {
+  flex: 1; // Растягивает обе картинки поровну на всю высоту родителя
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--color-background-soft);
+
+  &:hover .objectCover {
+    transform: scale(1.05);
+  }
+}
+
+.objectCover {
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.galleryTrigger {
+  position: absolute;
+  bottom: var(--spacing-lg);
+  left: var(--spacing-lg);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  
+  color: var(--color-primary);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  
+  span {
+    font-variation-settings: "FILL" 1;
+  }
+}
+
+.favoritePos {
+  position: absolute;
+  top: var(--spacing-lg);
+  right: var(--spacing-lg);
+  z-index: 10;
+  width: 42px;
+  height: 42px;
+}

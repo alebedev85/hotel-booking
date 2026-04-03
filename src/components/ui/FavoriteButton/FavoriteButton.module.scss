@@ -1,44 +1,48 @@
 .favoriteBtn {
-  position: absolute;
-  top: var(--spacing-md);
-  right: var(--spacing-md);
-  background: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur));
-  border: 1px solid var(--glass-border);
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  display: flex;
+  /* Базовый вид - теперь кнопка просто занимает свое место в потоке */
+  display: inline-flex; 
   align-items: center;
   justify-content: center;
+  
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
   cursor: pointer;
+  border: 1px solid var(--glass-border);
+  
+  /* Твой фирменный Glass-эффект */
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+  
   color: var(--color-primary);
-  transition: all 0.3s ease;
-  z-index: 50;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   span {
     font-size: 18px;
-    font-variation-settings: "wght" 300;
+    font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 20;
+    transition: font-variation-settings 0.3s ease;
   }
 
   &:hover {
-    background: #ffffff;
-    color: var(--color-warning); // Или красный для сердечка
+    background: var(--color-button-text);
+    color: var(--color-warning);
+    box-shadow: none;
   }
 
-  /* Состояние, когда кнопка активна (нажат лайк) */
   &.active {
-    color: var(--color-warning); // Используем твой красный акцент
-
+    color: var(--color-warning);
+    
     span {
-      /* Магия Material Symbols: закрашиваем сердце полностью */
-      font-variation-settings:
-        "FILL" 1,
-        "wght" 400;
+      font-variation-settings: "FILL" 1, "wght" 400;
+    }
+    
+    &:hover {
+      background: var(--color-favorite-active-bg);
+      color: var(--color-warning);
     }
   }
 
-  /* Эффект нажатия (микро-отклик) */
   &:active {
     transform: scale(0.9);
   }
