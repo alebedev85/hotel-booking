@@ -23,15 +23,6 @@
   gap: var(--spacing-sm);
   margin-bottom: var(--spacing-md);
 
-  .stars {
-    display: flex;
-    color: var(--color-accent); // Или отдельный золотой цвет
-    span {
-      font-size: var(--font-size-sm);
-      font-variation-settings: "FILL" 1;
-    }
-  }
-
   .collectionName {
     font-size: var(--font-size-xs);
     text-transform: uppercase;
@@ -71,33 +62,6 @@
   border-top: 2px solid var(--color-border);
   border-bottom: 2px solid var(--color-border);
   width: 100%;
-
-  .amenityItem {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-
-    .iconWrapper {
-      width: 40px;
-      height: 40px;
-      border-radius: 0.75rem;
-      background: var(--color-background-soft);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--color-text-muted);
-
-      span {
-        font-size: var(--font-size-lg);
-        font-weight: 600;
-      }
-    }
-
-    span {
-      font-size: var(--font-size-sm);
-      font-weight: 600;
-    }
-  }
 }
 
 .cardSide {

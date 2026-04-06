@@ -1,0 +1,9 @@
+.stars {
+    display: flex;
+    color: var(--color-accent);
+    
+    span {
+      font-size: var(--font-size-sm);
+      font-variation-settings: "FILL" 1;
+    }
+  }

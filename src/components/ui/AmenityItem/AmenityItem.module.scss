@@ -1,0 +1,26 @@
+.amenityItem {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+
+    .iconWrapper {
+      width: 40px;
+      height: 40px;
+      border-radius: 0.75rem;
+      background: var(--color-background-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-muted);
+
+      span {
+        font-size: var(--font-size-lg);
+        font-weight: 600;
+      }
+    }
+
+    span {
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+    }
+  }
