@@ -1,5 +1,6 @@
 import styles from "./HotelPage.module.scss";
 import HotelGallery from "./_components/HotelGallery/HotelGallery";
+import BookingCard from "@/components/BookingCard/BookingCard";
 import { mockHotel as hotel } from "./mockHotel";
 
 export default function HotelPage({ params }: { params: { id: string } }) {
@@ -7,7 +8,6 @@ export default function HotelPage({ params }: { params: { id: string } }) {
 
   return (
     <main className={styles.main}>
-      {/* ГАЛЕРЕЯ */}
       <HotelGallery images={hotel.images} hotelName={hotel.name} />
 
       <section className={styles.contentLayout}>
@@ -49,32 +49,7 @@ export default function HotelPage({ params }: { params: { id: string } }) {
             ))}
           </div>
         </div>
-
-        {/* ПРАВАЯ КОЛОНКА: КАРТОЧКА БРОНИРОВАНИЯ */}
-        <aside className={styles.bookingCard}>
-          <div className={styles.priceHeader}>
-            <span className={styles.priceValue}>
-              {hotel.currency}
-              {hotel.price}
-            </span>
-            <span className={styles.pricePeriod}>/ ночь</span>
-          </div>
-
-          <div className={styles.formContainer}>
-            <div className={styles.inputsGroup}>
-              <div className={styles.inputField}>
-                <label>ЗАЕЗД</label>
-                <span>12 Окт 2026</span>
-              </div>
-              <div className={styles.inputField}>
-                <label>ВЫЕЗД</label>
-                <span>15 Окт 2026</span>
-              </div>
-            </div>
-            <button className={styles.submitBtn}>Забронировать</button>
-          </div>
-          <p className={styles.disclaimer}>Бесплатная отмена до 10 октября</p>
-        </aside>
+        <BookingCard price={hotel.price} currency={hotel.currency} />
       </section>
     </main>
   );
