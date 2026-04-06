@@ -1,5 +1,4 @@
 .wrapper {
-  // На десктопе карточка будет "плавать" при скролле
   position: sticky;
   top: 100px; 
   
@@ -7,10 +6,10 @@
   max-width: 350px;
   padding: var(--spacing-xl);
   
-  background: var(--color-background); // Или surface-container-lowest
-  border: 1px solid var(--color-border); // Прозрачность 10% как в примере
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg); // Твоя глубокая тень
+  box-shadow: var(--shadow-lg);
 
   @media (max-width: 768px) {
     position: static;
@@ -46,7 +45,7 @@
   justify-content: space-between;
   align-items: center;
   padding: var(--spacing-md);
-  background: var(--color-background-soft); // Мягкий фон инпутов
+  background: var(--color-background-soft);
   border-radius: var(--radius-sm);
   
   cursor: pointer;

@@ -38,6 +38,7 @@
   --spacing-md: 1rem;
   --spacing-lg: 1.5rem;
   --spacing-xl: 3rem;
+  --spacing-2xl: 4.5rem;
 
   /* --- Скругления и тени --- */
   --radius-sm: 8px;
@@ -58,6 +59,8 @@
   --tracking-normal: 0;
   --tracking-wide: 0.1em;
   --tracking-extra-wide: 0.15em;
+
+  --container-max-width: 1280px;
 }
 
 /* Темная тема (адаптируем под люкс) */

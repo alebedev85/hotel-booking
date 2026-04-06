@@ -5,6 +5,7 @@
   grid-template-columns: 2fr 1fr; 
   gap: var(--spacing-md);
   height: 600px;
+  width: 100%;
   margin-bottom: var(--spacing-xl);
 
   @media (max-width: 768px) {
