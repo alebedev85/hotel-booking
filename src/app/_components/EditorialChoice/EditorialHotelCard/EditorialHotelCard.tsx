@@ -1,5 +1,5 @@
 import Image from "next/image";
-import FavoriteButton from "../../ui/FavoriteButton/FavoriteButton";
+import FavoriteButton from "../../../../components/ui/FavoriteButton/FavoriteButton";
 import styles from "./EditorialHotelCard.module.scss";
 
 interface EditorialHotelCardProps {

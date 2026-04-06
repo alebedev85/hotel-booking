@@ -1,0 +1,124 @@
+.hero {
+  position: relative;
+  height: 870px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-xl);
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    height: 700px;
+    justify-content: space-between;
+  }
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  .heroImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    // Используем переменную для оверлея или фиксированное значение для читаемости текста
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.1) 50%,
+      rgba(0, 0, 0, 0.4) 100%
+    );
+  }
+}
+
+.heroContent {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  animation: fadeInDown 0.8s ease-out;
+
+  @media (max-width: 768px) {
+    margin-bottom: 0;
+  }
+
+  .title {
+    font-size: var(--font-size-hero);
+    color: #ffffff; // В Hero всегда белый для контраста с фото
+    margin-bottom: var(--spacing-md);
+    font-weight: 400;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+    @media (max-width: 768px) {
+    margin-bottom: 0;
+  }
+  }
+
+  .subtitle {
+    font-size: var(--font-size-lg);
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 650px;
+    margin: 0 auto;
+    font-weight: 300;
+    letter-spacing: 0.03em;
+    line-height: 1.6;
+  }
+}
+
+// Обертка для SearchForm
+.searchWrapper {
+  position: relative;
+  z-index: 20;
+  width: 100%;
+  max-width: 1050px;
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-lg);
+  margin-top: var(--spacing-lg);
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+
+  @media (max-width: 768px) {
+    margin-top: 0;
+  }
+}
+
+// Подпись "Привет, браток"
+.text {
+  position: absolute;
+  bottom: var(--spacing-lg);
+  right: var(--spacing-xl);
+  font-size: var(--font-size-xs);
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+  z-index: 10;
+}
+
+// --- АНИМАЦИИ ---
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px); // Начинаем чуть ниже финальной точки
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); // Возвращаемся в идеальный ноль
+  }
+}
