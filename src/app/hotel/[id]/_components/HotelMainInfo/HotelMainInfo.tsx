@@ -11,7 +11,7 @@ interface HotelMainInfoProps {
 
 export default function HotelMainInfo({ hotel }: HotelMainInfoProps) {
   return (
-    <section className={styles.container}>
+    <section className={styles.hotelMainInfo}>
       <div className={styles.infoSide}>
         <div className={styles.badgeLine}>
           <StarRating count={hotel.stars} />

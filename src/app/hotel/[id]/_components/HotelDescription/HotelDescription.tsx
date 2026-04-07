@@ -25,8 +25,6 @@ export default function HotelDescription({ hotel }: { hotel: Hotel }) {
           </div>
         </div>
       </div>
-
-      {/* Правая колонка: Карта (теперь внутри Grid) */}
       <div className={styles.stickySide}>
         <LocationInsight nearby={hotel.location.nearby} />
       </div>
