@@ -1,19 +1,18 @@
 .item {
   display: flex;
-  align-items: flex-start; // Выравнивание по верхнему краю для длинных описаний
+  align-items: flex-start; 
   gap: var(--spacing-md);
   padding: var(--spacing-sm);
   transition: transform 0.2s ease;
 
   &:hover {
-    transform: translateX(4px); // Легкий интерактив при наведении
+    transform: translateX(4px);
   }
 }
 
 .icon {
-  // Используем tertiary-container для акцента на иконках, как в твоем примере
-  color: var(--color-tertiary-container); 
-  font-size: 24px;
+  color: var(--color-accent); 
+  font-size: var(--font-size-title);
   flex-shrink: 0; // Чтобы иконка не сжималась, если текст длинный
   margin-top: 2px; // Визуальная юстировка под первую строку текста
 }
@@ -25,7 +24,7 @@
 }
 
 .label {
-  font-size: var(--font-size-sm); // 14px
+  font-size: var(--font-size-sm);
   font-weight: 700;
   color: var(--color-on-surface);
   line-height: 1.2;
@@ -33,7 +32,7 @@
 }
 
 .description {
-  font-size: 11px; // Твой text-xs (или чуть меньше для иерархии)
+  font-size: var(--font-size-xs); // Твой text-xs (или чуть меньше для иерархии)
   color: var(--color-text-muted); // text-on-surface-variant
   line-height: 1.4;
   margin: 0;
