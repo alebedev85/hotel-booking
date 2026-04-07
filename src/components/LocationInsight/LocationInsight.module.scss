@@ -1,0 +1,37 @@
+.wrapper {
+  padding: var(--spacing-xl);
+  background: var(--color-background-soft);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(var(--color-outline-variant-rgb), 0.1);
+}
+
+.mapPreview {
+  aspect-ratio: 1;
+  background: var(--color-background-dim);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  .marker span {
+    color: var(--color-primary);
+    font-size: 40px;
+    font-variation-settings: "FILL" 1;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  
+  .item {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-size-sm);
+    
+    .name { color: var(--color-text-muted); }
+    .distance { font-weight: 700; }
+  }
+}

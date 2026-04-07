@@ -25,7 +25,7 @@ export default function HotelMainInfo({ hotel }: HotelMainInfoProps) {
           <address>{hotel.location.address}</address>
         </div>
         <div className={styles.amenities}>
-          {hotel.amenities.map((item, idx) => (
+          {hotel.previewAmenities.map((item, idx) => (
             <AmenityItem key={idx} icon={item.icon} label={item.label} />
           ))}
         </div>

@@ -1,0 +1,53 @@
+.item {
+  display: flex;
+  align-items: flex-start; // Выравнивание по верхнему краю для длинных описаний
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm);
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateX(4px); // Легкий интерактив при наведении
+  }
+}
+
+.icon {
+  // Используем tertiary-container для акцента на иконках, как в твоем примере
+  color: var(--color-tertiary-container); 
+  font-size: 24px;
+  flex-shrink: 0; // Чтобы иконка не сжималась, если текст длинный
+  margin-top: 2px; // Визуальная юстировка под первую строку текста
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.label {
+  font-size: var(--font-size-sm); // 14px
+  font-weight: 700;
+  color: var(--color-on-surface);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.description {
+  font-size: 11px; // Твой text-xs (или чуть меньше для иерархии)
+  color: var(--color-text-muted); // text-on-surface-variant
+  line-height: 1.4;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+// Опционально: если ты хочешь добавить разделители на мобилке
+@media (max-width: 768px) {
+  .item {
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border-soft);
+    
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}

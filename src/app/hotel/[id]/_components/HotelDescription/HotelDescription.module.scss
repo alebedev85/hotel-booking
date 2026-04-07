@@ -1,0 +1,54 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--spacing-2xl);
+  margin-bottom: var(--spacing-3xl);
+
+  @media (max-width: 992px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.contentSide {
+  grid-column: span 8;
+}
+
+.mainTitle {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-family: var(--font-family-serif);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+.amenitiesSection {
+  margin-top: var(--spacing-2xl);
+}
+
+.subTitle {
+  font-size: var(--font-size-lg);
+  font-family: var(--font-family-serif);
+  margin-bottom: var(--spacing-xl);
+}
+
+.amenitiesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); // На мобилках 2
+  gap: var(--spacing-xl) var(--spacing-md);
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr); // На десктопе 3
+  }
+}
+
+.stickySide {
+  grid-column: span 4;
+}

@@ -1,6 +1,7 @@
 export interface Amenity {
   icon: string;
   label: string;
+  description?: string;
 }
 
 export interface NearbyPlace {
@@ -33,7 +34,8 @@ export interface Hotel {
   price: number;
   currency: string;
   images: string[];
-  amenities: Amenity[];
+  previewAmenities: Amenity[];
+  detailedAmenities: Amenity[];
   description: {
     title: string;
     content: string[];
