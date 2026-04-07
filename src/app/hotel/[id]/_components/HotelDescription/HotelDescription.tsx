@@ -5,10 +5,10 @@ import styles from "./HotelDescription.module.scss";
 
 export default function HotelDescription({ hotel }: { hotel: Hotel }) {
   return (
-    <section className={styles.grid}>
+    <section className={styles.hotelDescription}>
       {/* Левая колонка: Текст и Удобства */}
       <div className={styles.contentSide}>
-        <h2 className={styles.mainTitle}>Художественное наследие</h2>
+        <h2 className={styles.mainTitle}>Особенности отеля</h2>
         
         <div className={styles.textBlock}>
           {hotel.description.content.map((paragraph, idx) => (

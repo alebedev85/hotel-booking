@@ -5,7 +5,7 @@ import styles from "./LocationInsight.module.scss";
 export default function LocationInsight({ nearby }: { nearby: NearbyPlace[] }) {
   return (
     <aside className={styles.wrapper}>
-      <h3 className={styles.title}>В шаговой доступности</h3>
+      <h3 className={styles.title}>Location Insight</h3>
       <div className={styles.mapContainer}>
         <Image
           className={styles.mapImage}

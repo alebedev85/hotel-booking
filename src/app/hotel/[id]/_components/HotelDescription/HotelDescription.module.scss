@@ -1,21 +1,23 @@
-.grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: var(--spacing-2xl);
-  margin-bottom: var(--spacing-3xl);
+.hotelDescription {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--spacing-xl);
+  max-width: 1280px;
 
   @media (max-width: 992px) {
-    display: flex;
     flex-direction: column;
   }
 }
 
 .contentSide {
-  grid-column: span 8;
+  max-width: 768px;
+  flex: 1;
 }
 
 .mainTitle {
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: var(--font-size-title);
   font-family: var(--font-family-serif);
   color: var(--color-primary);
   margin-bottom: var(--spacing-lg);
@@ -30,7 +32,7 @@
 }
 
 .amenitiesSection {
-  margin-top: var(--spacing-2xl);
+  margin-top: var(--spacing-xl);
 }
 
 .subTitle {
@@ -50,5 +52,10 @@
 }
 
 .stickySide {
-  grid-column: span 4;
+  width: 100%;
+  max-width: 350px;
+
+  @media (max-width: 992px) {
+    max-width: 100%;
+  }
 }
