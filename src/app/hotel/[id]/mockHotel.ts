@@ -23,7 +23,7 @@ export const mockHotel: Hotel = {
     "/hotels/atelier-4.jpg",
     "/hotels/atelier-5.jpg",
   ],
-  
+
   // 1. Краткие удобства (для HotelMainInfo)
   previewAmenities: [
     { icon: "wifi", label: "Ultra Fast WiFi" },
@@ -34,35 +34,36 @@ export const mockHotel: Hotel = {
 
   // 2. Расширенные удобства (для HotelDescription / AmenityFeature)
   detailedAmenities: [
-    { 
-      icon: "ac_unit", 
-      label: "Климат-контроль", 
-      description: "Индивидуальные настройки температуры в каждой зоне номера" 
+    {
+      icon: "ac_unit",
+      label: "Климат-контроль",
+      description: "Индивидуальные настройки температуры в каждой зоне номера",
     },
-    { 
-      icon: "local_bar", 
-      label: "Крафтовый бар", 
-      description: "Персональная коктейльная станция с премиальными напитками" 
+    {
+      icon: "local_bar",
+      label: "Крафтовый бар",
+      description: "Персональная коктейльная станция с премиальными напитками",
     },
-    { 
-      icon: "fitness_center", 
-      label: "Частная студия", 
-      description: "Доступ к современному оборудованию Technogym 24/7" 
+    {
+      icon: "fitness_center",
+      label: "Частная студия",
+      description: "Доступ к современному оборудованию Technogym 24/7",
     },
-    { 
-      icon: "directions_car", 
-      label: "Услуги шофера", 
-      description: "Бесплатные поездки на Mercedes-Benz в радиусе 2 км" 
+    {
+      icon: "directions_car",
+      label: "Услуги шофера",
+      description: "Бесплатные поездки на Mercedes-Benz в радиусе 2 км",
     },
-    { 
-      icon: "wash", 
-      label: "Элитное белье", 
-      description: "Постельные принадлежности из египетского хлопка (800 нитей)" 
+    {
+      icon: "wash",
+      label: "Элитное белье",
+      description:
+        "Постельные принадлежности из египетского хлопка (800 нитей)",
     },
-    { 
-      icon: "dry_cleaning", 
-      label: "Экспресс-химчистка", 
-      description: "Профессиональный уход за гардеробом в течение дня" 
+    {
+      icon: "dry_cleaning",
+      label: "Экспресс-химчистка",
+      description: "Профессиональный уход за гардеробом в течение дня",
     },
   ],
 
@@ -78,9 +79,21 @@ export const mockHotel: Hotel = {
       id: "room-1",
       name: "Heritage Deluxe Room",
       size: "35m²",
-      view: "Garden View",
+      features: ["City View", "King Bed"],
+      benefits: ["Бесплатная отмена", "Завтрак включен"],
       price: 840,
-      image: "/hotels/room-1.jpg",
+      image:
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuA-b6sAAA7vl5yNlfKUh7O_hgKSanRHTgVJd3EWZuQX4UNCnY1i89MXfqUiwQa5SQWc6jSXj22EbB4LE3hzaEBoqUxKLPn_CsPXluhGHARGz8IZhjv4INzQiSsTMvxn-GPqYf2lejQ-f5ugpQsV2ipYQ8j3qKR4KW_byYZ_2iOIXGW779bGBx9o7PmcNiFAmf3NUcTA8UWaw2DPnIBdBKZGZGzPtCSBoWrw6EhJDezG_isfhvj7BN9qlhkAL8JLnyMqWs3mmaynI7A",
+    },
+    {
+      id: "room-2",
+      name: "The Atelier Suite",
+      size: "65m²",
+      features: ["Garden View", "Bedroom Suite"],
+      benefits: ["Бесплатная отмена", "Завтрак включен", "VIP трансфер"],
+      price: 1.42,
+      image:
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuDAK9QeB11NRpi-C4eExHMlBE0IyIkkom9Y2lsY7kaQLuPfcT1ng08n4ImB_HMkNRm7fpn8a3jOpJZ55fJ7TDbkO75h9fQ-qGekU3bNj2WTKuGTXWjHo8VqugmdP3vTEu1zC_BLXt0wkK1hG6hqLT57ASNYB4KttOg51UG709ijH7wAv06iumbY3-mQXgTUuxbswMZc_bO8Uq6JGWe7FrYc4dB4GPNvtaoflQqdh9msOUnP2rFlixt5ndlS6fwuVU5dgjRcwcaGH7I",
     },
   ],
 };

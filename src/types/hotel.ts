@@ -13,7 +13,8 @@ export interface Room {
   id: string;
   name: string;
   size: string;
-  view: string;
+  features: string[];
+  benefits: string[];
   price: number;
   image: string;
 }

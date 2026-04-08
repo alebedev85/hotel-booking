@@ -1,7 +1,8 @@
 import styles from "./HotelPage.module.scss";
+import HotelDescription from "./_components/HotelDescription/HotelDescription";
 import HotelGallery from "./_components/HotelGallery/HotelGallery";
 import HotelMainInfo from "./_components/HotelMainInfo/HotelMainInfo";
-import HotelDescription from "./_components/HotelDescription/HotelDescription";
+import RoomSelection from "./_components/RoomSelection/RoomSelection";
 import { mockHotel as hotel } from "./mockHotel";
 
 export default function HotelPage({ params }: { params: { id: string } }) {
@@ -12,6 +13,7 @@ export default function HotelPage({ params }: { params: { id: string } }) {
       <HotelGallery images={hotel.images} hotelName={hotel.name} />
       <HotelMainInfo hotel={hotel} />
       <HotelDescription hotel={hotel} />
+      <RoomSelection rooms={hotel.rooms} currency={hotel.currency} />
     </main>
   );
 }
