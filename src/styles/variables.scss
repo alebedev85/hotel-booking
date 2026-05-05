@@ -61,6 +61,10 @@
   --tracking-extra-wide: 0.15em;
 
   --container-max-width: 1280px;
+
+  // Цвета для кастомного скроллбара
+  --color-scroll-thumb: rgba(100, 116, 139, 0.4);
+  --color-scroll-thumb-hover: rgba(100, 116, 139, 0.7);
 }
 
 /* Темная тема (адаптируем под люкс) */
@@ -75,6 +79,7 @@
   --color-border: rgba(255, 255, 255, 0.1);
   --color-favorite-active: #ff5f5f;
   --color-favorite-active-bg: #5d4e4e;
+  --color-background-hard: #16120f;
 
   --glass-bg: rgba(20, 20, 20, 0.6);
   --glass-border: rgba(255, 255, 255, 0.1);

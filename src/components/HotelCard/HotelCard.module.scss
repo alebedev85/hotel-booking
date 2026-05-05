@@ -1,84 +1,140 @@
 .card {
-  background: #fff;
-  border-radius: 12px;
-  display: flex;
-  gap: 14px;
-  padding: 14px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  transition: box-shadow 0.2s ease;
-
-  &:hover {
-    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-  }
-}
-
-.image {
-  width: 140px;
-  height: 120px;
-  border-radius: 10px;
-  object-fit: cover;
-  background: #eee;
-}
-
-.content {
-  flex: 1;
   display: flex;
   flex-direction: column;
-}
+  cursor: pointer;
 
-.name {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
+  transition: transform 0.3s ease;
 
-.address {
-  color: #666;
-  font-size: 14px;
-}
-
-.facilities {
-  margin: 6px 0;
-  display: flex;
-  gap: 6px;
-
-  span {
-    background: #f3f4f6;
-    padding: 4px 8px;
-    border-radius: 6px;
-    font-size: 12px;
-    color: #444;
+  &:hover {
+    .hotelImage {
+      transform: scale(1.05);
+    }
   }
 }
 
-.bottom {
-  margin-top: auto;
+/* --- IMAGE --- */
+.imageWrapper {
+  position: relative;
+  aspect-ratio: 16 / 10; // 👈 отличие от editorial (там 4/5)
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-md);
+  box-shadow: var(--shadow-sm);
+
+  background-color: var(--color-background-soft);
+}
+
+.hotelImage {
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- FAVORITE --- */
+.favoritePosition {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  z-index: 10;
+}
+
+/* --- CONTENT --- */
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* --- HEADER --- */
+.header {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-xs);
+}
+
+.hotelName {
+  font-family: var(--font-family-serif);
+  font-size: var(--font-size-lg);
+  color: var(--color-primary);
+  margin: 0;
+  letter-spacing: var(--tracking-tight);
+}
+
+/* --- RATING --- */
+.rating {
+  display: flex;
   align-items: center;
+  gap: 4px;
+
+  span:first-child {
+    color: var(--color-accent);
+    font-size: 16px;
+    font-variation-settings: "FILL" 1;
+  }
+
+  span:last-child {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-text);
+  }
 }
 
-.price {
-  color: #555;
-  font-size: 14px;
+/* --- LOCATION --- */
+.location {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-extra-wide);
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-lg);
 }
 
-.amount {
-  font-size: 18px;
-  font-weight: 700;
-  color: #222;
+/* --- FOOTER --- */
+.footer {
+  margin-top: auto;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.button {
-  padding: 8px 14px;
-  background: var(--color-primary);
-  color: white;
-  border-radius: 8px;
-  font-size: 14px;
+/* --- PRICE --- */
+.priceInfo {
+  .amount {
+    font-family: var(--font-family-serif);
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .period {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    margin-left: 2px;
+  }
+}
+
+/* --- BUTTON --- */
+.bookBtn {
   border: none;
+  background: none;
+
+  color: var(--color-primary);
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+
   cursor: pointer;
+  position: relative;
+
+  padding: var(--spacing-xs) var(--spacing-sm);
+
+  transition: all 0.2s ease;
 
   &:hover {
-    background: var(--color-primary-hover);
+    text-decoration: underline;
+    color: var(--color-primary-hover);
   }
 }

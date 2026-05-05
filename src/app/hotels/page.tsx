@@ -7,8 +7,8 @@ import SearchForm from "@/components/SearchForm/SearchForm";
 import Loader from "@/components/ui/Loader/Loader";
 import { useAppSelector } from "@/store";
 import { useGetHotelsByCityQuery } from "@/store/hotelsApi";
-import styles from "@/styles/Hotels.module.scss";
 import { useState } from "react";
+import styles from "./Hotels.module.scss";
 
 export default function HotelsPage() {
   const { city_name, city_id, loading } = useAppSelector(
@@ -26,14 +26,14 @@ export default function HotelsPage() {
   return (
     <main className={styles.page}>
       <SearchForm />
-      {city_id ? (
-        <h2 className={styles.title}>Отели в {city_name}:</h2>
-      ) : (
-        <h2 className={styles.title}>Выберите город</h2>
-      )}
 
       <div className={styles.layout}>
-        <section className={styles.list}>
+        <section className={`${styles.list} custom-scrollbar`}>
+          {city_id ? (
+            <h2 className={styles.title}>Отели в {city_name}:</h2>
+          ) : (
+            <h2 className={styles.title}>Выберите город</h2>
+          )}
           {loading || isLoading
             ? Array.from({ length: 10 }).map((_, i) => (
                 <HotelCardSkeleton key={i} />
