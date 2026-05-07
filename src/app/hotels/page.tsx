@@ -21,14 +21,14 @@ export default function HotelsPage() {
     skip: !city_id, // пропускаем запрос, если город не выбран
   });
 
-  const hotels = data?.hotels || [];
+  const hotels = data?.hotels.slice(0,10) || [];
 
   return (
     <main className={styles.page}>
       <SearchForm />
 
       <div className={styles.layout}>
-        <section className={`${styles.list} custom-scrollbar`}>
+        <section className={styles.list}>
           {city_id ? (
             <h2 className={styles.title}>Отели в {city_name}:</h2>
           ) : (

@@ -1,0 +1,42 @@
+@mixin custom-scrollbar {
+
+  overflow-y: auto;
+
+  // 3. Webkit (Chrome, Safari, Edge)
+  &::-webkit-scrollbar {
+    width: 6px;           // Ширина всей дорожки
+    display: block;       // Гарантируем отображение
+  }
+
+  // УБИРАЕМ КНОПКИ (стрелочки)
+  &::-webkit-scrollbar-button {
+    display: none;        // Полностью скрываем
+    height: 0;
+    width: 0;
+  }
+
+  // Фон, по которому ездит ползунок
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  // САМ ПОЛЗУНОК
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color-scroll-thumb); 
+    border-radius: 999px;
+    
+    &:hover {
+      background-color: var(--color-scroll-thumb-hover);
+    }
+  }
+
+  // Убираем возможные углы (в месте стыка горизонтального и вертикального скролла)
+  &::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  @supports not selector(::-webkit-scrollbar) {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-scroll-thumb) transparent;
+  }
+}

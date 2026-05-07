@@ -24,17 +24,17 @@
 .list {
   display: flex;
   width: 40%;
-  overflow: hidden;
-  overflow-y: scroll;
   flex-direction: column;
   gap: 18px;
+
+  @include custom-scrollbar;
 }
 
 .map {
   width: 60%;
   overflow: hidden;
   box-shadow: var(--shadow-lg);
-  
+
   @media (max-width: 900px) {
     position: relative;
     height: 320px;
