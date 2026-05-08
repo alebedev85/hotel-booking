@@ -9,41 +9,42 @@ interface HotelCardProps {
   onLeave?: () => void;
 }
 
-export default function HotelCard({
-  hotel,
-  onHover,
-  onLeave,
-}: HotelCardProps) {
+export default function HotelCard({ hotel, onHover, onLeave }: HotelCardProps) {
   return (
     <article
       className={styles.card}
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
     >
-      {/* IMAGE */}
-      <div className={styles.imageWrapper}>
-        <Image
-          src="/hotel.jpg"
-          alt={hotel.name}
-          fill
-          className={styles.hotelImage}
-        />
+      <div className={styles.imageContainer}>
+        <div className={styles.aspectRatio}>
+          <Image
+            src={"/hotel.webp"}
+            alt={hotel.name}
+            fill
+            sizes="(max-width: 768px) 100vw, 33vw"
+            className={styles.hotelImage}
+          />
+        </div>
+
+        {/* Бейдж в стиле Glassmorphism */}
+        <div className={styles.badge}>
+          Curated Pick
+        </div>
 
         <FavoriteButton
-          className={styles.favoritePosition}
+          className={styles.favoriteButton}
           initialIsFavorite={false}
           onToggle={(val) => console.log("favorite:", val)}
         />
       </div>
 
-      {/* CONTENT */}
       <div className={styles.content}>
         <div className={styles.header}>
-          <h3 className={styles.hotelName}>{hotel.name}</h3>
-
+          <h2 className={styles.hotelName}>{hotel.name}</h2>
           <div className={styles.rating}>
             <span className="material-symbols-outlined">star</span>
-            <span>4.8</span>
+            <span className={styles.ratingValue}>4.9</span>
           </div>
         </div>
 
@@ -52,14 +53,16 @@ export default function HotelCard({
         </p>
 
         <div className={styles.footer}>
-          <div className={styles.priceInfo}>
+          <div className={styles.priceBlock}>
             <span className={styles.amount}>
-              {hotel.price_from.toLocaleString("ru-RU")}
+              €{hotel.price_from.toLocaleString("ru-RU")}
             </span>
-            <span className={styles.period}>₽ / ночь</span>
+            <span className={styles.period}> / night</span>
           </div>
 
-          <button className={styles.bookBtn}>Подробнее</button>
+          <button className={styles.viewBtn}>
+            View Availability
+          </button>
         </div>
       </div>
     </article>
