@@ -1,3 +1,9 @@
+@mixin glass-effect {
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+}
+
 @mixin custom-scrollbar {
 
   overflow-y: auto;

@@ -1,8 +1,5 @@
 .glassWrapper {
   width: 280px;
-  background: var(--glass-bg);
-  -webkit-backdrop-filter: blur(var(--glass-blur));
-  backdrop-filter: blur(var(--glass-blur));
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-md);
   padding: var(--spacing-lg);
@@ -13,6 +10,8 @@
   position: absolute;
   right: 0;
   top: calc(100% + var(--spacing-md));
+
+  @include glass-effect;
 }
 
 .header {

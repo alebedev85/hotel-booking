@@ -69,10 +69,6 @@
   align-items: center;
   gap: var(--spacing-sm);
   padding: var(--spacing-sm) var(--spacing-md);
-  
-  background: var(--glass-bg);
-  -webkit-backdrop-filter: blur(var(--glass-blur));
-  backdrop-filter: blur(var(--glass-blur));
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-sm);
   
@@ -81,6 +77,8 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
+
+  @include glass-effect;
   
   span {
     font-variation-settings: "FILL" 1;

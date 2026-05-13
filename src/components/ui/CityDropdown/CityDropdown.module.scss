@@ -19,11 +19,6 @@
   width: 90%;
   animation: fadeIn 0.2s ease-out;
 
-  // ЭФФЕКТ СТЕКЛА
-  background: var(--glass-bg); // Тот же фон, что у формы
-  -webkit-backdrop-filter: blur(var(--glass-blur));
-  backdrop-filter: blur(var(--glass-blur));
-
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
   max-height: 280px;
@@ -31,6 +26,7 @@
   z-index: 100;
   box-shadow: var(--shadow-lg);
 
+  @include glass-effect;
   @include custom-scrollbar;
 
   li {

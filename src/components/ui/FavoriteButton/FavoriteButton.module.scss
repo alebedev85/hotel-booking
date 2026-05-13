@@ -10,10 +10,7 @@
   cursor: pointer;
   border: 1px solid var(--glass-border);
   
-  /* Твой фирменный Glass-эффект */
-  background: var(--glass-bg);
-  -webkit-backdrop-filter: blur(var(--glass-blur));
-  backdrop-filter: blur(var(--glass-blur));
+  @include glass-effect;
   
   color: var(--color-primary);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
