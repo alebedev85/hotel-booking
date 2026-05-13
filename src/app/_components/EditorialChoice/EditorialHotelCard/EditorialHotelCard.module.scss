@@ -95,12 +95,11 @@
 }
 
 .bookBtn {
-  border: none;
+  @include button-style;
   color: var(--color-button-text);
   font-size: var(--font-size-xs);
   text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
-  cursor: pointer;
   position: relative;
   padding: var(--spacing-xs) var(--spacing-sm);
 }

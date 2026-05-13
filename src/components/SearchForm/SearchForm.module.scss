@@ -61,6 +61,7 @@
 }
 
 .searchButton {
+  @include button-style;
   width: 56px;
   height: 56px;
   min-width: 56px;
