@@ -9,8 +9,6 @@ interface HotelsListProps {
   isError: boolean;
   cityName: string | null;
   cityId: number | null;
-  onHotelHover: (id: string) => void;
-  onHotelLeave: () => void;
 }
 
 export default function HotelsList({
@@ -19,8 +17,6 @@ export default function HotelsList({
   isError,
   cityName,
   cityId,
-  onHotelHover,
-  onHotelLeave,
 }: HotelsListProps) {
   return (
     <section className={styles.hotelsList}>
@@ -48,8 +44,6 @@ export default function HotelsList({
               <HotelCard
                 key={hotel.id}
                 hotel={hotel}
-                onHover={() => onHotelHover(hotel.id)}
-                onLeave={onHotelLeave}
               />
             ))}
           </div>

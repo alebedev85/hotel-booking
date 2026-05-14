@@ -1,21 +1,21 @@
-import Image from "next/image";
+import { useHotelHover } from "@/app/hotels/HotelHoverContext";
 import FavoriteButton from "@/components/ui/FavoriteButton/FavoriteButton";
 import { IHotel } from "@/types";
-import styles from "./HotelCard.module.scss";
+import Image from "next/image";
 import Link from "next/link";
+import styles from "./HotelCard.module.scss";
 
 interface HotelCardProps {
   hotel: IHotel;
-  onHover?: () => void;
-  onLeave?: () => void;
 }
 
-export default function HotelCard({ hotel, onHover, onLeave }: HotelCardProps) {
+export default function HotelCard({ hotel }: HotelCardProps) {
+  const { setActiveId } = useHotelHover();
   return (
     <article
       className={styles.card}
-      onMouseEnter={onHover}
-      onMouseLeave={onLeave}
+      onMouseEnter={() => setActiveId(hotel.id)}
+      onMouseLeave={() => setActiveId(null)}
     >
       <div className={styles.imageContainer}>
         <div className={styles.aspectRatio}>
@@ -29,9 +29,7 @@ export default function HotelCard({ hotel, onHover, onLeave }: HotelCardProps) {
         </div>
 
         {/* Бейдж в стиле Glassmorphism */}
-        <div className={styles.badge}>
-          Curated Pick
-        </div>
+        <div className={styles.badge}>Curated Pick</div>
 
         <FavoriteButton
           className={styles.favoriteButton}

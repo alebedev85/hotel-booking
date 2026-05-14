@@ -8,6 +8,7 @@ import { useEffect, useMemo, useRef } from "react";
 import styles from "./HotelMap.module.scss";
 import { useAppSelector } from "@/store";
 import { useMap } from "react-leaflet"; // нужно для управления центром карты
+import { useHotelHover } from "@/app/hotels/HotelHoverContext";
 
 // --- динамические импорты, чтобы Leaflet не ломался при SSR ---
 const MapContainer = dynamic(
@@ -40,10 +41,11 @@ function MapUpdater({ center }: { center: LatLngExpression }) {
 
 interface HotelMapProps {
   hotels: IHotel[];
-  activeHotelId: string | null;
 }
 
-export default function HotelMap({ hotels, activeHotelId }: HotelMapProps) {
+export default function HotelMap({ hotels}: HotelMapProps) {
+  const { activeId } = useHotelHover();
+
   // 🔹 достаём координаты города из Redux
   const { lat, lon } = useAppSelector((state) => state.search);
 
@@ -75,16 +77,18 @@ export default function HotelMap({ hotels, activeHotelId }: HotelMapProps) {
 
   // --- Управление попапами при наведении ---
   useEffect(() => {
-    if (!activeHotelId) {
+    if (!activeId) {
       Object.values(markersRef.current).forEach((m) => m.closePopup());
       return;
     }
 
-    const marker = markersRef.current[activeHotelId];
+    const marker = markersRef.current[activeId];
     if (marker) marker.openPopup();
-  }, [activeHotelId]);
+  }, [activeId]);
 
   if (!hotels.length && !hasCityCoords) return null;
+
+
 
   return (
     <div className={styles.map}>
