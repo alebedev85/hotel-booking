@@ -2,6 +2,7 @@ import Image from "next/image";
 import FavoriteButton from "@/components/ui/FavoriteButton/FavoriteButton";
 import { IHotel } from "@/types";
 import styles from "./HotelCard.module.scss";
+import Link from "next/link";
 
 interface HotelCardProps {
   hotel: IHotel;
@@ -60,9 +61,9 @@ export default function HotelCard({ hotel, onHover, onLeave }: HotelCardProps) {
             <span className={styles.period}> / night</span>
           </div>
 
-          <button className={styles.viewBtn}>
-            View Availability
-          </button>
+          <Link href={`/hotels/${hotel.id}`} className={styles.viewBtn}>
+            Выбрать номер
+          </Link>
         </div>
       </div>
     </article>

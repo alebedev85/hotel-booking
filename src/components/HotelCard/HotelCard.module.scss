@@ -38,7 +38,7 @@
   border: 1px solid var(--color-glass-border);
   padding: var(--spacing-xs) var(--spacing-sm);
   border-radius: 999px;
-  
+
   font-size: var(--font-size-xs);
   font-weight: 700;
   text-transform: uppercase;
@@ -50,7 +50,7 @@
   position: absolute;
   top: var(--spacing-sm);
   right: var(--spacing-sm);
-  
+
   // Кнопка в стиле Glass Panel
   background: var(--glass-bg);
   backdrop-filter: blur(var(--glass-blur));
@@ -94,11 +94,11 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  
+
   span:first-child {
     font-size: 18px;
     color: var(--color-accent); // Золотой для звезды
-    font-variation-settings: 'FILL' 1;
+    font-variation-settings: "FILL" 1;
   }
 }
 
@@ -137,20 +137,12 @@
 }
 
 .viewBtn {
-  background: transparent;
-  color: var(--color-text);
   font-size: var(--font-size-xs);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: var(--tracking-extra-wide);
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  transition: opacity 0.2s ease;
+  color: var(--color-text-muted);
+  padding: 4px 0;
 
-  &:hover {
-    opacity: 0.6;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
+  @include link-button-style(1px, var(--color-text-muted));
 }
