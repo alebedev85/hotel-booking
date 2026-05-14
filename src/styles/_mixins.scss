@@ -25,7 +25,35 @@
   }
 }
 
-@mixin link-button-style{}
+@mixin link-button-style($height: 2px, $color: var(--color-primary)) {
+  position: relative;
+  text-decoration: none;
+  display: inline-block; // Чтобы отступы и линия работали корректно
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1); // Убираем transition: all, анимируем только нужные свойства
+
+  &:hover {
+    text-shadow: 0 0 0.5px var(--color-text);
+    color: $color
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: $height;
+    background-color: $color;
+    transition:
+      width 0.3s ease,
+      left 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+    left: 0;
+  }
+}
 
 @mixin glass-effect {
   background: var(--glass-bg);
@@ -34,18 +62,17 @@
 }
 
 @mixin custom-scrollbar {
-
   overflow-y: auto;
 
   // 3. Webkit (Chrome, Safari, Edge)
   &::-webkit-scrollbar {
-    width: 6px;           // Ширина всей дорожки
-    display: block;       // Гарантируем отображение
+    width: 6px; // Ширина всей дорожки
+    display: block; // Гарантируем отображение
   }
 
   // УБИРАЕМ КНОПКИ (стрелочки)
   &::-webkit-scrollbar-button {
-    display: none;        // Полностью скрываем
+    display: none; // Полностью скрываем
     height: 0;
     width: 0;
   }
@@ -57,9 +84,9 @@
 
   // САМ ПОЛЗУНОК
   &::-webkit-scrollbar-thumb {
-    background-color: var(--color-scroll-thumb); 
+    background-color: var(--color-scroll-thumb);
     border-radius: 999px;
-    
+
     &:hover {
       background-color: var(--color-scroll-thumb-hover);
     }

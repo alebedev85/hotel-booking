@@ -2,6 +2,7 @@ import { destinations } from "./TrendingDestinationsData";
 
 import DestinationCard from "./DestinationCard/DestinationCard";
 import styles from "./TrendingDestinations.module.scss";
+import Link from "next/link";
 
 export default function TrendingDestinations() {
   return (
@@ -11,9 +12,9 @@ export default function TrendingDestinations() {
           <span className={styles.label}>Лучшее в этом сезоне</span>
           <h2 className={styles.title}>Популярные направления</h2>
         </div>
-        <a href="#" className={styles.viewAll}>
+        <Link href="#" className={styles.viewAll}>
           Смотреть все направления
-        </a>
+        </Link>
       </div>
 
       <div className={styles.grid}>
