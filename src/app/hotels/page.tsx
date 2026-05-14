@@ -1,8 +1,8 @@
 "use client";
 
-import SearchForm from "@/components/SearchForm/SearchForm";
-import HotelsList from "@/components/HotelsList/HotelsList";
 import HotelMap from "@/components/HotelMap/HotelMap";
+import HotelsList from "@/components/HotelsList/HotelsList";
+import SearchForm from "@/components/SearchForm/SearchForm";
 import Loader from "@/components/ui/Loader/Loader";
 
 import { useAppSelector } from "@/store";
@@ -12,12 +12,18 @@ import { HotelHoverProvider } from "./HotelHoverContext"; // Импортиру�
 import styles from "./Hotels.module.scss";
 
 export default function HotelsPage() {
-  const { city_name, city_id, loading: searchLoading } = useAppSelector(
-    (state) => state.search,
-  );
+  const {
+    city_name,
+    city_id,
+    loading: searchLoading,
+  } = useAppSelector((state) => state.search);
 
   // RTK Query запрос
-  const { data, isLoading: apiLoading, isError } = useGetHotelsByCityQuery(city_id!, {
+  const {
+    data,
+    isLoading: apiLoading,
+    isError,
+  } = useGetHotelsByCityQuery(city_id!, {
     skip: !city_id,
   });
 
@@ -28,23 +34,20 @@ export default function HotelsPage() {
     <main className={styles.hotels}>
       <SearchForm />
 
-      {/* Оборачиваем layout в контекст, чтобы List и Map общались между собой */}
       <HotelHoverProvider>
         <div className={styles.layout}>
-          <HotelsList
-            hotels={hotels}
-            isLoading={isLoading}
-            isError={isError}
-            cityName={city_name}
-            cityId={city_id}
-          />
+          <div className={styles.listContainer}>
+            <HotelsList
+              hotels={hotels}
+              isLoading={isLoading}
+              isError={isError}
+              cityName={city_name}
+              cityId={city_id}
+            />
+          </div>
 
           <aside className={styles.map}>
-            {isLoading ? (
-              <Loader />
-            ) : (
-              <HotelMap hotels={hotels} />
-            )}
+            {isLoading ? <Loader /> : <HotelMap hotels={hotels} />}
           </aside>
         </div>
       </HotelHoverProvider>

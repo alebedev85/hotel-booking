@@ -9,24 +9,27 @@
 .layout {
   display: flex;
   flex-direction: row;
-  flex: 1 1 0%;
+  flex: 1;
   margin-top: var(--spacing-md);
   height: 100%;
   overflow: hidden;
   background-color: var(--color-background);
+}
 
-  @media (max-width: 900px) {
-    grid-template-columns: 1fr;
-  }
+// Стили для контейнера списка (внутри HotelsList.module.scss или здесь)
+// Убедись, что HotelsList занимает оставшееся место
+.listContainer {
+  flex: 1;
+  height: 100%;
 }
 
 .map {
-  width: 60%;
+  width: 60%; // Твоя базовая ширина для десктопа
   overflow: hidden;
   box-shadow: var(--shadow-lg);
 
+  // Скрываем карту на мобилках (до 900px, как у тебя в примере)
   @media (max-width: 900px) {
-    position: relative;
-    height: 320px;
+    display: none;
   }
 }
