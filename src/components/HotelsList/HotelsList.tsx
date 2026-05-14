@@ -22,13 +22,18 @@ export default function HotelsList({
     <section className={styles.hotelsList}>
       <header className={styles.header}>
         {cityId ? (
-          <>
+          <div>
             <h2 className={styles.title}>Отели в {cityName}</h2>
             <p className={styles.subtitle}>Найдено {hotels.length} вариантов</p>
-          </>
+          </div>
         ) : (
           <h2 className={styles.title}>Выберите город для поиска</h2>
         )}
+        {/* Кнопка фильтров */}
+        <button className={styles.filterBtn}>
+          <span className="material-symbols-outlined">filter_list</span>
+          <span>Фильтры</span>
+        </button>
       </header>
 
       <div className={styles.content}>
