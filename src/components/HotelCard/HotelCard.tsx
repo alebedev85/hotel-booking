@@ -29,7 +29,7 @@ export default function HotelCard({ hotel }: HotelCardProps) {
         </div>
 
         {/* Бейдж в стиле Glassmorphism */}
-        <div className={styles.badge}>Curated Pick</div>
+        <div className={styles.badge}>Наш выбор</div>
 
         <FavoriteButton
           className={styles.favoriteButton}
@@ -56,11 +56,11 @@ export default function HotelCard({ hotel }: HotelCardProps) {
             <span className={styles.amount}>
               €{hotel.price_from.toLocaleString("ru-RU")}
             </span>
-            <span className={styles.period}> / night</span>
+            <span className={styles.period}> / ночь</span>
           </div>
 
           <Link href={`/hotels/${hotel.id}`} className={styles.viewBtn}>
-            Выбрать номер
+            Посмотреть номера
           </Link>
         </div>
       </div>

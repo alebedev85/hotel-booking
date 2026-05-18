@@ -2,6 +2,7 @@ import HotelCard from "@/components/HotelCard/HotelCard";
 import HotelCardSkeleton from "@/components/HotelCardSkeleton/HotelCardSkeleton";
 import { IHotel } from "@/types";
 import styles from "./HotelsList.module.scss";
+import Link from "next/link";
 
 interface HotelsListProps {
   hotels: IHotel[];
@@ -46,10 +47,16 @@ export default function HotelsList({
         ) : (
           <div className={styles.list}>
             {hotels.map((hotel) => (
-              <HotelCard
+              <Link
+                href={`/hotel/${hotel.id}`}
                 key={hotel.id}
-                hotel={hotel}
-              />
+                className={styles.cardLink}
+              >
+                <HotelCard
+                  key={hotel.id}
+                  hotel={hotel}
+                />
+              </Link>
             ))}
           </div>
         )}

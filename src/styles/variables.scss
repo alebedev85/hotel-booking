@@ -5,6 +5,7 @@
   --button-hover-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 
   --color-background: #f9f8f7; /* Очень светлый бежевый для фона */
+  --color-background-hover: #f4f2ee; /* Очень светлый бежевый для фона */
   --color-background-soft: #f0ede7;
   --color-background-soft-hover: #d5d2cb;
   --color-background-hard: #94887f;
@@ -64,7 +65,7 @@
   --container-max-width: 1280px;
 
   // Цвета для кастомного скроллбара
-  --color-scroll-thumb:#d1c8c1;
+  --color-scroll-thumb: #d1c8c1;
   --color-scroll-thumb-hover: #b8a99e;
 }
 
@@ -74,6 +75,7 @@
   --color-primary-hover: #eeeeee;
   --button-hover-shadow: 0 6px 20px rgba(216, 216, 216, 0.15);
   --color-background: #16120f;
+  --color-background-hover: #25201b;
   --color-background-soft: #444341;
   --color-background-soft-hover: #656461;
   --color-text: #f5f5f5;
@@ -96,6 +98,6 @@
   ); /* Светлый блик вместо темного пятна */
   --color-glass-border: rgba(255, 255, 255, 0.15);
 
-  --color-scroll-thumb:#444341;
+  --color-scroll-thumb: #444341;
   --color-scroll-thumb-hover: #666462;
 }
