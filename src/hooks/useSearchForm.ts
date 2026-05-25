@@ -25,6 +25,7 @@ export function useSearchForm() {
     watch,
     control, // Необходим для FormDatePicker
     clearErrors, // Для фикса красной ошибки при выборе города
+    trigger, // Для принудительной валидации после выбора города
     formState: { errors },
   } = useForm<IFormValues>({
     defaultValues: {
@@ -79,12 +80,19 @@ export function useSearchForm() {
    * Выбор города: исправляем порядок и чистим ошибки
    */
   const selectCity = (city: ICity) => {
-    // 1. Сначала обновляем ID
-    setValue("city_id", city.id, { shouldValidate: true });
-    // 2. Обновляем имя
-    setValue("city_name", city.name_ru, { shouldValidate: true });
-    // 3. Принудительно чистим ошибку, возникшую из-за потери фокуса
-    clearErrors("city_name");
+    // 1. Записываем значения БЕЗ немедленного вызова shouldValidate
+    setValue("city_id", city.id);
+    setValue("city_name", city.name_ru);
+
+    // 2. Явно очищаем любые старые ошибки, которые успел навесить onBlur
+    clearErrors(["city_id", "city_name"]);
+
+    // 3. Принудительно перезапускаем валидацию только для этих полей, 
+    // чтобы React Hook Form зафиксировал, что теперь всё корректно
+    // (используем setTimeout, чтобы RHF успел обновить стейт полей)
+    setTimeout(() => {
+      trigger(["city_id", "city_name"]);
+    }, 0);
 
     setCities([]);
     setShowList(false);
