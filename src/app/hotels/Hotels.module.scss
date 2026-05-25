@@ -1,9 +1,12 @@
 .hotels {
-  padding: var(--spacing-md) 0 0;
   background-color: var(--color-background-soft);
   display: flex;
   flex-direction: column;
   height: 100vh;
+}
+
+.formContainer{
+  padding: var(--spacing-md)
 }
 
 .layout {

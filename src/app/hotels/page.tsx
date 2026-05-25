@@ -32,7 +32,9 @@ export default function HotelsPage() {
 
   return (
     <main className={styles.hotels}>
-      <SearchForm />
+      <div className={styles.formContainer}>
+        <SearchForm />
+      </div>
 
       <HotelHoverProvider>
         <div className={styles.layout}>

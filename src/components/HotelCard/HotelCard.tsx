@@ -59,9 +59,9 @@ export default function HotelCard({ hotel }: HotelCardProps) {
             <span className={styles.period}> / ночь</span>
           </div>
 
-          <Link href={`/hotels/${hotel.id}`} className={styles.viewBtn}>
+          <button type="button" className={styles.viewBtn}>
             Посмотреть номера
-          </Link>
+          </button>
         </div>
       </div>
     </article>
