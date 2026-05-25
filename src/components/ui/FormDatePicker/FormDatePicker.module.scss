@@ -1,26 +1,37 @@
-.field {
+.wrapper {
+  display: flex;
+  flex-direction: column;
   padding: 1.2rem 1.5rem;
+  transition: background-color 0.3s ease;
+  position: relative; // Нужно для абсолютного позиционирования ошибки
   font-family: var(--font-family-base);
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+  }
 }
 
 .label {
   display: block;
   font-size: 10px;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em; // Синхронизировано с FormInput
   font-weight: 800;
-  color: var(--color-text-muted, #64748b);
+  color: var(--color-text-muted);
   margin-bottom: 6px;
+  cursor: pointer;
 }
 
 .inputWrapper {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px; // Синхронизировано с FormInput (было 8px)
+  min-height: 24px;
 
-  span {
-    color: var(--color-primary);
+  .icon {
     font-size: 20px;
+    color: var(--color-primary);
+    user-select: none;
   }
 }
 
@@ -33,9 +44,11 @@
   background: transparent;
   border: none;
   width: 100%;
-  color: var(--color-text);
+  color: var(--color-primary); // Изменено на primary, как в FormInput
   outline: none;
   font-size: 16px;
+  font-weight: 600; // Чтобы текст даты был жирным, как в инпуте
+  padding: 0;
   cursor: pointer;
 
   &::placeholder {
@@ -44,11 +57,19 @@
   }
 }
 
+// Стили ошибки полностью скопированы из FormInput
 .errorMessage {
   position: absolute;
-  bottom: -18px;
-  left: 0;
-  font-size: 10px;
-  color: #ff4d4f;
+  bottom: 5px;
+  left: 1.5rem;
+  font-size: 11px;
+  color: #d32f2f;
+  margin: 0;
 }
 
+.hasError {
+  .label { 
+    color: #d32f2f; 
+  }
+  background-color: rgba(211, 47, 47, 0.03);
+}
