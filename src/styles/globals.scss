@@ -1,6 +1,7 @@
 @use "./variables.scss" as *;
 @use "./datepicker.scss" as *;
 @import "react-datepicker/dist/react-datepicker.css";
+@import "leaflet/dist/leaflet.css";
 
 * {
   box-sizing: border-box;
