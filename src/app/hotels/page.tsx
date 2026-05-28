@@ -7,7 +7,8 @@ import Loader from "@/components/ui/Loader/Loader";
 
 import { useAppSelector } from "@/store";
 import { useGetHotelsByCityQuery } from "@/store/hotelsApi";
-import { HotelHoverProvider } from "./HotelHoverContext"; // Импортируем провайдер
+import { HotelHoverProvider } from "./HotelHoverContext";
+import { useInfiniteScroll } from "@/hooks/useInfiniteScroll";
 
 import styles from "./Hotels.module.scss";
 
@@ -18,17 +19,29 @@ export default function HotelsPage() {
     loading: searchLoading,
   } = useAppSelector((state) => state.search);
 
-  // RTK Query запрос
+  // Безопасный вызов RTK Query без нон-налл утверждений (!)
   const {
     data,
     isLoading: apiLoading,
     isError,
-  } = useGetHotelsByCityQuery(city_id!, {
+  } = useGetHotelsByCityQuery(city_id ?? 0, {
     skip: !city_id,
   });
 
-  const hotels = data?.hotels.slice(0, 10) || [];
+  const allHotels = data?.hotels || [];
   const isLoading = searchLoading || apiLoading;
+
+  // Подключаем наш обновленный стабильный хук
+  const { 
+    visibleElements: visibleHotels, 
+    triggerRef,
+    hasMore 
+  } = useInfiniteScroll({
+    allElements: allHotels,
+    step: 10,
+    isLoading,
+    resetDependency: city_id,
+  });
 
   return (
     <main className={styles.hotels}>
@@ -38,19 +51,32 @@ export default function HotelsPage() {
 
       <HotelHoverProvider>
         <div className={styles.layout}>
+          
+          {/* Контейнер со скроллом отелей */}
           <div className={styles.listContainer}>
             <HotelsList
-              hotels={hotels}
+              hotels={visibleHotels}
               isLoading={isLoading}
               isError={isError}
               cityName={city_name}
               cityId={city_id}
+              totalCount={allHotels.length}
+              hasMore={hasMore}
+              triggerRef={triggerRef}
             />
           </div>
 
+          {/* Правая панель с картой */}
           <aside className={styles.map}>
-            {isLoading ? <Loader /> : <HotelMap hotels={hotels} />}
+            {isLoading ? (
+              <div className={styles.mapLoader}>
+                <Loader />
+              </div>
+            ) : (
+              <HotelMap hotels={allHotels} />
+            )}
           </aside>
+
         </div>
       </HotelHoverProvider>
     </main>

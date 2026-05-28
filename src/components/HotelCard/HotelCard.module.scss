@@ -1,7 +1,7 @@
 .card {
   cursor: pointer;
-  background-color: var(--color-background);
-  box-shadow: var(--shadow-sm);
+  background-color: var(--color-background-soft);
+  border-radius: var(--radius-md);
   transition: transform 0.3s ease;
   padding: var(--spacing-md);
 
@@ -10,14 +10,14 @@
       transform: scale(1.05);
     }
     background-color: var(--color-background-hover);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-sm);
   }
 }
 
 .imageContainer {
   position: relative;
   overflow: hidden;
-  border-radius: var(--radius-md); // Используем 12px
+  border-radius: var(--radius-md);
   background-color: var(--color-background-soft);
   margin-bottom: var(--spacing-md);
 }

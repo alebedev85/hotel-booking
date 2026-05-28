@@ -2,7 +2,6 @@ import { useHotelHover } from "@/app/hotels/HotelHoverContext";
 import FavoriteButton from "@/components/ui/FavoriteButton/FavoriteButton";
 import { IHotel } from "@/types";
 import Image from "next/image";
-import Link from "next/link";
 import styles from "./HotelCard.module.scss";
 
 interface HotelCardProps {

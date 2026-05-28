@@ -1,68 +1,89 @@
 .skeleton {
-  display: flex;
-  background: var(--color-background);
+  background-color: var(--color-background-soft);
   border-radius: var(--radius-md);
   padding: var(--spacing-md);
-  gap: var(--spacing-md);
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
 
-  animation: pulse 1.6s infinite ease-in-out;
+  // Эффект бегущей волны (shimmer) для всех заглушек внутри
+  .imageContainer,
+  .hotelName,
+  .rating,
+  .location,
+  .priceBlock,
+  .viewBtn {
+    background: linear-gradient(
+      90deg,
+      var(--color-border) 25%,
+      var(--color-background-hover) 50%,
+      var(--color-border) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+    border-radius: var(--radius-sm);
+  }
 }
 
-.image {
-  width: 160px;
-  height: 120px;
-  background: var(--color-border);
+.imageContainer {
+  position: relative;
+  overflow: hidden;
   border-radius: var(--radius-md);
-  flex-shrink: 0;
+  margin-bottom: var(--spacing-md);
+  width: 100%;
+}
+
+.aspectRatio {
+  position: relative;
+  aspect-ratio: 16 / 10; // Идеальное совпадение высоты с оригиналом!
 }
 
 .content {
-  flex: 1;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-sm);
 }
 
-.title,
-.text,
-.price,
-.button {
-  height: 14px;
-  background: var(--color-border);
-  border-radius: var(--radius-sm);
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
 }
 
-.title {
-  width: 60%;
-  height: 18px;
+.hotelName {
+  width: 65%;
+  height: 22px; // Высота оригинального h2
 }
 
-.text {
-  width: 80%;
+.rating {
+  width: 45px;
+  height: 20px;
 }
 
-.price {
+.location {
   width: 40%;
   height: 16px;
 }
 
-.button {
-  width: 80px;
-  height: 28px;
-  margin-left: auto;
-}
-
-.bottom {
+.footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: var(--spacing-sm);
+  margin-top: var(--spacing-xs);
 }
 
-@keyframes pulse {
-  0% { opacity: .5; }
-  50% { opacity: 1; }
-  100% { opacity: .5; }
+.priceBlock {
+  width: 80px;
+  height: 26px;
+}
+
+.viewBtn {
+  width: 130px;
+  height: 20px;
+}
+
+// Анимация перелива серебряного цвета
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
